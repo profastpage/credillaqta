@@ -83,7 +83,7 @@ export default function NosotrosPage() {
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.08] tracking-tight">
                 Tu aliado financiero{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-300">
                   de confianza
                 </span>
               </h1>
@@ -94,7 +94,7 @@ export default function NosotrosPage() {
               </p>
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
         </section>
 
         {/* About */}
@@ -129,9 +129,9 @@ export default function NosotrosPage() {
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-4 mt-8">
-                  <div className="bg-blue-50 rounded-xl px-5 py-3">
-                    <p className="text-2xl font-bold text-blue-700">5K+</p>
-                    <p className="text-xs text-blue-500 mt-0.5">Clientes Atendidos</p>
+                  <div className="bg-orange-50 rounded-xl px-5 py-3">
+                    <p className="text-2xl font-bold text-orange-700">5K+</p>
+                    <p className="text-xs text-orange-500 mt-0.5">Clientes Atendidos</p>
                   </div>
                   <div className="bg-green-50 rounded-xl px-5 py-3">
                     <p className="text-2xl font-bold text-green-700">98%</p>
@@ -143,7 +143,7 @@ export default function NosotrosPage() {
                   </div>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 sm:p-10 text-white">
+              <div className="bg-gradient-to-br from-stone-800 to-stone-900 rounded-3xl p-8 sm:p-10 text-white">
                 <h3 className="text-xl font-bold mb-6">Información Legal</h3>
                 <div className="space-y-4">
                   <div className="glass rounded-xl p-4">
@@ -172,16 +172,16 @@ export default function NosotrosPage() {
         <section className="py-16 sm:py-24 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight text-center mb-4">
-              Nuestros <span className="text-blue-600">Valores</span>
+              Nuestros <span className="text-orange-600">Valores</span>
             </h2>
             <p className="text-slate-500 text-center max-w-2xl mx-auto mb-12">
               Cada decisión que tomamos está guiada por estos principios fundamentales que definen nuestra identidad como empresa.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {VALUES.map((v) => (
-                <div key={v.title} className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-xl hover:shadow-blue-900/5 transition-shadow duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4">
-                    <v.icon className="w-6 h-6 text-blue-600" />
+                <div key={v.title} className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-xl hover:shadow-orange-900/5 transition-shadow duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
+                    <v.icon className="w-6 h-6 text-orange-600" />
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2">{v.title}</h3>
                   <p className="text-sm text-slate-500 leading-relaxed">{v.desc}</p>
@@ -195,9 +195,9 @@ export default function NosotrosPage() {
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <Scale className="w-10 h-10 text-blue-600 mx-auto mb-4" />
+              <Scale className="w-10 h-10 text-orange-600 mx-auto mb-4" />
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-                Información <span className="text-blue-600">Legal</span>
+                Información <span className="text-orange-600">Legal</span>
               </h2>
               <p className="mt-4 text-slate-500 max-w-2xl mx-auto">
                 Cumplimos con todas las normativas legales vigentes para garantizar tu protección y seguridad como consumidor financiero.
@@ -236,12 +236,12 @@ export default function NosotrosPage() {
                   <span className="text-xs text-white/60">{SITE_CONFIG.phone}</span>
                 </a>
                 <div className="flex flex-col items-center gap-2 glass rounded-2xl p-5">
-                  <Phone className="w-6 h-6 text-blue-400" />
+                  <Phone className="w-6 h-6 text-orange-400" />
                   <span className="text-sm font-semibold text-white">Central</span>
                   <span className="text-xs text-white/60">{SITE_CONFIG.phoneDisplay}</span>
                 </div>
                 <div className="flex flex-col items-center gap-2 glass rounded-2xl p-5">
-                  <Mail className="w-6 h-6 text-cyan-400" />
+                  <Mail className="w-6 h-6 text-orange-400" />
                   <span className="text-sm font-semibold text-white">Email</span>
                   <span className="text-xs text-white/60">{SITE_CONFIG.email}</span>
                 </div>

@@ -75,8 +75,8 @@ export default function Navbar() {
             <span
               className={`text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase -mt-1 transition-colors duration-300 ${
                 scrolled || !isHome
-                  ? "text-blue-600"
-                  : "text-blue-300"
+                  ? "text-orange-600"
+                  : "text-orange-300"
               }`}
             >
               El Progreso
@@ -95,7 +95,7 @@ export default function Navbar() {
                 className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                   isActive
                     ? scrolled || !isHome
-                      ? "text-blue-600"
+                      ? "text-orange-600"
                       : "text-white"
                     : scrolled || !isHome
                     ? "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
@@ -106,7 +106,7 @@ export default function Navbar() {
                 {isActive && (
                   <motion.div
                     layoutId="navbar-indicator"
-                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-blue-500 rounded-full"
+                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-orange-500 rounded-full"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -121,7 +121,7 @@ export default function Navbar() {
             href={getWhatsAppUrl("contacto")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-brand-green hover:bg-green-700 text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-lg shadow-green-900/20 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-green-900/30"
+            className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-lg shadow-orange-900/20 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-orange-900/30"
           >
             <Phone className="w-4 h-4" />
             Contáctanos
@@ -195,7 +195,7 @@ export default function Navbar() {
                           onClick={closeMenu}
                           className={`flex items-center px-4 py-3.5 text-base font-medium rounded-xl transition-all duration-200 ${
                             isActive
-                              ? "bg-blue-50 text-blue-600 border-l-4 border-blue-600"
+                              ? "bg-orange-50 text-orange-600 border-l-4 border-orange-600"
                               : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
                           }`}
                         >
@@ -217,7 +217,7 @@ export default function Navbar() {
                     href={getWhatsAppUrl("contacto")}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 bg-brand-green hover:bg-green-700 text-white px-5 py-3.5 rounded-xl text-base font-semibold shadow-lg transition-all duration-300"
+                    className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-5 py-3.5 rounded-xl text-base font-semibold shadow-lg transition-all duration-300"
                   >
                     <Phone className="w-5 h-5" />
                     Contáctanos por WhatsApp

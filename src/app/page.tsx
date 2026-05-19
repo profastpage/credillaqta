@@ -41,8 +41,8 @@ function HeroSection() {
   return (
     <section className="relative min-h-[100dvh] flex items-center hero-gradient overflow-hidden">
       {/* Decorative blobs */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-red-600/10 rounded-full blur-3xl" />
 
       {/* Grid pattern overlay */}
       <div
@@ -77,7 +77,7 @@ function HeroSection() {
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.08] tracking-tight"
             >
               El momento es{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-300">
                 ahora
               </span>
             </motion.h1>
@@ -102,7 +102,7 @@ function HeroSection() {
                 href={getWhatsAppUrl("home")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-green-600 text-white px-8 py-4 rounded-2xl text-base font-bold shadow-2xl shadow-green-900/30 transition-all duration-300 hover:scale-[1.03] hover:shadow-green-900/40"
+                className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-2xl text-base font-bold shadow-2xl shadow-orange-900/30 transition-all duration-300 hover:scale-[1.03] hover:shadow-orange-900/40"
               >
                 <svg
                   className="w-5 h-5"
@@ -152,8 +152,8 @@ function HeroSection() {
             className="hidden lg:flex justify-center"
           >
             <div className="relative">
-              <div className="w-[420px] h-[420px] xl:w-[480px] xl:h-[480px] rounded-full bg-gradient-to-br from-blue-400/20 to-indigo-600/20 backdrop-blur-xl border border-white/10 flex items-center justify-center">
-                <div className="w-[300px] h-[300px] xl:w-[360px] xl:h-[360px] rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-400/20 backdrop-blur-md border border-white/10 flex items-center justify-center">
+              <div className="w-[420px] h-[420px] xl:w-[480px] xl:h-[480px] rounded-full bg-gradient-to-br from-orange-400/20 to-red-600/20 backdrop-blur-xl border border-white/10 flex items-center justify-center">
+                <div className="w-[300px] h-[300px] xl:w-[360px] xl:h-[360px] rounded-full bg-gradient-to-br from-orange-500/20 to-red-400/20 backdrop-blur-md border border-white/10 flex items-center justify-center">
                   <div className="text-center">
                     <Banknote className="w-20 h-20 text-white/30 mx-auto mb-4" />
                     <p className="text-5xl xl:text-6xl font-bold text-white/90">
@@ -173,8 +173,8 @@ function HeroSection() {
                 className="absolute -top-4 -right-4 bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-white/15 shadow-xl"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-green-400" />
+                  <div className="w-10 h-10 rounded-xl bg-orange-500/20 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-orange-400" />
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-white">
@@ -196,8 +196,8 @@ function HeroSection() {
                 className="absolute -bottom-4 -left-8 bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-white/15 shadow-xl"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-blue-400" />
+                  <div className="w-10 h-10 rounded-xl bg-orange-500/20 flex items-center justify-center">
+                    <Zap className="w-5 h-5 text-orange-400" />
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-white">Rápido</p>
@@ -211,7 +211,7 @@ function HeroSection() {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
     </section>
   );
 }
@@ -224,7 +224,7 @@ function ProductsSection() {
       subtitle: "AL INSTANTE",
       href: "/prestamos-personales",
       whatsapp: "prestamos-personales" as const,
-      gradient: "from-blue-600 to-blue-800",
+      gradient: "from-orange-600 to-red-700",
       description:
         "Préstamos personales rápidos sin complicaciones. Montos desde S/. 500 hasta S/. 20,000 con aprobación en menos de 24 horas.",
     },
@@ -234,7 +234,7 @@ function ProductsSection() {
       subtitle: "VEHICULAR",
       href: "/garantia-vehicular",
       whatsapp: "garantia-vehicular" as const,
-      gradient: "from-slate-800 to-slate-900",
+      gradient: "from-orange-700 to-red-800",
       description:
         "Usa tu auto como garantía sin dejar de usarlo. Alianza estratégica con Procustodia para mayor seguridad.",
     },
@@ -253,7 +253,7 @@ function ProductsSection() {
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
             Tenemos la{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
               Solución Financiera
             </span>{" "}
             que necesitas
@@ -289,7 +289,7 @@ function ProductsSection() {
                     <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
                       {product.title}
                       <br />
-                      <span className="text-blue-300">{product.subtitle}</span>
+                      <span className="text-orange-300">{product.subtitle}</span>
                     </h3>
                   </div>
 
@@ -360,7 +360,7 @@ function FeaturesSection() {
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
             Tu préstamo en minutos,{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-700">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
               sin complicaciones
             </span>
           </h2>
@@ -378,10 +378,10 @@ function FeaturesSection() {
               key={feature.title}
               variants={fadeUp}
               custom={i}
-              className="group bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-100 hover:border-blue-100 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300"
+              className="group bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-100 hover:border-orange-100 hover:shadow-xl hover:shadow-orange-900/5 transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-xl bg-blue-50 group-hover:bg-blue-100 flex items-center justify-center mb-4 transition-colors duration-300">
-                <feature.icon className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 rounded-xl bg-orange-50 group-hover:bg-orange-100 flex items-center justify-center mb-4 transition-colors duration-300">
+                <feature.icon className="w-6 h-6 text-orange-600" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">
                 {feature.title}
@@ -399,7 +399,7 @@ function FeaturesSection() {
 
 function ProcessSection() {
   return (
-    <section className="relative py-16 sm:py-24 bg-gradient-to-b from-white to-slate-50">
+    <section className="relative py-16 sm:py-24 bg-gradient-to-b from-white to-orange-50/30">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
@@ -411,7 +411,7 @@ function ProcessSection() {
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
             Realiza tu solicitud{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-700">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
               100% en línea
             </span>
           </h2>
@@ -436,7 +436,7 @@ function ProcessSection() {
               className="relative"
             >
               <div className="bg-white rounded-3xl p-8 shadow-lg shadow-slate-900/5 border border-slate-100 relative z-10">
-                <span className="text-5xl font-black text-blue-100">
+                <span className="text-5xl font-black text-orange-100">
                   {step.number}
                 </span>
                 <h3 className="text-xl font-bold text-slate-900 mt-3 mb-3">
@@ -449,7 +449,7 @@ function ProcessSection() {
 
               {/* Connector line (hidden on last item and mobile) */}
               {i < PROCESS_STEPS.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-px bg-blue-200 z-0" />
+                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-px bg-orange-200 z-0" />
               )}
             </motion.div>
           ))}
@@ -498,15 +498,15 @@ function FAQSection() {
                 className="w-full flex items-center justify-between py-6 text-left group"
                 aria-expanded={openIndex === i}
               >
-                <span className="text-base sm:text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors pr-4">
+                <span className="text-base sm:text-lg font-semibold text-slate-900 group-hover:text-orange-600 transition-colors pr-4">
                   {faq.question}
                 </span>
                 <motion.div
                   animate={{ rotate: openIndex === i ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
-                  className="shrink-0 w-8 h-8 rounded-full bg-slate-100 group-hover:bg-blue-50 flex items-center justify-center transition-colors"
+                  className="shrink-0 w-8 h-8 rounded-full bg-slate-100 group-hover:bg-orange-50 flex items-center justify-center transition-colors"
                 >
-                  <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors" />
+                  <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-orange-600 transition-colors" />
                 </motion.div>
               </button>
               <motion.div
@@ -557,7 +557,7 @@ function CTASection() {
             href={getWhatsAppUrl("home")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-brand-green hover:bg-green-600 text-white px-10 py-4 rounded-2xl text-lg font-bold shadow-2xl shadow-green-900/30 mt-8 transition-all duration-300 hover:scale-[1.03]"
+            className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-2xl text-lg font-bold shadow-2xl shadow-orange-900/30 mt-8 transition-all duration-300 hover:scale-[1.03]"
           >
             <svg
               className="w-6 h-6"

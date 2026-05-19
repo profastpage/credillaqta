@@ -30,3 +30,27 @@ Stage Summary:
 - SEO optimized with per-page metadata, OpenGraph, canonical URLs
 - RSC pattern: layout/footer are server components, Navbar/Calculator/FloatingWhatsApp are client components
 - Build verified: ESLint clean, dev server HTTP 200
+
+---
+Task ID: 2
+Agent: full-stack-developer
+Task: Update entire color palette to orange/red/white
+
+Work Log:
+- Updated globals.css with new color variables, hero gradient, slider colors
+- Updated layout.tsx themeColor
+- Updated page.tsx (homepage) with orange/red palette
+- Updated Navbar.tsx with orange palette
+- Updated Calculadora.tsx with orange palette
+- Updated Footer.tsx with orange palette
+- Updated prestamos-personales/page.tsx with orange palette
+- Updated garantia-vehicular/page.tsx with orange palette
+- Updated nosotros/page.tsx with orange palette
+- FloatingWhatsApp.tsx kept green (WhatsApp brand)
+
+Stage Summary:
+- Complete color palette migration from blue/indigo to orange/red/white
+- Orange is now the primary brand color
+- Red is the secondary accent color
+- White is the main background
+- WhatsApp floating button preserved green

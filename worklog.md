@@ -84,3 +84,27 @@ Stage Summary:
 - 10 real images integrated across all 5 pages with proper next/image usage
 - Consistent orange/red/white color palette maintained throughout
 - All images use priority loading for above-fold, proper alt text, and responsive sizing
+
+---
+Task ID: 4
+Agent: Super Z (Main)
+Task: Diagnosticar y corregir error 404 en Vercel
+
+Work Log:
+- Verificadas configuraciones: next.config.ts, package.json, tsconfig.json, postcss.config.mjs
+- Build local exitoso con Turbopack (8 rutas generadas, 0 errores)
+- Identificadas 3 causas del error 404 en Vercel:
+  1. tailwind.config.ts importaba tailwindcss-animate (modulo no instalado) - conflicto con Tailwind v4
+  2. bun.lock residual junto a package-lock.json confundia el package manager de Vercel
+  3. Sin vercel.json explicito para controlar el proceso de build
+- Eliminado tailwind.config.ts (Tailwind v4 usa CSS-based config via @theme inline)
+- Eliminado bun.lock residual
+- Creado vercel.json con framework, buildCommand, installCommand, outputDirectory
+- Build local limpio post-fix: 0 warnings, 0 errores
+- Commit 5b3cad0 push exitoso a GitHub
+- Verificacion de todas las rutas: / (200), /prestamos-personales (200), /garantia-vehicular (200), /nosotros (200), /libro-de-reclamaciones (200)
+
+Stage Summary:
+- Sitio Vercel operativo: todas las rutas HTTP 200
+- Commit: 5b3cad0 pushed to main
+- URL: https://union-el-progreso.vercel.app/

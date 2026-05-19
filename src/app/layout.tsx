@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
-
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -73,7 +71,6 @@ export default function RootLayout({
     <html lang="es" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`}>
         <div className="relative flex min-h-screen flex-col">{children}</div>
-        <Toaster />
       </body>
     </html>
   );

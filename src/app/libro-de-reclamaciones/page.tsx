@@ -16,7 +16,6 @@ import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { SITE_CONFIG } from "@/lib/constants";
 import { WHATSAPP_PHONE, getWhatsAppUrl } from "@/lib/whatsapp";
-import { useToast } from "@/hooks/use-toast";
 
 /* ─────────────────────── Animation Variants ─────────────────────── */
 const fadeUp = {
@@ -59,7 +58,7 @@ const INITIAL_FORM: FormData = {
 export default function LibroDeReclamacionesPage() {
   const [form, setForm] = useState<FormData>(INITIAL_FORM);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
-  const { toast } = useToast();
+  const [submitted, setSubmitted] = useState(false);
 
   const updateField = useCallback(
     (field: keyof FormData, value: string) => {
@@ -135,15 +134,11 @@ export default function LibroDeReclamacionesPage() {
       const url = `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encoded}`;
       window.open(url, "_blank", "noopener,noreferrer");
 
-      toast({
-        title: "Reclamo enviado correctamente",
-        description:
-          "Tu reclamo ha sido enviado por WhatsApp. Te responderemos en un plazo máximo de 30 días hábiles.",
-      });
-
+      setSubmitted(true);
       setForm(INITIAL_FORM);
+      setTimeout(() => setSubmitted(false), 6000);
     },
-    [form, validate, toast]
+    [form, validate]
   );
 
   return (
@@ -592,6 +587,23 @@ export default function LibroDeReclamacionesPage() {
                   )}
                 </div>
               </div>
+
+              {/* Success Banner */}
+              {submitted && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 bg-green-50 border border-green-200 rounded-xl p-4 flex items-center gap-3"
+                >
+                  <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
+                  <div>
+                    <p className="text-sm font-semibold text-green-800">Reclamo enviado correctamente</p>
+                    <p className="text-xs text-green-600 mt-0.5">
+                      Tu reclamo ha sido enviado por WhatsApp. Te responderemos en un plazo maximo de 30 dias habiles.
+                    </p>
+                  </div>
+                </motion.div>
+              )}
 
               {/* Submit Button */}
               <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">

@@ -1,0 +1,595 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import {
+  ArrowRight,
+  Zap,
+  Car,
+  CheckCircle2,
+  ChevronDown,
+  Banknote,
+  Users,
+  ShieldCheck,
+} from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Calculadora from "@/components/Calculadora";
+import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import { FAQ_ITEMS, PROCESS_STEPS } from "@/lib/constants";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
+
+/* ───────────────────────── Animation Variants ───────────────────────── */
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.12, duration: 0.6, ease: "easeOut" },
+  }),
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
+/* ───────────────────────── Sub-components (RSC-compatible content) ─────────── */
+
+function HeroSection() {
+  return (
+    <section className="relative min-h-[100dvh] flex items-center hero-gradient overflow-hidden">
+      {/* Decorative blobs */}
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-3xl" />
+
+      {/* Grid pattern overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6"
+            >
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-sm font-medium text-white/80">
+                Tu aliado financiero de confianza
+              </span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.08] tracking-tight"
+            >
+              El momento es{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300">
+                ahora
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-6 text-lg sm:text-xl text-white/70 max-w-lg leading-relaxed"
+            >
+              Consigue tu préstamo en minutos. Préstamos personales al instante
+              y con garantía vehicular, sin dejar de usar tu auto.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4 mt-8"
+            >
+              <a
+                href={getWhatsAppUrl("home")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-green-600 text-white px-8 py-4 rounded-2xl text-base font-bold shadow-2xl shadow-green-900/30 transition-all duration-300 hover:scale-[1.03] hover:shadow-green-900/40"
+              >
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Solicitar Mi Préstamo
+              </a>
+              <Link
+                href="#calculadora"
+                className="inline-flex items-center justify-center gap-2 glass text-white px-8 py-4 rounded-2xl text-base font-semibold hover:bg-white/20 transition-all duration-300"
+              >
+                Simular Cuota
+                <ChevronDown className="w-4 h-4 animate-bounce" />
+              </Link>
+            </motion.div>
+
+            {/* Trust badges */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="flex items-center gap-6 mt-10 pt-8 border-t border-white/10"
+            >
+              {[
+                { num: "5K+", label: "Clientes Felices" },
+                { num: "98%", label: "Satisfacción" },
+                { num: "24h", label: "Aprobación" },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <p className="text-xl sm:text-2xl font-bold text-white">
+                    {stat.num}
+                  </p>
+                  <p className="text-xs text-white/50 mt-0.5">{stat.label}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Hero Visual */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, x: 30 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="hidden lg:flex justify-center"
+          >
+            <div className="relative">
+              <div className="w-[420px] h-[420px] xl:w-[480px] xl:h-[480px] rounded-full bg-gradient-to-br from-blue-400/20 to-indigo-600/20 backdrop-blur-xl border border-white/10 flex items-center justify-center">
+                <div className="w-[300px] h-[300px] xl:w-[360px] xl:h-[360px] rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-400/20 backdrop-blur-md border border-white/10 flex items-center justify-center">
+                  <div className="text-center">
+                    <Banknote className="w-20 h-20 text-white/30 mx-auto mb-4" />
+                    <p className="text-5xl xl:text-6xl font-bold text-white/90">
+                      S/.
+                    </p>
+                    <p className="text-white/50 text-sm mt-2">
+                      Tu dinero, tu futuro
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating cards */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-4 -right-4 bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-white/15 shadow-xl"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-green-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-white">
+                      Aprobado
+                    </p>
+                    <p className="text-xs text-white/50">En 24 horas</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{
+                  duration: 3.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
+                className="absolute -bottom-4 -left-8 bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-white/15 shadow-xl"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                    <Zap className="w-5 h-5 text-blue-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-white">Rápido</p>
+                    <p className="text-xs text-white/50">Sin trámites</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent" />
+    </section>
+  );
+}
+
+function ProductsSection() {
+  const products = [
+    {
+      icon: Zap,
+      title: "CON GARANTÍA",
+      subtitle: "AL INSTANTE",
+      href: "/prestamos-personales",
+      whatsapp: "prestamos-personales" as const,
+      gradient: "from-blue-600 to-blue-800",
+      description:
+        "Préstamos personales rápidos sin complicaciones. Montos desde S/. 500 hasta S/. 20,000 con aprobación en menos de 24 horas.",
+    },
+    {
+      icon: Car,
+      title: "CON GARANTÍA",
+      subtitle: "VEHICULAR",
+      href: "/garantia-vehicular",
+      whatsapp: "garantia-vehicular" as const,
+      gradient: "from-slate-800 to-slate-900",
+      description:
+        "Usa tu auto como garantía sin dejar de usarlo. Alianza estratégica con Procustodia para mayor seguridad.",
+    },
+  ];
+
+  return (
+    <section className="relative py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          custom={0}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+            Tenemos la{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-500">
+              Solución Financiera
+            </span>{" "}
+            que necesitas
+          </h2>
+          <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto">
+            Elige el producto que mejor se adapte a tus necesidades. Ambos
+            opciones con tasas competitivas y un proceso simplificado.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          {products.map((product, i) => (
+            <motion.div
+              key={product.subtitle}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              custom={i + 1}
+            >
+              <Link href={product.href} className="block group">
+                <div
+                  className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${product.gradient} p-8 sm:p-10 lg:p-12 min-h-[320px] sm:min-h-[360px] flex flex-col justify-between transition-all duration-500 group-hover:shadow-2xl group-hover:scale-[1.02]`}
+                >
+                  {/* Glass decoration */}
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+                  <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-6">
+                      <product.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                      {product.title}
+                      <br />
+                      <span className="text-blue-300">{product.subtitle}</span>
+                    </h3>
+                  </div>
+
+                  <div className="relative mt-6">
+                    <p className="text-sm text-white/70 leading-relaxed mb-6">
+                      {product.description}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center gap-2 text-white/50 text-sm font-medium group-hover:text-white transition-colors duration-300">
+                        Más información
+                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      </span>
+                      <a
+                        href={getWhatsAppUrl(product.whatsapp)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-xl text-sm font-semibold backdrop-blur-sm transition-all duration-300"
+                      >
+                        Cotizar
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FeaturesSection() {
+  const features = [
+    {
+      icon: Zap,
+      title: "Préstamos Rápidos",
+      desc: "Accede a tu dinero sin trámites complicados. Proceso ágil y digital para que obtengas tu préstamo en el menor tiempo posible.",
+    },
+    {
+      icon: Car,
+      title: "Tu Auto, Tu Garantía",
+      desc: "Usa tu vehículo como respaldo financiero sin dejar de conducirlo. Programa seguro y transparente con Procustodia.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "100% Transparente",
+      desc: "Sin letras pequeñas ni costos ocultos. Condiciones claras desde el primer momento para tu total tranquilidad.",
+    },
+    {
+      icon: Users,
+      title: "Atención Personalizada",
+      desc: "Asesores dedicados que te acompañan en cada paso del proceso, respondiendo todas tus dudas en tiempo real.",
+    },
+  ];
+
+  return (
+    <section className="relative py-16 sm:py-24 bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          custom={0}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+            Tu préstamo en minutos,{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-700">
+              sin complicaciones
+            </span>
+          </h2>
+        </motion.div>
+
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {features.map((feature, i) => (
+            <motion.div
+              key={feature.title}
+              variants={fadeUp}
+              custom={i}
+              className="group bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-100 hover:border-blue-100 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300"
+            >
+              <div className="w-12 h-12 rounded-xl bg-blue-50 group-hover:bg-blue-100 flex items-center justify-center mb-4 transition-colors duration-300">
+                <feature.icon className="w-6 h-6 text-blue-600" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-sm text-slate-500 leading-relaxed">
+                {feature.desc}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function ProcessSection() {
+  return (
+    <section className="relative py-16 sm:py-24 bg-gradient-to-b from-white to-slate-50">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          custom={0}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+            Realiza tu solicitud{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-700">
+              100% en línea
+            </span>
+          </h2>
+          <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto">
+            Un proceso simple y transparente diseñado para que obtengas tu
+            préstamo sin salir de casa.
+          </p>
+        </motion.div>
+
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid md:grid-cols-3 gap-8"
+        >
+          {PROCESS_STEPS.map((step, i) => (
+            <motion.div
+              key={step.number}
+              variants={fadeUp}
+              custom={i}
+              className="relative"
+            >
+              <div className="bg-white rounded-3xl p-8 shadow-lg shadow-slate-900/5 border border-slate-100 relative z-10">
+                <span className="text-5xl font-black text-blue-100">
+                  {step.number}
+                </span>
+                <h3 className="text-xl font-bold text-slate-900 mt-3 mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-slate-500 leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+
+              {/* Connector line (hidden on last item and mobile) */}
+              {i < PROCESS_STEPS.length - 1 && (
+                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-px bg-blue-200 z-0" />
+              )}
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  return (
+    <section className="relative py-16 sm:py-24 bg-white" id="faq">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          custom={0}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+            Preguntas Frecuentes
+          </h2>
+          <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto">
+            Resolvemos tus dudas más comunes para que tomes la mejor decisión
+            con confianza.
+          </p>
+        </motion.div>
+
+        <div className="max-w-3xl mx-auto">
+          {FAQ_ITEMS.map((faq, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              custom={i}
+              className="border-b border-slate-100 last:border-0"
+            >
+              <button
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full flex items-center justify-between py-6 text-left group"
+                aria-expanded={openIndex === i}
+              >
+                <span className="text-base sm:text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors pr-4">
+                  {faq.question}
+                </span>
+                <motion.div
+                  animate={{ rotate: openIndex === i ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="shrink-0 w-8 h-8 rounded-full bg-slate-100 group-hover:bg-blue-50 flex items-center justify-center transition-colors"
+                >
+                  <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors" />
+                </motion.div>
+              </button>
+              <motion.div
+                initial={false}
+                animate={{
+                  height: openIndex === i ? "auto" : 0,
+                  opacity: openIndex === i ? 1 : 0,
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <p className="pb-6 text-sm text-slate-500 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CTASection() {
+  return (
+    <section className="relative py-16 sm:py-24 overflow-hidden">
+      <div className="hero-gradient rounded-3xl mx-4 sm:mx-6 lg:mx-8 relative">
+        {/* Decorative circles */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={0}
+          className="relative px-6 sm:px-12 lg:px-20 py-16 sm:py-20 text-center"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+            ¡El momento es ahora!
+          </h2>
+          <p className="mt-4 text-lg text-white/70 max-w-xl mx-auto">
+            Consigue tu préstamo en minutos. Habla con un asesor
+            especializado y comienza hoy mismo.
+          </p>
+          <a
+            href={getWhatsAppUrl("home")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-brand-green hover:bg-green-600 text-white px-10 py-4 rounded-2xl text-lg font-bold shadow-2xl shadow-green-900/30 mt-8 transition-all duration-300 hover:scale-[1.03]"
+          >
+            <svg
+              className="w-6 h-6"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            Solicitar Mi Préstamo
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ───────────────────────── Main Page Component ───────────────────────── */
+export default function HomePage() {
+  return (
+    <>
+      <Navbar />
+      <main>
+        <HeroSection />
+        <FeaturesSection />
+        <ProductsSection />
+        <ProcessSection />
+        <Calculadora />
+        <FAQSection />
+        <CTASection />
+      </main>
+      <Footer />
+      <FloatingWhatsApp />
+    </>
+  );
+}

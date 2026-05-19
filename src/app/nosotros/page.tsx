@@ -1,0 +1,257 @@
+import type { Metadata } from "next";
+import {
+  Building2,
+  ShieldCheck,
+  Target,
+  Eye,
+  Heart,
+  Scale,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import { SITE_CONFIG } from "@/lib/constants";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
+
+export const metadata: Metadata = {
+  title: "Nosotros — Información Institucional",
+  description:
+    "Conoce Unión El Progreso (Grupo El Progreso Perú S.A.C., RUC: 20612539066). Tu aliado financiero de confianza con años de experiencia en soluciones crediticias en Perú.",
+  alternates: { canonical: "/nosotros" },
+};
+
+const VALUES = [
+  {
+    icon: ShieldCheck,
+    title: "Transparencia",
+    desc: "Operamos con total honestidad y claridad en cada transacción. Nuestras condiciones son comunicadas de manera directa, sin letras pequeñas ni sorpresas desagradables para nuestros clientes.",
+  },
+  {
+    icon: Target,
+    title: "Compromiso",
+    desc: "Nos comprometemos con el éxito financiero de cada cliente. Trabajamos incansablemente para ofrecer soluciones que realmente se adapten a sus necesidades y posibilidades económicas.",
+  },
+  {
+    icon: Heart,
+    title: "Confianza",
+    desc: "Construyendo relaciones a largo plazo basadas en la confiabilidad mutua. Cada cliente es parte fundamental de nuestra comunidad y merece un trato digno y respetuoso.",
+  },
+  {
+    icon: Eye,
+    title: "Innovación",
+    desc: "Implementamos tecnología de punta para agilizar procesos y ofrecer una experiencia financiera moderna, accesible y eficiente a todos nuestros usuarios.",
+  },
+];
+
+const LEGAL_ITEMS = [
+  {
+    title: "Política de Privacidad",
+    desc: "Protegemos tus datos personales conforme a la Ley N.° 29733, Ley de Protección de Datos Personales. Tu información es tratada con estricta confidencialidad y solo se utiliza para los fines autorizados.",
+  },
+  {
+    title: "Términos y Condiciones",
+    desc: "Todas nuestras operaciones se rigen por la legislación peruana vigente, incluyendo las disposiciones de la Superintendencia de Banca, Seguros y AFP (SBS). Condiciones claras y justas para todas las partes.",
+  },
+  {
+    title: "Libro de Reclamaciones",
+    desc: "Garantizamos tu derecho a una atención justa. Contamos con un Libro de Reclamaciones disponible en todas nuestras agencias y a través de nuestros canales digitales para tu comodidad.",
+  },
+  {
+    title: "Tasa de Costo Efectivo Anual (TCEA)",
+    desc: "La TCEA varía según el monto, plazo y perfil del cliente. Te invitamos a comunicarte con nuestros asesores para obtener información detallada y personalizada sobre las tasas aplicables a tu caso.",
+  },
+];
+
+export default function NosotrosPage() {
+  return (
+    <>
+      <Navbar />
+      <main>
+        {/* Hero */}
+        <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 hero-gradient overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                <Building2 className="w-4 h-4 text-amber-400" />
+                <span className="text-sm font-medium text-white/80">
+                  Sobre Nosotros
+                </span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.08] tracking-tight">
+                Tu aliado financiero{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300">
+                  de confianza
+                </span>
+              </h1>
+              <p className="mt-6 text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed">
+                En Unión El Progreso creemos que cada persona merece acceso a
+                soluciones financieras justas, transparentes y adaptadas a sus
+                necesidades reales.
+              </p>
+            </div>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent" />
+        </section>
+
+        {/* About */}
+        <section className="py-16 sm:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-6">
+                  ¿Quiénes somos?
+                </h2>
+                <div className="space-y-4 text-slate-600 leading-relaxed">
+                  <p>
+                    <strong className="text-slate-900">Unión El Progreso</strong> es una marca comercial de{" "}
+                    <strong className="text-slate-900">Grupo El Progreso Perú S.A.C.</strong> (RUC: {SITE_CONFIG.ruc}),
+                    una empresa peruana dedicada a brindar soluciones financieras
+                    accesibles y confiables a miles de familias en todo el territorio
+                    nacional.
+                  </p>
+                  <p>
+                    Con años de experiencia en el sector financiero, hemos
+                    desarrollado productos crediticios innovadores que se adaptan a
+                    las necesidades reales de nuestros clientes. Nuestro compromiso
+                    fundamental es la transparencia total en cada operación y el
+                    trato digno y respetuoso que cada persona merece.
+                  </p>
+                  <p>
+                    Contamos con un equipo de profesionales altamente capacitados
+                    que trabajan incansablemente para simplificar el acceso al
+                    crédito, eliminando barreras burocráticas y ofreciendo un
+                    servicio personalizado que marca la diferencia en la experiencia
+                    financiera de nuestros usuarios.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-4 mt-8">
+                  <div className="bg-blue-50 rounded-xl px-5 py-3">
+                    <p className="text-2xl font-bold text-blue-700">5K+</p>
+                    <p className="text-xs text-blue-500 mt-0.5">Clientes Atendidos</p>
+                  </div>
+                  <div className="bg-green-50 rounded-xl px-5 py-3">
+                    <p className="text-2xl font-bold text-green-700">98%</p>
+                    <p className="text-xs text-green-500 mt-0.5">Satisfacción</p>
+                  </div>
+                  <div className="bg-amber-50 rounded-xl px-5 py-3">
+                    <p className="text-2xl font-bold text-amber-700">24h</p>
+                    <p className="text-xs text-amber-500 mt-0.5">Aprobación Express</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 sm:p-10 text-white">
+                <h3 className="text-xl font-bold mb-6">Información Legal</h3>
+                <div className="space-y-4">
+                  <div className="glass rounded-xl p-4">
+                    <p className="text-xs text-white/50">Razón Social</p>
+                    <p className="text-sm font-semibold mt-1">{SITE_CONFIG.businessName}</p>
+                  </div>
+                  <div className="glass rounded-xl p-4">
+                    <p className="text-xs text-white/50">RUC</p>
+                    <p className="text-sm font-semibold mt-1">{SITE_CONFIG.ruc}</p>
+                  </div>
+                  <div className="glass rounded-xl p-4">
+                    <p className="text-xs text-white/50">Marca Comercial</p>
+                    <p className="text-sm font-semibold mt-1">{SITE_CONFIG.name}</p>
+                  </div>
+                  <div className="glass rounded-xl p-4">
+                    <p className="text-xs text-white/50">Contacto Principal</p>
+                    <p className="text-sm font-semibold mt-1">{SITE_CONFIG.phone}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Values */}
+        <section className="py-16 sm:py-24 bg-white">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight text-center mb-4">
+              Nuestros <span className="text-blue-600">Valores</span>
+            </h2>
+            <p className="text-slate-500 text-center max-w-2xl mx-auto mb-12">
+              Cada decisión que tomamos está guiada por estos principios fundamentales que definen nuestra identidad como empresa.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {VALUES.map((v) => (
+                <div key={v.title} className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-xl hover:shadow-blue-900/5 transition-shadow duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4">
+                    <v.icon className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">{v.title}</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed">{v.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Legal */}
+        <section className="py-16 sm:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Scale className="w-10 h-10 text-blue-600 mx-auto mb-4" />
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+                Información <span className="text-blue-600">Legal</span>
+              </h2>
+              <p className="mt-4 text-slate-500 max-w-2xl mx-auto">
+                Cumplimos con todas las normativas legales vigentes para garantizar tu protección y seguridad como consumidor financiero.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              {LEGAL_ITEMS.map((item) => (
+                <div key={item.title} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-lg shadow-slate-900/5">
+                  <h3 className="text-lg font-bold text-slate-900 mb-3">{item.title}</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section className="py-16 sm:py-24 bg-white">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="hero-gradient rounded-3xl p-10 sm:p-16 text-center">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                ¿Necesitas más información?
+              </h2>
+              <p className="mt-4 text-lg text-white/70 max-w-xl mx-auto mb-8">
+                Estamos aquí para ayudarte. Contáctanos por el canal que prefieras.
+              </p>
+              <div className="grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
+                <a
+                  href={getWhatsAppUrl("contacto")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-2 glass rounded-2xl p-5 hover:bg-white/20 transition-colors duration-300"
+                >
+                  <Phone className="w-6 h-6 text-green-400" />
+                  <span className="text-sm font-semibold text-white">WhatsApp</span>
+                  <span className="text-xs text-white/60">{SITE_CONFIG.phone}</span>
+                </a>
+                <div className="flex flex-col items-center gap-2 glass rounded-2xl p-5">
+                  <Phone className="w-6 h-6 text-blue-400" />
+                  <span className="text-sm font-semibold text-white">Central</span>
+                  <span className="text-xs text-white/60">{SITE_CONFIG.phoneDisplay}</span>
+                </div>
+                <div className="flex flex-col items-center gap-2 glass rounded-2xl p-5">
+                  <Mail className="w-6 h-6 text-cyan-400" />
+                  <span className="text-sm font-semibold text-white">Email</span>
+                  <span className="text-xs text-white/60">{SITE_CONFIG.email}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+      <FloatingWhatsApp />
+    </>
+  );
+}

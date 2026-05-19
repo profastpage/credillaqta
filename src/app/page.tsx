@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -9,7 +10,6 @@ import {
   Car,
   CheckCircle2,
   ChevronDown,
-  Banknote,
   Users,
   ShieldCheck,
 } from "lucide-react";
@@ -152,17 +152,19 @@ function HeroSection() {
             className="hidden lg:flex justify-center"
           >
             <div className="relative">
-              <div className="w-[420px] h-[420px] xl:w-[480px] xl:h-[480px] rounded-full bg-gradient-to-br from-orange-400/20 to-red-600/20 backdrop-blur-xl border border-white/10 flex items-center justify-center">
-                <div className="w-[300px] h-[300px] xl:w-[360px] xl:h-[360px] rounded-full bg-gradient-to-br from-orange-500/20 to-red-400/20 backdrop-blur-md border border-white/10 flex items-center justify-center">
-                  <div className="text-center">
-                    <Banknote className="w-20 h-20 text-white/30 mx-auto mb-4" />
-                    <p className="text-5xl xl:text-6xl font-bold text-white/90">
-                      S/.
-                    </p>
-                    <p className="text-white/50 text-sm mt-2">
-                      Tu dinero, tu futuro
-                    </p>
-                  </div>
+              <div className="relative w-[420px] xl:w-[480px] rounded-3xl overflow-hidden shadow-2xl shadow-black/20">
+                <Image
+                  src="/images/hero-handshake.jpg"
+                  alt="Asesores financieros de Unión El Progreso brindando atención personalizada"
+                  width={480}
+                  height={420}
+                  className="w-full h-auto object-cover rounded-3xl"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-3xl" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <p className="text-white font-bold text-lg">+5,000 clientes</p>
+                  <p className="text-white/70 text-sm">confían en nosotros</p>
                 </div>
               </div>
 
@@ -225,6 +227,8 @@ function ProductsSection() {
       href: "/prestamos-personales",
       whatsapp: "prestamos-personales" as const,
       gradient: "from-orange-600 to-red-700",
+      image: "/images/personal-loan.jpg",
+      imageAlt: "Préstamo personal al instante - Unión El Progreso",
       description:
         "Préstamos personales rápidos sin complicaciones. Montos desde S/. 500 hasta S/. 20,000 con aprobación en menos de 24 horas.",
     },
@@ -235,6 +239,8 @@ function ProductsSection() {
       href: "/garantia-vehicular",
       whatsapp: "garantia-vehicular" as const,
       gradient: "from-orange-700 to-red-800",
+      image: "/images/car-drive.jpg",
+      imageAlt: "Préstamo con garantía vehicular - Unión El Progreso",
       description:
         "Usa tu auto como garantía sin dejar de usarlo. Alianza estratégica con Procustodia para mayor seguridad.",
     },
@@ -278,11 +284,20 @@ function ProductsSection() {
                 <div
                   className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${product.gradient} p-8 sm:p-10 lg:p-12 min-h-[320px] sm:min-h-[360px] flex flex-col justify-between transition-all duration-500 group-hover:shadow-2xl group-hover:scale-[1.02]`}
                 >
+                  {/* Background image */}
+                  <Image
+                    src={product.image}
+                    alt={product.imageAlt}
+                    fill
+                    className="object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20" />
+
                   {/* Glass decoration */}
                   <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
                   <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
 
-                  <div className="relative">
+                  <div className="relative z-10">
                     <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-6">
                       <product.icon className="w-7 h-7 text-white" />
                     </div>
@@ -293,7 +308,7 @@ function ProductsSection() {
                     </h3>
                   </div>
 
-                  <div className="relative mt-6">
+                  <div className="relative z-10 mt-6">
                     <p className="text-sm text-white/70 leading-relaxed mb-6">
                       {product.description}
                     </p>
@@ -366,32 +381,55 @@ function FeaturesSection() {
           </h2>
         </motion.div>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {features.map((feature, i) => (
+        <div className="grid lg:grid-cols-5 gap-10 items-center">
+          <div className="lg:col-span-3">
             <motion.div
-              key={feature.title}
-              variants={fadeUp}
-              custom={i}
-              className="group bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-100 hover:border-orange-100 hover:shadow-xl hover:shadow-orange-900/5 transition-all duration-300"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              className="grid sm:grid-cols-2 gap-6"
             >
-              <div className="w-12 h-12 rounded-xl bg-orange-50 group-hover:bg-orange-100 flex items-center justify-center mb-4 transition-colors duration-300">
-                <feature.icon className="w-6 h-6 text-orange-600" />
-              </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-sm text-slate-500 leading-relaxed">
-                {feature.desc}
-              </p>
+              {features.map((feature, i) => (
+                <motion.div
+                  key={feature.title}
+                  variants={fadeUp}
+                  custom={i}
+                  className="group bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-100 hover:border-orange-100 hover:shadow-xl hover:shadow-orange-900/5 transition-all duration-300"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-orange-50 group-hover:bg-orange-100 flex items-center justify-center mb-4 transition-colors duration-300">
+                    <feature.icon className="w-6 h-6 text-orange-600" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-slate-500 leading-relaxed">
+                    {feature.desc}
+                  </p>
+                </motion.div>
+              ))}
             </motion.div>
-          ))}
-        </motion.div>
+          </div>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            custom={2}
+            className="hidden lg:block lg:col-span-2"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-orange-900/10">
+              <Image
+                src="/images/customer-service.jpg"
+                alt="Equipo de atención al cliente de Unión El Progreso"
+                width={400}
+                height={520}
+                className="w-full h-auto object-cover rounded-3xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-orange-900/20 to-transparent rounded-3xl" />
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

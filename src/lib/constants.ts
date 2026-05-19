@@ -34,6 +34,7 @@ export const NAV_LINKS = [
   { label: "Préstamos al Instante", href: "/prestamos-personales" },
   { label: "Garantía Vehicular", href: "/garantia-vehicular" },
   { label: "Nosotros", href: "/nosotros" },
+  { label: "Libro de Reclamaciones", href: "/libro-de-reclamaciones" },
 ] as const;
 
 export const LOAN_RANGES = {

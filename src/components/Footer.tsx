@@ -114,7 +114,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/nosotros"
+                  href="/libro-de-reclamaciones"
                   className="text-sm text-slate-400 hover:text-white transition-colors duration-200"
                 >
                   Libro de Reclamaciones

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Zap,
@@ -80,7 +81,8 @@ export default function PrestamosPersonalesPage() {
         <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 hero-gradient overflow-hidden">
           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
                 <Zap className="w-4 h-4 text-amber-400" />
                 <span className="text-sm font-medium text-white/80">
@@ -113,6 +115,20 @@ export default function PrestamosPersonalesPage() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
+              </div>
+              <div className="hidden lg:block">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/20">
+                  <Image
+                    src="/images/personal-loan.jpg"
+                    alt="Préstamo personal al instante - Unión El Progreso"
+                    width={480}
+                    height={360}
+                    className="w-full h-auto object-cover rounded-3xl"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-3xl" />
+                </div>
+              </div>
             </div>
           </div>
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
@@ -121,23 +137,39 @@ export default function PrestamosPersonalesPage() {
         {/* Benefits */}
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight text-center mb-12">
-              ¿Por qué elegir nuestro{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
-                préstamo personal
-              </span>
-              ?
-            </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {BENEFITS.map((b) => (
-                <div key={b.title} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-lg shadow-slate-900/5 hover:shadow-xl transition-shadow duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
-                    <b.icon className="w-6 h-6 text-orange-600" />
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">{b.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{b.desc}</p>
+            <div className="grid lg:grid-cols-3 gap-12 items-start">
+              <div className="lg:col-span-2">
+                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-12">
+                  ¿Por qué elegir nuestro{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
+                    préstamo personal
+                  </span>
+                  ?
+                </h2>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  {BENEFITS.map((b) => (
+                    <div key={b.title} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-lg shadow-slate-900/5 hover:shadow-xl transition-shadow duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
+                        <b.icon className="w-6 h-6 text-orange-600" />
+                      </div>
+                      <h3 className="text-lg font-bold text-slate-900 mb-2">{b.title}</h3>
+                      <p className="text-sm text-slate-500 leading-relaxed">{b.desc}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+              <div className="hidden lg:block">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-orange-900/10 sticky top-24">
+                  <Image
+                    src="/images/quick-approval.jpg"
+                    alt="Aprobación rápida de préstamos - Unión El Progreso"
+                    width={360}
+                    height={480}
+                    className="w-full h-auto object-cover rounded-3xl"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-orange-900/20 to-transparent rounded-3xl" />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -172,6 +204,14 @@ export default function PrestamosPersonalesPage() {
                 </a>
               </div>
               <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-3xl p-8 sm:p-10">
+                <div className="relative w-full h-48 rounded-2xl overflow-hidden mb-6">
+                  <Image
+                    src="/images/document-form.jpg"
+                    alt="Documentos necesarios para préstamo personal"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <FileText className="w-12 h-12 text-orange-600 mb-4" />
                 <h3 className="text-xl font-bold text-slate-900 mb-4">Documentos Necesarios</h3>
                 <div className="space-y-3">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   Building2,
   ShieldCheck,
@@ -100,6 +101,36 @@ export default function NosotrosPage() {
         {/* About */}
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            {/* Team & Office Images */}
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              <div className="relative rounded-3xl overflow-hidden shadow-xl h-64 md:h-80">
+                <Image
+                  src="/images/team-meeting.jpg"
+                  alt="Equipo de trabajo de Unión El Progreso en reunión"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <p className="text-white font-bold text-lg">Nuestro Equipo</p>
+                  <p className="text-white/70 text-sm">Profesionales dedicados</p>
+                </div>
+              </div>
+              <div className="relative rounded-3xl overflow-hidden shadow-xl h-64 md:h-80">
+                <Image
+                  src="/images/office-building.jpg"
+                  alt="Oficinas de Unión El Progreso en Lima, Perú"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <p className="text-white font-bold text-lg">Nuestra Sede</p>
+                  <p className="text-white/70 text-sm">Lima, Perú</p>
+                </div>
+              </div>
+            </div>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-6">
@@ -171,22 +202,38 @@ export default function NosotrosPage() {
         {/* Values */}
         <section className="py-16 sm:py-24 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight text-center mb-4">
-              Nuestros <span className="text-orange-600">Valores</span>
-            </h2>
-            <p className="text-slate-500 text-center max-w-2xl mx-auto mb-12">
-              Cada decisión que tomamos está guiada por estos principios fundamentales que definen nuestra identidad como empresa.
-            </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {VALUES.map((v) => (
-                <div key={v.title} className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-xl hover:shadow-orange-900/5 transition-shadow duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
-                    <v.icon className="w-6 h-6 text-orange-600" />
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">{v.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{v.desc}</p>
+            <div className="grid lg:grid-cols-3 gap-12 items-start">
+              <div className="lg:col-span-2">
+                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-4">
+                  Nuestros <span className="text-orange-600">Valores</span>
+                </h2>
+                <p className="text-slate-500 max-w-2xl mb-12">
+                  Cada decisión que tomamos está guiada por estos principios fundamentales que definen nuestra identidad como empresa.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  {VALUES.map((v) => (
+                    <div key={v.title} className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-xl hover:shadow-orange-900/5 transition-shadow duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
+                        <v.icon className="w-6 h-6 text-orange-600" />
+                      </div>
+                      <h3 className="text-lg font-bold text-slate-900 mb-2">{v.title}</h3>
+                      <p className="text-sm text-slate-500 leading-relaxed">{v.desc}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+              <div className="hidden lg:block">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-orange-900/10 sticky top-24">
+                  <Image
+                    src="/images/office-team.jpg"
+                    alt="Equipo de trabajo colaborando en oficinas de Unión El Progreso"
+                    width={360}
+                    height={480}
+                    className="w-full h-auto object-cover rounded-3xl"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-orange-900/20 to-transparent rounded-3xl" />
+                </div>
+              </div>
             </div>
           </div>
         </section>

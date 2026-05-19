@@ -13,7 +13,8 @@ type WhatsAppContext =
   | "nosotros"
   | "contacto"
   | "vehicular-cotizacion"
-  | "asesoria";
+  | "asesoria"
+  | "reclamo";
 
 const WHATSAPP_MESSAGES: Record<WhatsAppContext, string> = {
   home:
@@ -30,6 +31,8 @@ const WHATSAPP_MESSAGES: Record<WhatsAppContext, string> = {
     "Hola, vengo desde la página web y estoy interesado en un préstamo vehicular",
   asesoria:
     "Hola, vengo desde la página web y necesito asesoría financiera.",
+  reclamo:
+    "Hola Unión El Progreso, deseo presentar un reclamo/queja. Mis datos son:",
 };
 
 /**

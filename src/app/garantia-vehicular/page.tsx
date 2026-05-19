@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Car,
@@ -81,7 +82,8 @@ export default function GarantiaVehicularPage() {
         <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 overflow-hidden" style={{ background: "linear-gradient(135deg, #1C1917 0%, #431407 30%, #7C2D12 60%, #C2410C 100%)" }}>
           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
                 <Car className="w-4 h-4 text-orange-400" />
                 <span className="text-sm font-medium text-white/80">
@@ -114,6 +116,20 @@ export default function GarantiaVehicularPage() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
+              </div>
+              <div className="hidden lg:block">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/20">
+                  <Image
+                    src="/images/modern-car.jpg"
+                    alt="Vehículo moderno utilizado como garantía - Unión El Progreso"
+                    width={480}
+                    height={360}
+                    className="w-full h-auto object-cover rounded-3xl"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-3xl" />
+                </div>
+              </div>
             </div>
           </div>
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
@@ -122,25 +138,41 @@ export default function GarantiaVehicularPage() {
         {/* Benefits */}
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight text-center mb-4">
-              Protección que te acompaña{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
-                en cada kilómetro
-              </span>
-            </h2>
-            <p className="text-slate-500 text-center max-w-2xl mx-auto mb-12">
-              Nuestro programa de garantía vehicular está diseñado para brindarte la máxima seguridad y tranquilidad.
-            </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {BENEFITS.map((b) => (
-                <div key={b.title} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-lg shadow-slate-900/5 hover:shadow-xl transition-shadow duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
-                    <b.icon className="w-6 h-6 text-orange-600" />
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">{b.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{b.desc}</p>
+            <div className="grid lg:grid-cols-3 gap-12 items-start">
+              <div className="lg:col-span-2">
+                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-4">
+                  Protección que te acompaña{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
+                    en cada kilómetro
+                  </span>
+                </h2>
+                <p className="text-slate-500 max-w-2xl mb-12">
+                  Nuestro programa de garantía vehicular está diseñado para brindarte la máxima seguridad y tranquilidad.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  {BENEFITS.map((b) => (
+                    <div key={b.title} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-lg shadow-slate-900/5 hover:shadow-xl transition-shadow duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
+                        <b.icon className="w-6 h-6 text-orange-600" />
+                      </div>
+                      <h3 className="text-lg font-bold text-slate-900 mb-2">{b.title}</h3>
+                      <p className="text-sm text-slate-500 leading-relaxed">{b.desc}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+              <div className="hidden lg:block">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-orange-900/10 sticky top-24">
+                  <Image
+                    src="/images/car-drive.jpg"
+                    alt="Conduciendo vehículo con garantía vehicular - Unión El Progreso"
+                    width={360}
+                    height={480}
+                    className="w-full h-auto object-cover rounded-3xl"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-orange-900/20 to-transparent rounded-3xl" />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -175,6 +207,14 @@ export default function GarantiaVehicularPage() {
                 </a>
               </div>
               <div className="bg-gradient-to-br from-stone-800 to-stone-900 rounded-3xl p-8 sm:p-10 text-white">
+                <div className="relative w-full h-48 rounded-2xl overflow-hidden mb-6">
+                  <Image
+                    src="/images/trust-partners.jpg"
+                    alt="Alianza estratégica con Procustodia - custodia vehicular"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <FileCheck className="w-12 h-12 text-orange-400 mb-4" />
                 <h3 className="text-xl font-bold mb-4">¿No tienes tasación?</h3>
                 <p className="text-sm text-white/70 leading-relaxed mb-6">

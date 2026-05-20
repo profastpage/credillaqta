@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, Mail, ShieldCheck } from "lucide-react";
 import { SITE_CONFIG, NAV_LINKS } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
@@ -32,13 +33,13 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
-              <span className="text-2xl font-bold text-white tracking-tight">
-                Unión
-              </span>
-              <br />
-              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-orange-400 -mt-1 block">
-                El Progreso
-              </span>
+              <Image
+                src="/logo-union-el-progreso.png"
+                alt="Logo Unión El Progreso"
+                width={160}
+                height={45}
+                className="object-contain h-10 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed mb-5">
               Tu aliado financiero de confianza. Soluciones crediticias

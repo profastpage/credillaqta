@@ -41,10 +41,20 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-brand-blue: #F78533;
+  /* ── Brand Colors ── */
+  --color-brand-blue: #FF6A00;
   --color-brand-dark: #1C1917;
   --color-brand-green: #1B9138;
-  --color-brand-orange: #F78533;
+  --color-brand-orange: #FF6A00;
+  --color-brand-red: #D6000C;
+
+  /* ── Override Tailwind orange palette ── */
+  --color-orange-300: #FFB366;
+  --color-orange-400: #FF9933;
+  --color-orange-500: #FF6A00;
+  --color-orange-600: #E05E00;
+  --color-orange-700: #B84D00;
+  --color-orange-900: #431407;
 }
 
 :root {
@@ -103,18 +113,18 @@
 
 /* Hero gradient background */
 .hero-gradient {
-  background: linear-gradient(135deg, #1C1917 0%, #431407 30%, #9A3412 60%, #EA580C 100%);
+  background: linear-gradient(135deg, #1C1917 0%, #431407 25%, #D6000C 55%, #FF6A00 100%);
 }
 
 /* Animated gradient for accents */
 .gradient-shimmer {
   background: linear-gradient(
     110deg,
-    #EA580C 0%,
-    #9A3412 25%,
+    #FF6A00 0%,
+    #D6000C 25%,
     #431407 50%,
-    #EA580C 75%,
-    #9A3412 100%
+    #FF6A00 75%,
+    #D6000C 100%
   );
   background-size: 200% 100%;
   animation: shimmer 6s ease-in-out infinite;
@@ -152,7 +162,7 @@ input[type="range"] {
   appearance: none;
   height: 6px;
   border-radius: 3px;
-  background: linear-gradient(to right, #F78533, #EA580C);
+  background: linear-gradient(to right, #FF6A00, #D6000C);
   outline: none;
 }
 
@@ -162,24 +172,24 @@ input[type="range"]::-webkit-slider-thumb {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #F78533;
+  background: #FF6A00;
   cursor: pointer;
   border: 3px solid white;
-  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.4);
+  box-shadow: 0 2px 8px rgba(255, 106, 0, 0.4);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
   transform: scale(1.15);
-  box-shadow: 0 3px 12px rgba(249, 115, 22, 0.5);
+  box-shadow: 0 3px 12px rgba(255, 106, 0, 0.5);
 }
 
 input[type="range"]::-moz-range-thumb {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #F78533;
+  background: #FF6A00;
   cursor: pointer;
   border: 3px solid white;
-  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.4);
+  box-shadow: 0 2px 8px rgba(255, 106, 0, 0.4);
 }

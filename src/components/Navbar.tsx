@@ -61,14 +61,12 @@ export default function Navbar() {
             aria-label="Unión El Progreso - Inicio"
           >
             <Image
-              src="/logo-union.png"
+              src="/logo-union-transparente.png"
               alt="Logo Unión El Progreso"
               width={190}
               height={50}
               priority
-              className={`h-9 md:h-11 w-auto object-contain transition-all duration-300 ${
-                !isScrolled ? "invert brightness-200" : ""
-              }`}
+              className="h-9 md:h-11 w-auto object-contain transition-all duration-300"
             />
           </Link>
 
@@ -185,7 +183,7 @@ export default function Navbar() {
               {/* Cabecera */}
               <div className="flex items-center justify-between px-4 pt-5 pb-4 border-b border-slate-100">
                 <Image
-                  src="/logo-union.png"
+                  src="/logo-union-transparente.png"
                   alt="Unión El Progreso"
                   width={150}
                   height={40}

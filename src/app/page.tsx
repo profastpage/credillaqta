@@ -40,12 +40,9 @@ const staggerContainer = {
 function HeroSection() {
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-slate-950 pt-16">
-      {/* ── Contenedor de fondo — cubre 100% vertical sin fugas blancas ── */}
+      {/* ── Contenedor de fondo — imagen brillante sin oscurecer la modelo ── */}
       <div className="absolute inset-0 z-0">
-        {/* Capa base: gradiente de marca */}
-        <div className="absolute inset-0 hero-gradient" />
-
-        {/* Imagen de fondo de la emprendedora — optimizada */}
+        {/* Imagen de fondo — opacidad 65 para impacto visual */}
         <Image
           src="/images/hero-emprendedora.png"
           alt="Emprendedora Progreso Financiero"
@@ -55,19 +52,14 @@ function HeroSection() {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1920px"
           placeholder="blur"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAA2ElEQVR4nKXLyXEAMQgEQAdgSdywV/5peiAFV/W3f86vAcEyhm0y9DSj5sAWIJajtP38MzsQLGfYLkNPM2oO7AHiOUobcgDBCoYdMvQ0o+bAESCRo7QhJxCsZNgpQ08zag6cAZI5ShtyAcEqhl0y9DSj5sAVIJWjtCFfQLAuhn3J0NOMmgNfAXLlKG3/zTcQrJth3zL0NKPmwHeA3DlKG/IDBOth2I8MPc2oOfATIE+O0ob8AsF6GfYrQ08zag78Bsibo7Qhf0CwPob9ydDTjJoDfwHy5Shtf58QN2E8TZECAAAAAElFTkSuQmCC"
-          className="object-cover object-center pointer-events-none opacity-45"
+          className="object-cover object-center pointer-events-none opacity-65 select-none transition-opacity duration-500"
         />
 
-        {/* Gradientes de overlay — cubren 100% sin dejar franjas blancas */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/95 via-slate-950/80 to-[#D6000C]/20 mix-blend-multiply" />
+        {/* Overlay lateral: oscurece solo la izquierda para proteger el texto */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent" />
+
+        {/* Cierre inferior: funde con el fondo del sitio */}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-
-        {/* Gradiente lateral para reforzar legibilidad */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
-
-        {/* Decorative blobs */}
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-red-600/10 rounded-full blur-3xl" />
 
         {/* Grid pattern overlay */}
         <div
@@ -171,29 +163,28 @@ function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Hero Visual */}
+          {/* Hero Visual — Tarjeta flotante de confianza (sin imagen, cristal neobanco) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, x: 30 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:flex justify-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="hidden lg:block"
           >
-            <div className="relative">
-              <div className="relative w-[420px] xl:w-[480px] rounded-3xl overflow-hidden shadow-2xl shadow-black/20">
-                <Image
-                  src="/images/hero-handshake.jpg"
-                  alt="Asesores financieros de Unión El Progreso brindando atención personalizada"
-                  width={480}
-                  height={420}
-                  className="w-full h-auto object-cover rounded-3xl"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-3xl" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <p className="text-white font-bold text-lg">+5,000 clientes</p>
-                  <p className="text-white/70 text-sm">confían en nosotros</p>
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl shadow-xl max-w-[280px] hover:-translate-y-1 transition-all duration-300">
+              <div className="flex items-center gap-3">
+                <div className="bg-[#FF6A00]/20 p-2.5 rounded-xl text-[#FF6A00]">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-3xl font-black text-[#FF6A00] tracking-tight">+5,000</div>
+                  <div className="text-sm font-medium text-slate-200 mt-1">Clientes Felices</div>
                 </div>
               </div>
+              <p className="text-[11px] text-slate-400 mt-3 border-t border-white/10 pt-3">
+                Confían en nuestro respaldo financiero en todo el Perú.
+              </p>
             </div>
           </motion.div>
         </div>

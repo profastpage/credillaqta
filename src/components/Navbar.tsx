@@ -47,7 +47,7 @@ export default function Navbar() {
           Scroll >20 → white blur (logo dark, text dark)
       ════════════════════════════════════════════════════════════ */}
       <header
-        className={`fixed top-0 left-0 w-full z-50 h-16 flex items-center transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-50 h-16 flex items-center overflow-hidden transition-[background-color,box-shadow,border-color] duration-300 ${
           isScrolled
             ? "bg-white shadow-md border-b border-slate-100"
             : "bg-transparent"
@@ -57,16 +57,16 @@ export default function Navbar() {
           {/* ── LOGO — Explicit width, no wrapper restrictions ── */}
           <Link
             href="/"
-            className="block transition-transform active:scale-95"
+            className="block shrink-0 transition-transform active:scale-95"
             aria-label="Unión El Progreso - Inicio"
           >
             <Image
               src="/logo-union-transparente.png"
               alt="Logo Unión El Progreso"
-              width={240}
-              height={70}
+              width={300}
+              height={90}
               priority
-              className="h-11 w-[160px] md:h-16 md:w-[220px] object-contain object-left select-none"
+              className="h-12 w-[50%] max-w-[185px] md:h-[66px] md:max-w-[260px] md:w-auto object-contain object-left select-none"
             />
           </Link>
 

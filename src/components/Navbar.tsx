@@ -54,19 +54,20 @@ export default function Navbar() {
         }`}
       >
         <nav className="w-full max-w-6xl mx-auto px-4 flex items-center justify-between">
-          {/* ── LOGO — Explicit width, no wrapper restrictions ── */}
+          {/* ── LOGO — Grande, libre, ~70% mobile / 260px PC ── */}
           <Link
             href="/"
-            className="block shrink-0 transition-transform active:scale-95"
+            className="relative h-14 w-[70%] md:h-[70px] md:w-[260px] shrink-0 transition-transform active:scale-95"
             aria-label="Unión El Progreso - Inicio"
           >
             <Image
               src="/logo-union-transparente.png"
               alt="Logo Unión El Progreso"
-              width={300}
-              height={90}
+              fill
               priority
-              className="h-12 w-[50%] max-w-[185px] md:h-[66px] md:max-w-[260px] md:w-auto object-contain object-left select-none"
+              sizes="(max-width: 768px) 70vw, 260px"
+              className="!relative !h-auto !w-full object-contain object-left select-none"
+              style={{ height: '100%', width: '100%' }}
             />
           </Link>
 

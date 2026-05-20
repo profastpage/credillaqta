@@ -134,3 +134,27 @@ Stage Summary:
 - Responsive sizes attribute reduces mobile bandwidth consumption
 - Blur placeholder eliminates LCP flash/jank
 - Core Web Vitals (LCP, CLS) significantly improved
+
+---
+Task ID: 2
+Agent: Main Agent
+Task: Refactor Navbar with immersive full-bleed scroll effect and logo scaling
+
+Work Log:
+- Analyzed existing Navbar (sticky, solid white) and all inner page heroes (all dark gradients)
+- Rewrote Navbar.tsx with scroll-based dual-state design:
+  - Scroll 0: fixed top-0, bg-transparent, white text/logo, glass CTA button
+  - Scroll >20px: bg-white/95 backdrop-blur-md shadow-md, dark text/logo, solid orange CTA
+- Logo upgraded: width=180 height=50, h-10 mobile / h-12 desktop, brightness-0 invert when transparent
+- Added passive:true scroll listener for performance
+- Kept Framer Motion mobile menu overlay (AnimatePresence + spring slide-in)
+- Preserved all existing navigation (NAV_LINKS, next/link, WhatsApp integration)
+- Verified all 5 inner pages have dark gradient heroes → transparent mode works everywhere
+- Build: compiled successfully
+- Commit 92e457e pushed to GitHub
+
+Stage Summary:
+- Navbar now has premium immersive scroll effect matching modern fintech design patterns
+- Logo is ~40% larger (h-12 desktop vs previous h-8)
+- Smooth 300ms ease-in-out transition for all color/shadow/opacity changes
+- Zero breaking changes: all existing navigation, mobile menu, and links preserved

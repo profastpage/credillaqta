@@ -63,11 +63,11 @@ export default function Navbar() {
             <Image
               src="/logo-union.png"
               alt="Logo Unión El Progreso"
-              width={180}
+              width={190}
               height={50}
               priority
-              className={`h-10 md:h-12 w-auto object-contain transition-all duration-300 ${
-                !isScrolled ? "brightness-0 invert drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]" : ""
+              className={`h-9 md:h-11 w-auto object-contain transition-all duration-300 ${
+                !isScrolled ? "invert brightness-200" : ""
               }`}
             />
           </Link>

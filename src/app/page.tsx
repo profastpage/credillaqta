@@ -39,44 +39,49 @@ const staggerContainer = {
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
-      {/* ── Capa base: gradiente de marca ── */}
-      <div className="absolute inset-0 hero-gradient" />
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-slate-950 pt-16">
+      {/* ── Contenedor de fondo — cubre 100% vertical sin fugas blancas ── */}
+      <div className="absolute inset-0 z-0">
+        {/* Capa base: gradiente de marca */}
+        <div className="absolute inset-0 hero-gradient" />
 
-      {/* ── Imagen de fondo de la emprendedora — optimizada ── */}
-      <Image
-        src="/images/hero-emprendedora.png"
-        alt="Emprendedora Progreso Financiero"
-        fill
-        priority
-        quality={85}
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1920px"
-        placeholder="blur"
-        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAA2ElEQVR4nKXLyXEAMQgEQAdgSdywV/5peiAFV/W3f86vAcEyhm0y9DSj5sAWIJajtP38MzsQLGfYLkNPM2oO7AHiOUobcgDBCoYdMvQ0o+bAESCRo7QhJxCsZNgpQ08zag6cAZI5ShtyAcEqhl0y9DSj5sAVIJWjtCFfQLAuhn3J0NOMmgNfAXLlKG3/zTcQrJth3zL0NKPmwHeA3DlKG/IDBOth2I8MPc2oOfATIE+O0ob8AsF6GfYrQ08zag78Bsibo7Qhf0CwPob9ydDTjJoDfwHy5Shtf58QN2E8TZECAAAAAElFTkSuQmCC"
-        className="object-cover object-center pointer-events-none select-none"
-      />
+        {/* Imagen de fondo de la emprendedora — optimizada */}
+        <Image
+          src="/images/hero-emprendedora.png"
+          alt="Emprendedora Progreso Financiero"
+          fill
+          priority
+          quality={85}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1920px"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAA2ElEQVR4nKXLyXEAMQgEQAdgSdywV/5peiAFV/W3f86vAcEyhm0y9DSj5sAWIJajtP38MzsQLGfYLkNPM2oO7AHiOUobcgDBCoYdMvQ0o+bAESCRo7QhJxCsZNgpQ08zag6cAZI5ShtyAcEqhl0y9DSj5sAVIJWjtCFfQLAuhn3J0NOMmgNfAXLlKG3/zTcQrJth3zL0NKPmwHeA3DlKG/IDBOth2I8MPc2oOfATIE+O0ob8AsF6GfYrQ08zag78Bsibo7Qhf0CwPob9ydDTjJoDfwHy5Shtf58QN2E8TZECAAAAAElFTkSuQmCC"
+          className="object-cover object-center pointer-events-none opacity-45"
+        />
 
-      {/* ── Overlay oscuro con blend — legibilidad del texto 100% ── */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-slate-950/75 to-transparent mix-blend-multiply opacity-50" />
+        {/* Gradientes de overlay — cubren 100% sin dejar franjas blancas */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/95 via-slate-950/80 to-[#D6000C]/20 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
 
-      {/* ── Sutil gradiente lateral para reforzar legibilidad ── */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
+        {/* Gradiente lateral para reforzar legibilidad */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
 
-      {/* Decorative blobs */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-red-600/10 rounded-full blur-3xl" />
+        {/* Decorative blobs */}
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-red-600/10 rounded-full blur-3xl" />
 
-      {/* Grid pattern overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+        {/* Grid pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+      </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+      {/* ── Contenido principal ── */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div>
@@ -233,8 +238,6 @@ function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
     </section>
   );
 }

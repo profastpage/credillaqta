@@ -43,14 +43,17 @@ function HeroSection() {
       {/* ── Capa base: gradiente de marca ── */}
       <div className="absolute inset-0 hero-gradient" />
 
-      {/* ── Imagen de fondo de la emprendedora ── */}
+      {/* ── Imagen de fondo de la emprendedora — optimizada ── */}
       <Image
         src="/images/hero-emprendedora.png"
-        alt=""
+        alt="Emprendedora Progreso Financiero"
         fill
-        className="object-cover object-center"
         priority
-        aria-hidden="true"
+        quality={85}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1920px"
+        placeholder="blur"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAA2ElEQVR4nKXLyXEAMQgEQAdgSdywV/5peiAFV/W3f86vAcEyhm0y9DSj5sAWIJajtP38MzsQLGfYLkNPM2oO7AHiOUobcgDBCoYdMvQ0o+bAESCRo7QhJxCsZNgpQ08zag6cAZI5ShtyAcEqhl0y9DSj5sAVIJWjtCFfQLAuhn3J0NOMmgNfAXLlKG3/zTcQrJth3zL0NKPmwHeA3DlKG/IDBOth2I8MPc2oOfATIE+O0ob8AsF6GfYrQ08zag78Bsibo7Qhf0CwPob9ydDTjJoDfwHy5Shtf58QN2E8TZECAAAAAElFTkSuQmCC"
+        className="object-cover object-center pointer-events-none select-none"
       />
 
       {/* ── Overlay oscuro con blend — legibilidad del texto 100% ── */}

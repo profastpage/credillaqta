@@ -39,6 +39,7 @@ export default function Navbar() {
   }, []);
 
   const isHome = pathname === "/";
+  const isDarkBg = !scrolled && isHome;
 
   return (
     <>
@@ -60,21 +61,23 @@ export default function Navbar() {
           }`}
           aria-label="Navegación principal"
         >
-          {/* ── Logo ── */}
+          {/* ── Logo — SVG transparente, swap dark/light ── */}
           <Link
             href="/"
-            className="relative z-50 flex items-center gap-2"
+            className="relative z-50 flex items-center gap-2 px-1"
             aria-label="Unión El Progreso - Inicio"
           >
             <Image
-              src="/logo-union-el-progreso.png"
+              src={
+                isDarkBg
+                  ? "/logo-union-el-progreso-white.svg"
+                  : "/logo-union-el-progreso.svg"
+              }
               alt="Logo Unión El Progreso"
-              width={160}
-              height={45}
+              width={180}
+              height={44}
               priority
-              className={`object-contain h-9 sm:h-10 w-auto transition-all duration-300 ${
-                scrolled || !isHome ? "brightness-0" : "brightness-0 invert"
-              }`}
+              className="h-8 sm:h-9 w-auto object-contain transition-all duration-300"
             />
           </Link>
 
@@ -88,12 +91,12 @@ export default function Navbar() {
                   href={link.href}
                   className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                     isActive
-                      ? scrolled || !isHome
-                        ? "text-[#FF6A00]"
-                        : "text-white"
-                      : scrolled || !isHome
-                      ? "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-                      : "text-white/80 hover:text-white hover:bg-white/10"
+                      ? isDarkBg
+                        ? "text-white"
+                        : "text-[#FF6A00]"
+                      : isDarkBg
+                      ? "text-white/80 hover:text-white hover:bg-white/10"
+                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                   }`}
                 >
                   {link.label}
@@ -122,7 +125,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* ── Mobile Toggle (hamburger) ── */}
+          {/* ── Mobile Toggle (hamburger) — px-4 de borde ── */}
           <button
             onClick={() => setIsOpen(true)}
             className="relative z-50 lg:hidden p-2 rounded-xl transition-colors duration-300"
@@ -130,14 +133,14 @@ export default function Navbar() {
           >
             <Menu
               className={`w-6 h-6 transition-colors duration-300 ${
-                scrolled || !isHome ? "text-slate-900" : "text-white"
+                isDarkBg ? "text-white" : "text-slate-900"
               }`}
             />
           </button>
         </nav>
       </header>
 
-      {/* ── MENÚ MÓVIL SUPER PRO — OVERLAY ABSOLUTO z-[100] ────── */}
+      {/* ── MENÚ MÓVIL — OVERLAY z-[100] sobre header z-50 ────── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -171,13 +174,13 @@ export default function Navbar() {
               className="absolute right-0 top-0 bottom-0 w-[82%] max-w-[380px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-black/20 flex flex-col overflow-hidden"
             >
               {/* ── Cabecera del panel ── */}
-              <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-slate-100">
+              <div className="flex items-center justify-between px-4 pt-5 pb-4 border-b border-slate-100">
                 <Image
-                  src="/logo-union-el-progreso.png"
+                  src="/logo-union-el-progreso.svg"
                   alt="Unión El Progreso"
-                  width={140}
-                  height={40}
-                  className="object-contain h-9 w-auto"
+                  width={150}
+                  height={38}
+                  className="object-contain h-8 w-auto"
                 />
                 <button
                   onClick={closeMenu}
@@ -226,7 +229,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.3 }}
-                className="px-6 pb-6 pt-4 border-t border-slate-100"
+                className="px-4 pb-6 pt-4 border-t border-slate-100"
               >
                 <a
                   href={getWhatsAppUrl("contacto")}

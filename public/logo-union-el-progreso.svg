@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 48" fill="none">
+  <!-- Unión El Progreso — Horizontal Logo, Transparent Background -->
+  <!-- Primary: #FF6A00 | Secondary: #D6000C | Dark: #1C1917 -->
+
+  <!-- Word "Unión" in dark -->
+  <text x="0" y="30" font-family="Inter, -apple-system, Arial, sans-serif" font-weight="800" font-size="28" fill="#1C1917" letter-spacing="-0.5">Unión</text>
+
+  <!-- Word "El" in dark -->
+  <text x="92" y="30" font-family="Inter, -apple-system, Arial, sans-serif" font-weight="600" font-size="28" fill="#1C1917" letter-spacing="-0.5">El</text>
+
+  <!-- Word "Progreso" in brand orange -->
+  <text x="118" y="30" font-family="Inter, -apple-system, Arial, sans-serif" font-weight="800" font-size="28" fill="#FF6A00" letter-spacing="-0.5">Progreso</text>
+
+  <!-- Thin accent underline -->
+  <rect x="0" y="37" width="48" height="2.5" rx="1.25" fill="#D6000C"/>
+</svg>

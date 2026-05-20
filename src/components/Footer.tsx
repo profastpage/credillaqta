@@ -34,11 +34,11 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/logo-union-el-progreso-white.svg"
+                src="/logo-union.png"
                 alt="Logo Unión El Progreso"
-                width={180}
-                height={44}
-                className="object-contain h-9 w-auto"
+                width={150}
+                height={40}
+                className="object-contain h-8 w-auto brightness-0 invert"
               />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed mb-5">

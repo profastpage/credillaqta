@@ -11,16 +11,7 @@ import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Bloquear scroll del body cuando el menú móvil está abierto
   useEffect(() => {
@@ -38,46 +29,20 @@ export default function Navbar() {
     setIsOpen(false);
   }, []);
 
-  const isHome = pathname === "/";
-  const isDarkBg = !scrolled && isHome;
-
   return (
     <>
-      {/* ── HEADER PRINCIPAL ─────────────────────────────────────── */}
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-white/90 backdrop-blur-md shadow-lg shadow-slate-900/5"
-            : isHome
-            ? "bg-transparent"
-            : "bg-white/95 backdrop-blur-md"
-        }`}
-      >
-        <nav
-          className={`mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
-            scrolled || !isHome
-              ? "h-16 sm:h-[72px]"
-              : "h-20 sm:h-24"
-          }`}
-          aria-label="Navegación principal"
-        >
-          {/* ── Logo — SVG transparente, swap dark/light ── */}
-          <Link
-            href="/"
-            className="relative z-50 flex items-center gap-2 px-1"
-            aria-label="Unión El Progreso - Inicio"
-          >
+      {/* ── HEADER — sticky, siempre visible ──────────────────── */}
+      <header className="sticky top-0 z-50 w-full bg-white shadow-sm border-b border-slate-100">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
+          {/* ── Logo ── */}
+          <Link href="/" className="flex items-center" aria-label="Unión El Progreso - Inicio">
             <Image
-              src={
-                isDarkBg
-                  ? "/logo-union-el-progreso-white.svg"
-                  : "/logo-union-el-progreso.svg"
-              }
+              src="/logo-union.png"
               alt="Logo Unión El Progreso"
-              width={180}
-              height={44}
+              width={150}
+              height={40}
               priority
-              className="h-8 sm:h-9 w-auto object-contain transition-all duration-300"
+              className="h-8 w-auto object-contain"
             />
           </Link>
 
@@ -91,11 +56,7 @@ export default function Navbar() {
                   href={link.href}
                   className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                     isActive
-                      ? isDarkBg
-                        ? "text-white"
-                        : "text-[#FF6A00]"
-                      : isDarkBg
-                      ? "text-white/80 hover:text-white hover:bg-white/10"
+                      ? "text-[#FF6A00]"
                       : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                   }`}
                 >
@@ -125,17 +86,13 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* ── Mobile Toggle (hamburger) — px-4 de borde ── */}
+          {/* ── Mobile Toggle ── */}
           <button
             onClick={() => setIsOpen(true)}
-            className="relative z-50 lg:hidden p-2 rounded-xl transition-colors duration-300"
+            className="lg:hidden p-2 rounded-xl transition-colors duration-300 text-slate-700 hover:text-[#FF6A00]"
             aria-label="Abrir menú"
           >
-            <Menu
-              className={`w-6 h-6 transition-colors duration-300 ${
-                isDarkBg ? "text-white" : "text-slate-900"
-              }`}
-            />
+            <Menu className="w-6 h-6" />
           </button>
         </nav>
       </header>
@@ -150,7 +107,7 @@ export default function Navbar() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="fixed inset-0 z-[100] lg:hidden"
           >
-            {/* ── Backdrop oscurecido con blur ── */}
+            {/* ── Backdrop ── */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -160,26 +117,21 @@ export default function Navbar() {
               onClick={closeMenu}
             />
 
-            {/* ── Panel deslizante desde la derecha ── */}
+            {/* ── Panel deslizante ── */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{
-                type: "spring",
-                damping: 28,
-                stiffness: 300,
-                mass: 0.8,
-              }}
+              transition={{ type: "spring", damping: 28, stiffness: 300, mass: 0.8 }}
               className="absolute right-0 top-0 bottom-0 w-[82%] max-w-[380px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-black/20 flex flex-col overflow-hidden"
             >
-              {/* ── Cabecera del panel ── */}
+              {/* Cabecera */}
               <div className="flex items-center justify-between px-4 pt-5 pb-4 border-b border-slate-100">
                 <Image
-                  src="/logo-union-el-progreso.svg"
+                  src="/logo-union.png"
                   alt="Unión El Progreso"
                   width={150}
-                  height={38}
+                  height={40}
                   className="object-contain h-8 w-auto"
                 />
                 <button
@@ -191,7 +143,7 @@ export default function Navbar() {
                 </button>
               </div>
 
-              {/* ── Enlaces de navegación ── */}
+              {/* Enlaces */}
               <div className="flex-1 overflow-y-auto px-4 py-6">
                 <nav className="flex flex-col gap-1.5">
                   {NAV_LINKS.map((link, i) => {
@@ -201,11 +153,7 @@ export default function Navbar() {
                         key={link.href}
                         initial={{ opacity: 0, x: 30 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          delay: 0.08 + i * 0.05,
-                          duration: 0.3,
-                          ease: "easeOut",
-                        }}
+                        transition={{ delay: 0.08 + i * 0.05, duration: 0.3, ease: "easeOut" }}
                       >
                         <Link
                           href={link.href}
@@ -224,7 +172,7 @@ export default function Navbar() {
                 </nav>
               </div>
 
-              {/* ── CTA + Info del panel ── */}
+              {/* CTA */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

@@ -158,3 +158,23 @@ Stage Summary:
 - Logo is ~40% larger (h-12 desktop vs previous h-8)
 - Smooth 300ms ease-in-out transition for all color/shadow/opacity changes
 - Zero breaking changes: all existing navigation, mobile menu, and links preserved
+---
+Task ID: 1
+Agent: main
+Task: Logo más grande + fix navbar scroll
+
+Work Log:
+- Verified all previous commits were already pushed to GitHub
+- Fixed Navbar.tsx: logo mobile w-[50%] max-w-[185px] h-12 (occupies ~50% of navbar)
+- Fixed Navbar.tsx: logo desktop md:max-w-[260px] md:h-[66px] (bigger than before)
+- Fixed header: overflow-hidden + transition-[background-color,box-shadow,border-color] (replaced transition-all)
+- Added shrink-0 to logo Link wrapper
+- Image intrinsic size changed to 300x90
+- Build verified successful, pushed to GitHub (commit 639d991)
+
+Stage Summary:
+- All previous commits were already synced with origin
+- Logo now takes ~50% of mobile navbar width
+- Logo is bigger on desktop (260px vs 220px)
+- Navbar scroll stability improved with specific transition properties
+- Deployed: https://union-el-progreso.vercel.app/

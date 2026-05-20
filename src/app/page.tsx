@@ -189,49 +189,48 @@ function HeroSection() {
                   <p className="text-white/70 text-sm">confían en nosotros</p>
                 </div>
               </div>
-
-              {/* Floating cards */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 -right-4 bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-white/15 shadow-xl"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-orange-500/20 flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-orange-400" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-white">
-                      Aprobado
-                    </p>
-                    <p className="text-xs text-white/50">En 24 horas</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{
-                  duration: 3.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-                className="absolute -bottom-4 -left-8 bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-white/15 shadow-xl"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-orange-500/20 flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-orange-400" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-white">Rápido</p>
-                    <p className="text-xs text-white/50">Sin trámites</p>
-                  </div>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
+      </div>
+
+      {/* ── Tarjetas flotantes — PC only, extremo derecho, fuera de la imagen ── */}
+      <div className="hidden lg:flex lg:absolute lg:right-8 xl:right-12 lg:top-1/2 lg:-translate-y-1/2 lg:flex-col lg:gap-4 lg:z-20 pointer-events-none">
+        {/* Card: Aprobado */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0, y: [0, -8, 0] }}
+          transition={{ opacity: { duration: 0.6, delay: 0.8 }, x: { duration: 0.6, delay: 0.8 }, y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.2 } }}
+          className="lg:scale-90 bg-white/10 backdrop-blur-lg rounded-2xl p-3.5 border border-white/15 shadow-xl pointer-events-auto"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-orange-500/20 flex items-center justify-center shrink-0">
+              <CheckCircle2 className="w-4.5 h-4.5 text-orange-400" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-white">Aprobado</p>
+              <p className="text-xs text-white/50">En 24 horas</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Card: Rápido */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0, y: [0, 8, 0] }}
+          transition={{ opacity: { duration: 0.6, delay: 1 }, x: { duration: 0.6, delay: 1 }, y: { duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 } }}
+          className="lg:scale-90 bg-white/10 backdrop-blur-lg rounded-2xl p-3.5 border border-white/15 shadow-xl pointer-events-auto"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-orange-500/20 flex items-center justify-center shrink-0">
+              <Zap className="w-4.5 h-4.5 text-orange-400" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-white">Rápido</p>
+              <p className="text-xs text-white/50">Sin trámites</p>
+            </div>
+          </div>
+        </motion.div>
       </div>
 
       {/* Bottom gradient fade */}

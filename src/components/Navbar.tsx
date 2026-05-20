@@ -11,9 +11,19 @@ import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Bloquear scroll del body cuando el menú móvil está abierto
+  /* ── Scroll listener: transparent → solid at 20px ── */
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  /* ── Lock body scroll when mobile menu is open ── */
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -31,23 +41,43 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ── HEADER — sticky, siempre visible ──────────────────── */}
-      <header className="sticky top-0 z-50 w-full bg-white shadow-sm border-b border-slate-100">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
-          {/* ── Logo ── */}
-          <Link href="/" className="flex items-center" aria-label="Unión El Progreso - Inicio">
+      {/* ════════════════════════════════════════════════════════════
+          HEADER — Fixed, Full-Bleed Immersive
+          Scroll 0  →  transparent (logo white, text white)
+          Scroll >20 → white blur (logo dark, text dark)
+      ════════════════════════════════════════════════════════════ */}
+      <header
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${
+          isScrolled
+            ? "bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100 py-2"
+            : "bg-transparent py-4"
+        }`}
+      >
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+          {/* ── LOGO — 180px PC / generous mobile, invert on transparent ── */}
+          <Link
+            href="/"
+            className="flex items-center transition-transform duration-200 active:scale-95"
+            aria-label="Unión El Progreso - Inicio"
+          >
             <Image
               src="/logo-union.png"
               alt="Logo Unión El Progreso"
-              width={150}
-              height={40}
+              width={180}
+              height={50}
               priority
-              className="h-8 w-auto object-contain"
+              className={`h-10 md:h-12 w-auto object-contain transition-all duration-300 ${
+                !isScrolled ? "brightness-0 invert drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]" : ""
+              }`}
             />
           </Link>
 
-          {/* ── Desktop Navigation ── */}
-          <div className="hidden lg:flex items-center gap-1">
+          {/* ── DESKTOP NAV — Dynamic text color ── */}
+          <div
+            className={`hidden lg:flex items-center gap-1 transition-colors duration-300 ${
+              isScrolled ? "text-slate-600" : "text-white"
+            }`}
+          >
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -55,16 +85,28 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
-                    isActive
-                      ? "text-[#FF6A00]"
-                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                    isScrolled
+                      ? isActive
+                        ? "text-[#FF6A00]"
+                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                      : isActive
+                        ? "text-white"
+                        : "text-white/80 hover:text-white hover:bg-white/10"
                   }`}
                 >
                   {link.label}
-                  {isActive && (
+                  {isActive && isScrolled && (
                     <motion.div
                       layoutId="navbar-indicator"
                       className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#FF6A00] rounded-full"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  {/* Active indicator for transparent state */}
+                  {isActive && !isScrolled && (
+                    <motion.div
+                      layoutId="navbar-indicator-light"
+                      className="absolute bottom-0 left-2 right-2 h-0.5 bg-white/60 rounded-full"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -73,23 +115,31 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* ── Desktop CTA ── */}
+          {/* ── DESKTOP CTA — Glass when transparent, solid when scrolled ── */}
           <div className="hidden lg:flex items-center gap-3">
             <a
               href={getWhatsAppUrl("contacto")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#FF6A00] hover:bg-[#D6000C] text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-lg shadow-[#FF6A00]/20 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-[#FF6A00]/30"
+              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${
+                isScrolled
+                  ? "bg-[#FF6A00] hover:bg-[#D6000C] text-white shadow-lg shadow-[#FF6A00]/20 hover:shadow-xl hover:shadow-[#FF6A00]/30"
+                  : "bg-white/15 hover:bg-white/25 text-white backdrop-blur-sm border border-white/20 hover:border-white/30"
+              }`}
             >
               <Phone className="w-4 h-4" />
               Contáctanos
             </a>
           </div>
 
-          {/* ── Mobile Toggle ── */}
+          {/* ── MOBILE TOGGLE — Dynamic color ── */}
           <button
             onClick={() => setIsOpen(true)}
-            className="lg:hidden p-2 rounded-xl transition-colors duration-300 text-slate-700 hover:text-[#FF6A00]"
+            className={`lg:hidden p-2 rounded-xl transition-colors duration-300 ${
+              isScrolled
+                ? "text-slate-700 hover:bg-slate-100"
+                : "text-white hover:bg-white/10"
+            }`}
             aria-label="Abrir menú"
           >
             <Menu className="w-6 h-6" />
@@ -97,7 +147,9 @@ export default function Navbar() {
         </nav>
       </header>
 
-      {/* ── MENÚ MÓVIL — OVERLAY z-[100] sobre header z-50 ────── */}
+      {/* ════════════════════════════════════════════════════════════
+          MENÚ MÓVIL — Overlay z-[100] con Framer Motion
+      ════════════════════════════════════════════════════════════ */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -117,12 +169,17 @@ export default function Navbar() {
               onClick={closeMenu}
             />
 
-            {/* ── Panel deslizante ── */}
+            {/* ── Slide-in Panel ── */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 28, stiffness: 300, mass: 0.8 }}
+              transition={{
+                type: "spring",
+                damping: 28,
+                stiffness: 300,
+                mass: 0.8,
+              }}
               className="absolute right-0 top-0 bottom-0 w-[82%] max-w-[380px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-black/20 flex flex-col overflow-hidden"
             >
               {/* Cabecera */}
@@ -153,7 +210,11 @@ export default function Navbar() {
                         key={link.href}
                         initial={{ opacity: 0, x: 30 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.08 + i * 0.05, duration: 0.3, ease: "easeOut" }}
+                        transition={{
+                          delay: 0.08 + i * 0.05,
+                          duration: 0.3,
+                          ease: "easeOut",
+                        }}
                       >
                         <Link
                           href={link.href}

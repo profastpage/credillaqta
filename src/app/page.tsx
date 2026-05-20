@@ -39,7 +39,26 @@ const staggerContainer = {
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[100dvh] flex items-center hero-gradient overflow-hidden">
+    <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
+      {/* ── Capa base: gradiente de marca ── */}
+      <div className="absolute inset-0 hero-gradient" />
+
+      {/* ── Imagen de fondo de la emprendedora ── */}
+      <Image
+        src="/images/hero-emprendedora.png"
+        alt=""
+        fill
+        className="object-cover object-center"
+        priority
+        aria-hidden="true"
+      />
+
+      {/* ── Overlay oscuro con blend — legibilidad del texto 100% ── */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-slate-950/75 to-transparent mix-blend-multiply opacity-50" />
+
+      {/* ── Sutil gradiente lateral para reforzar legibilidad ── */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
+
       {/* Decorative blobs */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-red-600/10 rounded-full blur-3xl" />

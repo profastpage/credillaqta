@@ -63,10 +63,10 @@ export default function Navbar() {
             <Image
               src="/logo-union-transparente.png"
               alt="Logo Unión El Progreso"
-              width={190}
-              height={50}
+              width={220}
+              height={60}
               priority
-              className="h-9 md:h-11 w-auto object-contain transition-all duration-300"
+              className="h-10 md:h-14 w-auto object-contain"
             />
           </Link>
 
@@ -135,12 +135,12 @@ export default function Navbar() {
             onClick={() => setIsOpen(true)}
             className={`lg:hidden p-2 rounded-xl transition-colors duration-300 ${
               isScrolled
-                ? "text-slate-700 hover:bg-slate-100"
+                ? "text-slate-800 hover:bg-slate-100"
                 : "text-white hover:bg-white/10"
             }`}
             aria-label="Abrir menú"
           >
-            <Menu className="w-6 h-6" />
+            <Menu className="w-8 h-8" />
           </button>
         </nav>
       </header>

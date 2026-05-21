@@ -330,7 +330,7 @@ export default function LibroDeReclamacionesPage() {
                 <div>
                   <label
                     htmlFor="tipo"
-                    className="block text-sm font-semibold text-slate-700 mb-2"
+                    className="block text-sm font-semibold text-slate-900 mb-2"
                   >
                     Tipo de Registro *
                   </label>
@@ -356,7 +356,7 @@ export default function LibroDeReclamacionesPage() {
                 <div>
                   <label
                     htmlFor="nombres"
-                    className="block text-sm font-semibold text-slate-700 mb-2"
+                    className="block text-sm font-semibold text-slate-900 mb-2"
                   >
                     Nombres Completos *
                   </label>
@@ -368,7 +368,7 @@ export default function LibroDeReclamacionesPage() {
                       updateField("nombresCompletos", e.target.value)
                     }
                     placeholder="Ej. Juan Pérez García"
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-300 ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-400 ${
                       errors.nombresCompletos
                         ? "border-red-400 bg-red-50/50"
                         : "border-slate-200 bg-white"
@@ -386,7 +386,7 @@ export default function LibroDeReclamacionesPage() {
                 <div>
                   <label
                     htmlFor="documento"
-                    className="block text-sm font-semibold text-slate-700 mb-2"
+                    className="block text-sm font-semibold text-slate-900 mb-2"
                   >
                     Tipo de Documento *
                   </label>
@@ -410,7 +410,7 @@ export default function LibroDeReclamacionesPage() {
                 <div>
                   <label
                     htmlFor="numDoc"
-                    className="block text-sm font-semibold text-slate-700 mb-2"
+                    className="block text-sm font-semibold text-slate-900 mb-2"
                   >
                     Número de Documento *
                   </label>
@@ -427,7 +427,7 @@ export default function LibroDeReclamacionesPage() {
                         ? "8 dígitos"
                         : "Número de documento"
                     }
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-300 ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-400 ${
                       errors.numeroDocumento
                         ? "border-red-400 bg-red-50/50"
                         : "border-slate-200 bg-white"
@@ -445,7 +445,7 @@ export default function LibroDeReclamacionesPage() {
                 <div>
                   <label
                     htmlFor="telefono"
-                    className="block text-sm font-semibold text-slate-700 mb-2"
+                    className="block text-sm font-semibold text-slate-900 mb-2"
                   >
                     Teléfono *
                   </label>
@@ -457,7 +457,7 @@ export default function LibroDeReclamacionesPage() {
                       updateField("telefono", e.target.value)
                     }
                     placeholder="Ej. 987654321"
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-300 ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-400 ${
                       errors.telefono
                         ? "border-red-400 bg-red-50/50"
                         : "border-slate-200 bg-white"
@@ -475,7 +475,7 @@ export default function LibroDeReclamacionesPage() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-semibold text-slate-700 mb-2"
+                    className="block text-sm font-semibold text-slate-900 mb-2"
                   >
                     Correo Electrónico *
                   </label>
@@ -487,7 +487,7 @@ export default function LibroDeReclamacionesPage() {
                       updateField("email", e.target.value)
                     }
                     placeholder="correo@ejemplo.com"
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-300 ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-400 ${
                       errors.email
                         ? "border-red-400 bg-red-50/50"
                         : "border-slate-200 bg-white"
@@ -505,7 +505,7 @@ export default function LibroDeReclamacionesPage() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="direccion"
-                    className="block text-sm font-semibold text-slate-700 mb-2"
+                    className="block text-sm font-semibold text-slate-900 mb-2"
                   >
                     Dirección
                   </label>
@@ -517,7 +517,7 @@ export default function LibroDeReclamacionesPage() {
                       updateField("direccion", e.target.value)
                     }
                     placeholder="Ej. Av. Arequipa 1234, Lima"
-                    className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-300"
+                    className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-400"
                   />
                 </div>
 
@@ -525,7 +525,7 @@ export default function LibroDeReclamacionesPage() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="producto"
-                    className="block text-sm font-semibold text-slate-700 mb-2"
+                    className="block text-sm font-semibold text-slate-900 mb-2"
                   >
                     Producto / Servicio Relacionado
                   </label>
@@ -551,7 +551,7 @@ export default function LibroDeReclamacionesPage() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="descripcion"
-                    className="block text-sm font-semibold text-slate-700 mb-2"
+                    className="block text-sm font-semibold text-slate-900 mb-2"
                   >
                     Descripción del Reclamo / Queja *
                   </label>
@@ -563,7 +563,7 @@ export default function LibroDeReclamacionesPage() {
                       updateField("descripcion", e.target.value)
                     }
                     placeholder="Describe detalladamente la situación que motiva tu reclamo o queja..."
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-300 resize-none ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-400 resize-none ${
                       errors.descripcion
                         ? "border-red-400 bg-red-50/50"
                         : "border-slate-200 bg-white"
@@ -581,7 +581,7 @@ export default function LibroDeReclamacionesPage() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="pedido"
-                    className="block text-sm font-semibold text-slate-700 mb-2"
+                    className="block text-sm font-semibold text-slate-900 mb-2"
                   >
                     Pedido del Consumidor *
                   </label>
@@ -593,7 +593,7 @@ export default function LibroDeReclamacionesPage() {
                       updateField("pedido", e.target.value)
                     }
                     placeholder="¿Qué solución esperas de nuestra parte?"
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-300 resize-none ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-400 resize-none ${
                       errors.pedido
                         ? "border-red-400 bg-red-50/50"
                         : "border-slate-200 bg-white"
@@ -652,52 +652,52 @@ export default function LibroDeReclamacionesPage() {
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
               custom={0}
-              className="bg-gradient-to-br from-stone-800 to-stone-900 rounded-3xl p-8 sm:p-10 text-white"
+              className="bg-gradient-to-br from-stone-800 to-stone-900 rounded-3xl p-8 sm:p-10"
             >
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center">
                   <Building2 className="w-6 h-6 text-orange-400" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-bold">
+                <h2 className="text-xl sm:text-2xl font-bold text-white">
                   Información de la Empresa
                 </h2>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="glass rounded-xl p-4">
-                  <p className="text-xs text-white/50">Razón Social</p>
-                  <p className="text-sm font-semibold mt-1">
+                  <p className="text-xs text-slate-400">Razón Social</p>
+                  <p className="text-sm font-semibold text-slate-100 mt-1">
                     {SITE_CONFIG.businessName}
                   </p>
                 </div>
                 <div className="glass rounded-xl p-4">
-                  <p className="text-xs text-white/50">RUC</p>
-                  <p className="text-sm font-semibold mt-1">
+                  <p className="text-xs text-slate-400">RUC</p>
+                  <p className="text-sm font-semibold text-slate-100 mt-1">
                     {SITE_CONFIG.ruc}
                   </p>
                 </div>
                 <div className="glass rounded-xl p-4">
-                  <p className="text-xs text-white/50">Dirección</p>
-                  <p className="text-sm font-semibold mt-1">Lima, Perú</p>
+                  <p className="text-xs text-slate-400">Dirección</p>
+                  <p className="text-sm font-semibold text-slate-100 mt-1">Lima, Perú</p>
                 </div>
                 <div className="glass rounded-xl p-4">
-                  <p className="text-xs text-white/50">WhatsApp</p>
-                  <p className="text-sm font-semibold mt-1">
+                  <p className="text-xs text-slate-400">WhatsApp</p>
+                  <p className="text-sm font-semibold text-slate-100 mt-1">
                     {SITE_CONFIG.phone}
                   </p>
                 </div>
                 <div className="glass rounded-xl p-4 sm:col-span-2">
-                  <p className="text-xs text-white/50">
+                  <p className="text-xs text-slate-400">
                     Correo Electrónico
                   </p>
-                  <p className="text-sm font-semibold mt-1">
+                  <p className="text-sm font-semibold text-slate-100 mt-1">
                     {SITE_CONFIG.email}
                   </p>
                 </div>
               </div>
 
               <div className="mt-6 pt-6 border-t border-white/10">
-                <p className="text-xs text-white/40 leading-relaxed">
+                <p className="text-xs text-slate-400 leading-relaxed">
                   Conforme al Código de Protección y Defensa del Consumidor
                   (Ley N° 29571) y su Reglamento (D.S. N° 011-2011-PCM), el
                   proveedor tiene un plazo máximo de 30 días hábiles para

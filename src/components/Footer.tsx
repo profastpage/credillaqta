@@ -186,24 +186,40 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-stone-800">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-          <p>
-            &copy; {new Date().getFullYear()} {SITE_CONFIG.businessName}. Todos
-            los derechos reservados.
-          </p>
-          <div className="flex items-center gap-4">
-            <Link
-              href="/nosotros"
-              className="hover:text-slate-300 transition-colors"
-            >
-              Política de Privacidad
-            </Link>
-            <Link
-              href="/nosotros"
-              className="hover:text-slate-300 transition-colors"
-            >
-              Términos y Condiciones
-            </Link>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+            <p>
+              &copy; {new Date().getFullYear()} {SITE_CONFIG.businessName}. Todos
+              los derechos reservados.
+            </p>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/nosotros"
+                className="hover:text-slate-300 transition-colors"
+              >
+                Política de Privacidad
+              </Link>
+              <Link
+                href="/nosotros"
+                className="hover:text-slate-300 transition-colors"
+              >
+                Términos y Condiciones
+              </Link>
+            </div>
+          </div>
+          {/* Agency credit */}
+          <div className="border-t border-slate-800/50 pt-4 mt-4 text-center">
+            <p className="text-xs text-slate-500">
+              Diseñado y desarrollado por{" "}
+              <a
+                href="https://fastpagepro.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#FF6B00] hover:underline font-medium transition-all"
+              >
+                fastpagepro.com
+              </a>
+            </p>
           </div>
         </div>
       </div>

@@ -229,7 +229,7 @@ export default function GarantiaVehicularPage() {
                   Cotizar Ahora
                 </a>
               </div>
-              <div className="bg-gradient-to-br from-stone-800 to-stone-900 rounded-3xl p-8 sm:p-10 text-white">
+              <div className="bg-gradient-to-br from-stone-800 to-stone-900 rounded-3xl p-8 sm:p-10">
                 <div className="relative w-full h-48 rounded-2xl overflow-hidden mb-6">
                   <Image
                     src="/images/trust-partners.jpg"
@@ -239,13 +239,13 @@ export default function GarantiaVehicularPage() {
                   />
                 </div>
                 <FileCheck className="w-12 h-12 text-orange-400 mb-4" />
-                <h3 className="text-xl font-bold mb-4">¿No tienes tasación?</h3>
-                <p className="text-sm text-white/70 leading-relaxed mb-6">
+                <h3 className="text-xl font-bold text-white mb-4">¿No tienes tasación?</h3>
+                <p className="text-sm text-slate-300 leading-relaxed mb-6">
                   No te preocupes. A través de nuestra alianza con Procustodia, puedes obtener la tasación de tu vehículo de forma rápida y confiable. Ellos se encargan de toda la inspección técnica y documentación necesaria.
                 </p>
                 <div className="glass rounded-xl p-4">
-                  <p className="text-xs text-white/60">Aliado Estratégico</p>
-                  <p className="text-sm font-semibold text-orange-300 mt-1">Procustodia — Líder en Custodia Vehicular</p>
+                  <p className="text-xs text-slate-400">Aliado Estratégico</p>
+                  <p className="text-sm font-semibold text-[#FF6B00] mt-1">Procustodia — Líder en Custodia Vehicular</p>
                 </div>
               </div>
             </div>

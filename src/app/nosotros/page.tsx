@@ -197,24 +197,24 @@ export default function NosotrosPage() {
                   </div>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-stone-800 to-stone-900 rounded-3xl p-8 sm:p-10 text-white">
-                <h3 className="text-xl font-bold mb-6">Información Legal</h3>
+              <div className="bg-gradient-to-br from-stone-800 to-stone-900 rounded-3xl p-8 sm:p-10">
+                <h3 className="text-xl font-bold text-white mb-6">Información Legal</h3>
                 <div className="space-y-4">
                   <div className="glass rounded-xl p-4">
-                    <p className="text-xs text-white/50">Razón Social</p>
-                    <p className="text-sm font-semibold mt-1">{SITE_CONFIG.businessName}</p>
+                    <p className="text-xs text-slate-400">Razón Social</p>
+                    <p className="text-sm font-semibold text-slate-100 mt-1">{SITE_CONFIG.businessName}</p>
                   </div>
                   <div className="glass rounded-xl p-4">
-                    <p className="text-xs text-white/50">RUC</p>
-                    <p className="text-sm font-semibold mt-1">{SITE_CONFIG.ruc}</p>
+                    <p className="text-xs text-slate-400">RUC</p>
+                    <p className="text-sm font-semibold text-slate-100 mt-1">{SITE_CONFIG.ruc}</p>
                   </div>
                   <div className="glass rounded-xl p-4">
-                    <p className="text-xs text-white/50">Marca Comercial</p>
-                    <p className="text-sm font-semibold mt-1">{SITE_CONFIG.name}</p>
+                    <p className="text-xs text-slate-400">Marca Comercial</p>
+                    <p className="text-sm font-semibold text-slate-100 mt-1">{SITE_CONFIG.name}</p>
                   </div>
                   <div className="glass rounded-xl p-4">
-                    <p className="text-xs text-white/50">Contacto Principal</p>
-                    <p className="text-sm font-semibold mt-1">{SITE_CONFIG.phone}</p>
+                    <p className="text-xs text-slate-400">Contacto Principal</p>
+                    <p className="text-sm font-semibold text-slate-100 mt-1">{SITE_CONFIG.phone}</p>
                   </div>
                 </div>
               </div>

@@ -84,6 +84,7 @@ export default function PrestamosPersonalesPage() {
             src="/hero-prestamos.webp"
             alt="Préstamos personales al instante"
             fill
+            priority
             quality={75}
             sizes="100vw"
             className="object-cover object-center opacity-45 pointer-events-none select-none"

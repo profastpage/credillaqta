@@ -14,7 +14,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
-  /* ── Scroll listener: transparent → solid at 20px ── */
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -23,7 +22,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* ── Lock body scroll when mobile menu is open ── */
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -39,42 +37,51 @@ export default function Navbar() {
     setIsOpen(false);
   }, []);
 
+  const isHome = pathname === "/";
+  const isSolid = isScrolled || !isHome;
+
   return (
     <>
-      {/* ════════════════════════════════════════════════════════════
-          HEADER — Fixed, Full-Bleed Immersive
-          Scroll 0  →  transparent (logo white, text white)
-          Scroll >20 → white blur (logo dark, text dark)
-      ════════════════════════════════════════════════════════════ */}
+      {/* ═══════════════════════════════════════════════════════════════
+          HEADER — Fixed, NO overflow-hidden (logo must never clip)
+          Home top:      h-20 (80px)  — roomy, logo breathes
+          Scrolled/sub:  h-16 (64px)  — compact, saves space
+      ═══════════════════════════════════════════════════════════════ */}
       <header
-        className={`fixed top-0 left-0 w-full z-50 h-16 flex items-center overflow-hidden transition-[background-color,box-shadow,border-color] duration-300 ${
-          isScrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+          isSolid
             ? "bg-white shadow-md border-b border-slate-100"
             : "bg-transparent"
         }`}
       >
-        <nav className="w-full max-w-6xl mx-auto px-4 flex items-center justify-between">
-          {/* ── LOGO — Grande, libre, ~70% mobile / 260px PC ── */}
+        <nav
+          className={`mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 transition-[height] duration-300 ${
+            isSolid ? "h-16" : "h-20"
+          }`}
+          aria-label="Navegación principal"
+        >
+          {/* ── LOGO — height-driven + w-auto + object-contain → NEVER clipped ──
+              Aspect ratio 3.23:1. h-10→129w  h-12→155w  h-14→181w
+          ── */}
           <Link
             href="/"
-            className="relative h-14 w-[70%] md:h-[70px] md:w-[260px] shrink-0 transition-transform active:scale-95"
+            className="shrink-0 flex items-center transition-transform active:scale-95"
             aria-label="Unión El Progreso - Inicio"
           >
             <Image
               src="/logo-union-transparente.png"
               alt="Logo Unión El Progreso"
-              fill
+              width={300}
+              height={93}
               priority
-              sizes="(max-width: 768px) 70vw, 260px"
-              className="!relative !h-auto !w-full object-contain object-left select-none"
-              style={{ height: '100%', width: '100%' }}
+              className="h-10 sm:h-12 w-auto object-contain object-left select-none"
             />
           </Link>
 
-          {/* ── DESKTOP NAV — Dynamic text color ── */}
+          {/* ── DESKTOP NAV ── */}
           <div
             className={`hidden lg:flex items-center gap-1 transition-colors duration-300 ${
-              isScrolled ? "text-slate-600" : "text-white"
+              isSolid ? "text-slate-600" : "text-white"
             }`}
           >
             {NAV_LINKS.map((link) => {
@@ -84,7 +91,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
-                    isScrolled
+                    isSolid
                       ? isActive
                         ? "text-[#FF6A00]"
                         : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
@@ -94,18 +101,12 @@ export default function Navbar() {
                   }`}
                 >
                   {link.label}
-                  {isActive && isScrolled && (
+                  {isActive && (
                     <motion.div
                       layoutId="navbar-indicator"
-                      className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#FF6A00] rounded-full"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                  {/* Active indicator for transparent state */}
-                  {isActive && !isScrolled && (
-                    <motion.div
-                      layoutId="navbar-indicator-light"
-                      className="absolute bottom-0 left-2 right-2 h-0.5 bg-white/60 rounded-full"
+                      className={`absolute bottom-0 left-2 right-2 h-0.5 rounded-full ${
+                        isSolid ? "bg-[#FF6A00]" : "bg-white/60"
+                      }`}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -114,16 +115,16 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* ── DESKTOP CTA — Glass when transparent, solid when scrolled ── */}
+          {/* ── DESKTOP CTA ── */}
           <div className="hidden lg:flex items-center gap-3">
             <a
               href={getWhatsAppUrl("contacto")}
               target="_blank"
               rel="noopener noreferrer"
               className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${
-                isScrolled
-                  ? "bg-[#FF6A00] hover:bg-[#D6000C] text-white shadow-lg shadow-[#FF6A00]/20 hover:shadow-xl hover:shadow-[#FF6A00]/30"
-                  : "bg-white/15 hover:bg-white/25 text-white backdrop-blur-sm border border-white/20 hover:border-white/30"
+                isSolid
+                  ? "bg-[#FF6A00] hover:bg-[#D6000C] text-white shadow-lg shadow-[#FF6A00]/20"
+                  : "bg-white/15 hover:bg-white/25 text-white backdrop-blur-sm border border-white/20"
               }`}
             >
               <Phone className="w-4 h-4" />
@@ -131,24 +132,24 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* ── MOBILE TOGGLE — Dynamic color ── */}
+          {/* ── MOBILE TOGGLE ── */}
           <button
             onClick={() => setIsOpen(true)}
             className={`lg:hidden p-2 rounded-xl transition-colors duration-300 ${
-              isScrolled
+              isSolid
                 ? "text-slate-800 hover:bg-slate-100"
                 : "text-white hover:bg-white/10"
             }`}
             aria-label="Abrir menú"
           >
-            <Menu className="w-8 h-8" />
+            <Menu className="w-7 h-7" />
           </button>
         </nav>
       </header>
 
-      {/* ════════════════════════════════════════════════════════════
-          MENÚ MÓVIL — Overlay z-[100] con Framer Motion
-      ════════════════════════════════════════════════════════════ */}
+      {/* ═══════════════════════════════════════════════════════════════
+          MOBILE MENU — Slide-in overlay z-[100]
+      ═══════════════════════════════════════════════════════════════ */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -158,7 +159,7 @@ export default function Navbar() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="fixed inset-0 z-[100] lg:hidden"
           >
-            {/* ── Backdrop ── */}
+            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -168,7 +169,7 @@ export default function Navbar() {
               onClick={closeMenu}
             />
 
-            {/* ── Slide-in Panel ── */}
+            {/* Panel */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -181,14 +182,14 @@ export default function Navbar() {
               }}
               className="absolute right-0 top-0 bottom-0 w-[82%] max-w-[380px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-black/20 flex flex-col overflow-hidden"
             >
-              {/* Cabecera */}
+              {/* Header */}
               <div className="flex items-center justify-between px-4 pt-5 pb-4 border-b border-slate-100">
                 <Image
                   src="/logo-union-transparente.png"
                   alt="Unión El Progreso"
-                  width={150}
-                  height={40}
-                  className="object-contain h-8 w-auto"
+                  width={300}
+                  height={93}
+                  className="h-10 w-auto object-contain object-left"
                 />
                 <button
                   onClick={closeMenu}
@@ -199,7 +200,7 @@ export default function Navbar() {
                 </button>
               </div>
 
-              {/* Enlaces */}
+              {/* Links */}
               <div className="flex-1 overflow-y-auto px-4 py-6">
                 <nav className="flex flex-col gap-1.5">
                   {NAV_LINKS.map((link, i) => {

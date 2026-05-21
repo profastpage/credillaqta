@@ -77,10 +77,23 @@ export default function PrestamosPersonalesPage() {
     <>
       <Navbar />
       <main>
-        {/* Hero */}
-        <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 hero-gradient overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Hero — Immersive Background */}
+        <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-slate-950">
+          {/* Background Image */}
+          <Image
+            src="/hero-prestamos.webp"
+            alt="Préstamos personales al instante"
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover object-center opacity-45 pointer-events-none select-none"
+          />
+          {/* Asymmetric Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/50 to-transparent mix-blend-multiply" />
+          {/* Bottom fade */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-10" />
+          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32 sm:py-40">
             <div className="grid lg:grid-cols-2 gap-10 items-center">
               <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
@@ -131,7 +144,6 @@ export default function PrestamosPersonalesPage() {
               </div>
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
         </section>
 
         {/* Benefits */}

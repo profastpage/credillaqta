@@ -19,7 +19,7 @@ import { getWhatsAppUrl } from "@/lib/whatsapp";
 export const metadata: Metadata = {
   title: "Préstamo con Garantía Vehicular",
   description:
-    "Usa tu auto como garantía sin dejar de usarlo. Alianza estratégica con Procustodia. Montos hasta S/. 100,000 con tasas competitivas. Unión El Progreso - Grupo El Progreso Perú S.A.C.",
+    "Usa tu auto como garantía sin dejar de usarlo. Alianza estratégica con Procustodia. Montos hasta S/ 100,000 con tasas competitivas. Unión El Progreso - Grupo El Progreso Perú S.A.C.",
   alternates: { canonical: "/garantia-vehicular" },
 };
 
@@ -41,7 +41,7 @@ const BENEFITS = [
   },
   {
     icon: Building2,
-    title: "Montos Hasta S/. 100,000",
+    title: "Montos Hasta S/ 100,000",
     desc: "Accede a montos significativos usando tu vehículo como respaldo. Tasas competitivas adaptadas a tu perfil crediticio.",
   },
 ];
@@ -112,7 +112,7 @@ export default function GarantiaVehicularPage() {
               <p className="mt-6 text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed">
                 Usa tu vehículo como garantía sin dejar de usarlo. Alianza
                 estratégica con Procustodia para máxima seguridad. Montos hasta
-                S/. 100,000 con tasas competitivas.
+                S/ 100,000 con tasas competitivas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <a
@@ -158,44 +158,39 @@ export default function GarantiaVehicularPage() {
           </a>
         </section>
 
-        {/* Benefits */}
-        <section id="beneficios-vehicular" className="py-16 sm:py-24 bg-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-3 gap-12 items-start">
-              <div className="lg:col-span-2">
-                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-4">
-                  Protección que te acompaña{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
-                    en cada kilómetro
-                  </span>
-                </h2>
-                <p className="text-slate-500 max-w-2xl mb-12">
-                  Nuestro programa de garantía vehicular está diseñado para brindarte la máxima seguridad y tranquilidad.
-                </p>
-                <div className="grid sm:grid-cols-2 gap-6">
-                  {BENEFITS.map((b) => (
-                    <div key={b.title} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-lg shadow-slate-900/5 hover:shadow-xl transition-shadow duration-300">
-                      <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
-                        <b.icon className="w-6 h-6 text-orange-600" />
-                      </div>
-                      <h3 className="text-lg font-bold text-slate-900 mb-2">{b.title}</h3>
-                      <p className="text-sm text-slate-500 leading-relaxed">{b.desc}</p>
+        {/* Benefits — Frameless on dark */}
+        <section id="beneficios-vehicular" className="py-16 px-4 bg-slate-950">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4 text-center">
+              Protección que te acompaña{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
+                en cada kilómetro
+              </span>
+            </h2>
+            <p className="text-slate-400 max-w-2xl mx-auto mb-12 text-center">
+              Nuestro programa de garantía vehicular está diseñado para brindarte la máxima seguridad y tranquilidad.
+            </p>
+            <div className="space-y-0">
+              {BENEFITS.map((b, i) => (
+                <div
+                  key={b.title}
+                  className={`${
+                    i < BENEFITS.length - 1
+                      ? "border-b border-slate-800/60 pb-6"
+                      : "pb-0"
+                  } ${i > 0 ? "pt-6" : ""}`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center shrink-0 mt-0.5">
+                      <b.icon className="w-5 h-5 text-[#FF6B00]" />
                     </div>
-                  ))}
+                    <div>
+                      <h3 className="text-white font-bold text-lg">{b.title}</h3>
+                      <p className="text-slate-400 text-sm mt-1 leading-relaxed">{b.desc}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="hidden lg:block">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-orange-900/10 sticky top-24">
-                  <Image
-                    src="/images/car-drive.jpg"
-                    alt="Conduciendo vehículo con garantía vehicular - Unión El Progreso"
-                    width={360}
-                    height={480}
-                    className="w-full h-auto object-cover rounded-3xl"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-orange-900/20 to-transparent rounded-3xl" />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -229,7 +224,7 @@ export default function GarantiaVehicularPage() {
                   Cotizar Ahora
                 </a>
               </div>
-              <div className="bg-gradient-to-br from-stone-800 to-stone-900 rounded-3xl p-8 sm:p-10">
+              <div className="bg-white/[0.03] backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl">
                 <div className="relative w-full h-48 rounded-2xl overflow-hidden mb-6">
                   <Image
                     src="/images/trust-partners.jpg"

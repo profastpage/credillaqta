@@ -37,8 +37,7 @@ export default function Navbar() {
     setIsOpen(false);
   }, []);
 
-  const isHome = pathname === "/";
-  const isSolid = isScrolled || !isHome;
+  const isSolid = isScrolled;
 
   return (
     <>

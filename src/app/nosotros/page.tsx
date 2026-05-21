@@ -197,7 +197,7 @@ export default function NosotrosPage() {
                   </div>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-stone-800 to-stone-900 rounded-3xl p-8 sm:p-10">
+              <div className="bg-white/[0.03] backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl">
                 <h3 className="text-xl font-bold text-white mb-6">Información Legal</h3>
                 <div className="space-y-4">
                   <div className="glass rounded-xl p-4">

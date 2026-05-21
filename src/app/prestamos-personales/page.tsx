@@ -19,7 +19,7 @@ import { getWhatsAppUrl } from "@/lib/whatsapp";
 export const metadata: Metadata = {
   title: "Préstamos Personales al Instante",
   description:
-    "Obtén tu préstamo personal rápido y sin complicaciones. Montos desde S/. 500 hasta S/. 20,000 con aprobación en menos de 24 horas. Unión El Progreso - Grupo El Progreso Perú S.A.C.",
+    "Obtén tu préstamo personal rápido y sin complicaciones. Montos desde S/ 500 hasta S/ 20,000 con aprobación en menos de 24 horas. Unión El Progreso - Grupo El Progreso Perú S.A.C.",
   alternates: { canonical: "/prestamos-personales" },
 };
 
@@ -32,7 +32,7 @@ const BENEFITS = [
   {
     icon: Banknote,
     title: "Montos Flexibles",
-    desc: "Accede a montos desde S/. 500 hasta S/. 20,000 según tu perfil y capacidad de pago. Elige el monto que mejor se adapte a tus necesidades financieras.",
+    desc: "Accede a montos desde S/ 500 hasta S/ 20,000 según tu perfil y capacidad de pago. Elige el monto que mejor se adapte a tus necesidades financieras.",
   },
   {
     icon: ShieldCheck,
@@ -109,8 +109,8 @@ export default function PrestamosPersonalesPage() {
                 </span>
               </h1>
               <p className="mt-6 text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed">
-                Dinero rápido cuando más lo necesitas. Montos desde S/. 500
-                hasta S/. 20,000 con aprobación en menos de 24 horas. Sin
+                Dinero rápido cuando más lo necesitas. Montos desde S/ 500
+                hasta S/ 20,000 con aprobación en menos de 24 horas. Sin
                 trámites complicados.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
@@ -157,42 +157,37 @@ export default function PrestamosPersonalesPage() {
           </a>
         </section>
 
-        {/* Benefits */}
-        <section id="beneficios" className="py-16 sm:py-24 bg-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-3 gap-12 items-start">
-              <div className="lg:col-span-2">
-                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-12">
-                  ¿Por qué elegir nuestro{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
-                    préstamo personal
-                  </span>
-                  ?
-                </h2>
-                <div className="grid sm:grid-cols-2 gap-6">
-                  {BENEFITS.map((b) => (
-                    <div key={b.title} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-lg shadow-slate-900/5 hover:shadow-xl transition-shadow duration-300">
-                      <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
-                        <b.icon className="w-6 h-6 text-orange-600" />
-                      </div>
-                      <h3 className="text-lg font-bold text-slate-900 mb-2">{b.title}</h3>
-                      <p className="text-sm text-slate-500 leading-relaxed">{b.desc}</p>
+        {/* Benefits — Frameless on dark */}
+        <section id="beneficios" className="py-16 px-4 bg-slate-950">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-12 text-center">
+              ¿Por qué elegir nuestro{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
+                préstamo personal
+              </span>
+              ?
+            </h2>
+            <div className="space-y-0">
+              {BENEFITS.map((b, i) => (
+                <div
+                  key={b.title}
+                  className={`${
+                    i < BENEFITS.length - 1
+                      ? "border-b border-slate-800/60 pb-6"
+                      : "pb-0"
+                  } ${i > 0 ? "pt-6" : ""}`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center shrink-0 mt-0.5">
+                      <b.icon className="w-5 h-5 text-[#FF6B00]" />
                     </div>
-                  ))}
+                    <div>
+                      <h3 className="text-white font-bold text-lg">{b.title}</h3>
+                      <p className="text-slate-400 text-sm mt-1 leading-relaxed">{b.desc}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="hidden lg:block">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-orange-900/10 sticky top-24">
-                  <Image
-                    src="/images/quick-approval.jpg"
-                    alt="Aprobación rápida de préstamos - Unión El Progreso"
-                    width={360}
-                    height={480}
-                    className="w-full h-auto object-cover rounded-3xl"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-orange-900/20 to-transparent rounded-3xl" />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>

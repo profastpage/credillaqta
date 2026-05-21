@@ -1,11 +1,27 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export default function FloatingWhatsApp() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show after scrolling past 80% of the first viewport (past hero)
+      setVisible(window.scrollY > window.innerHeight * 0.8);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div
+      className={`fixed bottom-6 right-6 z-50 transition-opacity duration-300 ${
+        visible ? "opacity-100" : "opacity-0 pointer-events-none"
+      }`}
+    >
       {/* Pulse ring */}
       <span className="absolute w-16 h-16 rounded-full bg-[#25D366]/30 whatsapp-pulse" />
       <motion.a

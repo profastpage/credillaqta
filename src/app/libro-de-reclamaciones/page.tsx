@@ -652,7 +652,7 @@ export default function LibroDeReclamacionesPage() {
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
               custom={0}
-              className="bg-gradient-to-br from-stone-800 to-stone-900 rounded-3xl p-8 sm:p-10"
+              className="bg-white/[0.03] backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl"
             >
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center">

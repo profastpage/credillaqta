@@ -269,7 +269,7 @@ function ProductsSection() {
       image: "/images/personal-loan.jpg",
       imageAlt: "Préstamo personal al instante - Unión El Progreso",
       description:
-        "Préstamos personales rápidos sin complicaciones. Montos desde S/. 500 hasta S/. 20,000 con aprobación en menos de 24 horas.",
+        "Préstamos personales rápidos sin complicaciones. Montos desde S/ 500 hasta S/ 20,000 con aprobación en menos de 24 horas.",
     },
     {
       icon: Car,

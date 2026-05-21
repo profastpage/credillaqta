@@ -43,38 +43,41 @@ export default function Navbar() {
   return (
     <>
       {/* ═══════════════════════════════════════════════════════════════
-          HEADER — Fixed, NO overflow-hidden (logo must never clip)
-          Home top:      h-20 (80px)  — roomy, logo breathes
-          Scrolled/sub:  h-16 (64px)  — compact, saves space
+          HEADER — Fixed, descomprimido
+          Transparente (home top): py-6 → ~96px header height
+          Scrolled / sub-páginas:  h-24  → 96px fijo + flex center
+          NUNCA overflow-hidden — el logo respira libremente
       ═══════════════════════════════════════════════════════════════ */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 flex flex-col justify-center transition-colors duration-300 ${
           isSolid
-            ? "bg-white shadow-md border-b border-slate-100"
-            : "bg-transparent"
+            ? "bg-white shadow-md border-b border-slate-100 h-24"
+            : "bg-transparent py-5 sm:py-6"
         }`}
       >
         <nav
-          className={`mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 transition-[height] duration-300 ${
-            isSolid ? "h-16" : "h-20"
-          }`}
+          className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
           aria-label="Navegación principal"
         >
-          {/* ── LOGO — height-driven + w-auto + object-contain → NEVER clipped ──
-              Aspect ratio 3.23:1. h-10→129w  h-12→155w  h-14→181w
+          {/* ── LOGO — Ancho proporcional + h-auto, SIN recorte ──
+              Logo PNG: 1774×887 → aspect 2:1
+              Mobile:  w-[190px] → auto-h = 95px
+              PC:      w-[260px] → auto-h = 130px
+              Container con aspectRatio para que fill Image no se recorte
           ── */}
           <Link
             href="/"
-            className="shrink-0 flex items-center transition-transform active:scale-95"
+            className="relative shrink-0 w-[190px] md:w-[260px]"
+            style={{ aspectRatio: "1774 / 887" }}
             aria-label="Unión El Progreso - Inicio"
           >
             <Image
               src="/logo-union-transparente.png"
               alt="Logo Unión El Progreso"
-              width={300}
-              height={93}
+              fill
               priority
-              className="h-10 sm:h-12 w-auto object-contain object-left select-none"
+              sizes="(max-width: 768px) 190px, 260px"
+              className="object-contain object-left select-none"
             />
           </Link>
 
@@ -182,15 +185,19 @@ export default function Navbar() {
               }}
               className="absolute right-0 top-0 bottom-0 w-[82%] max-w-[380px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-black/20 flex flex-col overflow-hidden"
             >
-              {/* Header */}
+              {/* Panel Header — Logo ancho proporcional */}
               <div className="flex items-center justify-between px-4 pt-5 pb-4 border-b border-slate-100">
-                <Image
-                  src="/logo-union-transparente.png"
-                  alt="Unión El Progreso"
-                  width={300}
-                  height={93}
-                  className="h-10 w-auto object-contain object-left"
-                />
+                <div
+                  className="relative shrink-0 w-[180px]"
+                  style={{ aspectRatio: "1774 / 887" }}
+                >
+                  <Image
+                    src="/logo-union-transparente.png"
+                    alt="Unión El Progreso"
+                    fill
+                    className="object-contain object-left"
+                  />
+                </div>
                 <button
                   onClick={closeMenu}
                   className="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-all duration-200 active:scale-95"

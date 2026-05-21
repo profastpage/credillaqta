@@ -296,7 +296,7 @@ function ProductsSection() {
           custom={0}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Tenemos la{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
               Solución Financiera
@@ -412,7 +412,7 @@ function FeaturesSection() {
           custom={0}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Tu préstamo en minutos,{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
               sin complicaciones
@@ -486,7 +486,7 @@ function ProcessSection() {
           custom={0}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Realiza tu solicitud{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
               100% en línea
@@ -550,7 +550,7 @@ function FAQSection() {
           custom={0}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Preguntas Frecuentes
           </h2>
           <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
@@ -623,7 +623,7 @@ function CTASection() {
           custom={0}
           className="relative"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             ¡El momento es ahora!
           </h2>
           <p className="mt-4 text-lg text-white/70 max-w-xl mx-auto">

@@ -235,7 +235,7 @@ export default function LibroDeReclamacionesPage() {
               custom={0}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
                 ¿Qué es el Libro de{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
                   Reclamaciones
@@ -303,7 +303,7 @@ export default function LibroDeReclamacionesPage() {
               custom={0}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
                 Presenta tu{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
                   Reclamo o Queja
@@ -658,7 +658,7 @@ export default function LibroDeReclamacionesPage() {
                 <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center">
                   <Building2 className="w-6 h-6 text-orange-400" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-white">
+                <h2 className="text-xl sm:text-2xl font-extrabold text-white">
                   Información de la Empresa
                 </h2>
               </div>

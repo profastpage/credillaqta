@@ -160,7 +160,7 @@ export default function PrestamosPersonalesPage() {
         {/* Benefits — Frameless on dark */}
         <section id="beneficios" className="py-16 px-4 bg-slate-950">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-12 text-center">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-12 text-center">
               ¿Por qué elegir nuestro{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
                 préstamo personal
@@ -197,7 +197,7 @@ export default function PrestamosPersonalesPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-6">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-6">
                   Requisitos <span className="text-[#FF6B00]">Simples</span>
                 </h2>
                 <p className="text-slate-400 mb-8 leading-relaxed">
@@ -254,7 +254,7 @@ export default function PrestamosPersonalesPage() {
         {/* Process Steps */}
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight text-center mb-4">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight text-center mb-4">
               Proceso en <span className="text-[#FF6B00]">3 Pasos</span>
             </h2>
             <p className="text-slate-400 text-center max-w-2xl mx-auto mb-12">
@@ -278,7 +278,7 @@ export default function PrestamosPersonalesPage() {
             <div className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl shadow-2xl relative overflow-hidden p-10 sm:p-16 text-center">
               <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#FF6B00]/10 rounded-full blur-[80px] pointer-events-none" />
               <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#D6000C]/10 rounded-full blur-[80px] pointer-events-none" />
-              <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
                 ¿Listo para obtener tu préstamo?
               </h2>
               <p className="mt-4 text-lg text-white/70 max-w-xl mx-auto">

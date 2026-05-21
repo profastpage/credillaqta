@@ -254,3 +254,27 @@ Stage Summary:
 - All light-mode section backgrounds, text colors, and card styles converted to dark glassmorphism
 - Consistent design language with other already-refactored pages (prestamos-personales, garantia-vehicular, nosotros, libro-de-reclamaciones)
 - CTA section features decorative glow orbs matching inner pages
+
+---
+Task ID: 4
+Agent: general-purpose
+Task: Upgrade h2 section headings from font-bold to font-extrabold across all pages
+
+Work Log:
+- Read worklog.md for context
+- Read all 5 page.tsx files: page.tsx, prestamos-personales/page.tsx, garantia-vehicular/page.tsx, nosotros/page.tsx, libro-de-reclamaciones/page.tsx
+- Identified all h2 section headings with `font-bold` and `text-3xl`/`text-2xl` classes (21 total)
+- Applied targeted replace_all edits per file using unique h2 class patterns to avoid touching h1, h3, or button elements
+- Verified with grep: all 21 h2 elements now use `font-extrabold`, all h1 elements remain `font-bold`, all h3 and button elements untouched
+
+Files modified:
+- `/src/app/page.tsx` — 5 h2s changed (Products, Features, Process, FAQ, CTA sections)
+- `/src/app/prestamos-personales/page.tsx` — 4 h2s changed (Benefits, Requirements, Process, CTA sections)
+- `/src/app/garantia-vehicular/page.tsx` — 4 h2s changed (Benefits, Requirements, Process, CTA sections)
+- `/src/app/nosotros/page.tsx` — 4 h2s changed (About, Values, Legal, Contact sections)
+- `/src/app/libro-de-reclamaciones/page.tsx` — 3 h2s changed (Info, Form, Company Info sections)
+
+Stage Summary:
+- All 21 section-level h2 headings across 5 pages upgraded from `font-bold` to `font-extrabold`
+- Zero side effects: h1 hero titles, h3 sub-headings, and button text preserved as `font-bold`
+- No other elements modified

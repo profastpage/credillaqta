@@ -79,7 +79,7 @@ export default function Calculadora() {
               cuota mensual
             </span>
           </h2>
-          <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-sm text-slate-400 max-w-2xl mx-auto">
             Simula tu préstamo de forma rápida y obtén una estimación
             personalizada. Tu cotización no genera ningún compromiso.
           </p>
@@ -93,7 +93,7 @@ export default function Calculadora() {
           className="grid lg:grid-cols-5 gap-8"
         >
           {/* Calculator Card */}
-          <div className="lg:col-span-3 bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl shadow-xl shadow-black/20 p-6 sm:p-8 lg:p-10">
+          <div className="lg:col-span-3 bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-10 transition-all duration-300">
             {/* Loan Type Toggle */}
             <div className="flex rounded-2xl bg-white/[0.06] p-1.5 mb-8">
               {[
@@ -117,14 +117,14 @@ export default function Calculadora() {
             {/* Amount Slider */}
             <div className="mb-8">
               <div className="flex items-baseline justify-between mb-3">
-                <label className="text-sm font-semibold text-slate-200">
+                <label className="text-sm font-extrabold text-white">
                   Monto del Préstamo
                 </label>
                 <motion.span
                   key={amount}
                   initial={{ scale: 1.1, opacity: 0.7 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="text-2xl sm:text-3xl font-bold text-[#FF6B00]"
+                  className="text-2xl sm:text-3xl font-extrabold text-[#FF6B00]"
                 >
                   {formatCurrency(amount)}
                 </motion.span>
@@ -148,14 +148,14 @@ export default function Calculadora() {
             {/* Term Slider */}
             <div className="mb-8">
               <div className="flex items-baseline justify-between mb-3">
-                <label className="text-sm font-semibold text-slate-200">
+                <label className="text-sm font-extrabold text-white">
                   Plazo (meses)
                 </label>
                 <motion.span
                   key={months}
                   initial={{ scale: 1.1, opacity: 0.7 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="text-2xl sm:text-3xl font-bold text-white"
+                  className="text-2xl sm:text-3xl font-extrabold text-white"
                 >
                   {months}{" "}
                   <span className="text-base font-medium text-slate-400">
@@ -189,7 +189,7 @@ export default function Calculadora() {
                   key={calculation.cuota.toFixed(2)}
                   initial={{ scale: 1.05 }}
                   animate={{ scale: 1 }}
-                  className="text-lg sm:text-2xl font-bold text-[#FF6B00]"
+                  className="text-lg sm:text-2xl font-extrabold text-[#FF6B00]"
                 >
                   {formatCurrency(calculation.cuota)}
                 </motion.p>
@@ -202,7 +202,7 @@ export default function Calculadora() {
                   key={calculation.totalPayable.toFixed(2)}
                   initial={{ scale: 1.05 }}
                   animate={{ scale: 1 }}
-                  className="text-lg sm:text-2xl font-bold text-slate-200"
+                  className="text-lg sm:text-2xl font-extrabold text-white"
                 >
                   {formatCurrency(calculation.totalPayable)}
                 </motion.p>
@@ -215,7 +215,7 @@ export default function Calculadora() {
                   key={calculation.totalInterest.toFixed(2)}
                   initial={{ scale: 1.05 }}
                   animate={{ scale: 1 }}
-                  className="text-lg sm:text-2xl font-bold text-amber-300"
+                  className="text-lg sm:text-2xl font-extrabold text-amber-300"
                 >
                   {formatCurrency(calculation.totalInterest)}
                 </motion.p>
@@ -294,9 +294,12 @@ export default function Calculadora() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="hero-gradient rounded-2xl p-6 text-white mt-auto"
+              className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-2xl p-6 text-white mt-auto shadow-2xl relative overflow-hidden"
             >
-              <div className="glass rounded-xl p-4">
+              {/* Glow orbs */}
+              <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#FF6B00]/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#D6000C]/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="glass rounded-xl p-4 relative">
                 <p className="text-sm font-semibold text-orange-200 mb-2">
                   Grupo El Progreso Perú S.A.C.
                 </p>

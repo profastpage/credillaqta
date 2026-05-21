@@ -14,7 +14,8 @@ type WhatsAppContext =
   | "contacto"
   | "vehicular-cotizacion"
   | "asesoria"
-  | "reclamo";
+  | "reclamo"
+  | "libro-de-reclamaciones";
 
 const WHATSAPP_MESSAGES: Record<WhatsAppContext, string> = {
   home:
@@ -33,7 +34,45 @@ const WHATSAPP_MESSAGES: Record<WhatsAppContext, string> = {
     "Hola, vengo desde la página web y necesito asesoría financiera.",
   reclamo:
     "Hola Unión El Progreso, deseo presentar un reclamo/queja. Mis datos son:",
+  "libro-de-reclamaciones":
+    "Hola Unión El Progreso, me encuentro en la sección de Libro de Reclamaciones y deseo presentar una consulta...",
 };
+
+/** Display names for each section (used in dynamic WhatsApp messages) */
+const PAGE_DISPLAY_NAMES: Record<string, string> = {
+  "/": "Inicio",
+  "/prestamos-personales": "Préstamos al Instante",
+  "/garantia-vehicular": "Garantía Vehicular",
+  "/nosotros": "Nosotros",
+  "/libro-de-reclamaciones": "Libro de Reclamaciones",
+};
+
+/** Maps pathname to WhatsAppContext */
+const PATHNAME_CONTEXT_MAP: Record<string, WhatsAppContext> = {
+  "/": "home",
+  "/prestamos-personales": "prestamos-personales",
+  "/garantia-vehicular": "garantia-vehicular",
+  "/nosotros": "nosotros",
+  "/libro-de-reclamaciones": "libro-de-reclamaciones",
+};
+
+/**
+ * Generates a WhatsApp URL with a dynamic message based on the current pathname.
+ * Format: "Hola Unión El Progreso, me encuentro en la sección de [Nombre] y deseo solicitar asesoría..."
+ */
+export function getDynamicWhatsAppUrl(pathname: string): string {
+  const pageName = PAGE_DISPLAY_NAMES[pathname] || "la página web";
+  const message = `Hola Unión El Progreso, me encuentro en la sección de ${pageName} y deseo solicitar asesoría...`;
+  const encoded = encodeURIComponent(message);
+  return `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encoded}`;
+}
+
+/**
+ * Returns the appropriate WhatsAppContext for a given pathname.
+ */
+export function getContextFromPathname(pathname: string): WhatsAppContext {
+  return PATHNAME_CONTEXT_MAP[pathname] || "contacto";
+}
 
 /**
  * Generates a WhatsApp API URL with pre-filled message.
@@ -51,5 +90,13 @@ export function getWhatsAppUrl(context: WhatsAppContext): string {
  */
 export function redirectToWhatsApp(context: WhatsAppContext): void {
   const url = getWhatsAppUrl(context);
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
+/**
+ * Hook-compatible helper that uses dynamic pathname-based messaging.
+ */
+export function redirectToWhatsAppDynamic(pathname: string): void {
+  const url = getDynamicWhatsAppUrl(pathname);
   window.open(url, "_blank", "noopener,noreferrer");
 }

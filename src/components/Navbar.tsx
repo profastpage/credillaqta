@@ -43,31 +43,28 @@ export default function Navbar() {
   return (
     <>
       {/* ═══════════════════════════════════════════════════════════════
-          HEADER — Fixed, descomprimido
-          Transparente (home top): py-6 → ~96px header height
-          Scrolled / sub-páginas:  h-24  → 96px fijo + flex center
-          NUNCA overflow-hidden — el logo respira libremente
+          HEADER — Fixed, compacto minimalista
+          Transparente: py-3 sm:py-4
+          Scrolled:     h-16 sm:h-[72px]
       ═══════════════════════════════════════════════════════════════ */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 flex flex-col justify-center transition-colors duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center transition-colors duration-300 ${
           isSolid
-            ? "bg-white shadow-md border-b border-slate-100 h-24"
-            : "bg-transparent py-5 sm:py-6"
+            ? "bg-white shadow-md border-b border-slate-100 h-16 sm:h-[72px]"
+            : "bg-transparent py-3 sm:py-4"
         }`}
       >
         <nav
           className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
           aria-label="Navegación principal"
         >
-          {/* ── LOGO — Ancho proporcional + h-auto, SIN recorte ──
-              Logo PNG: 1774×887 → aspect 2:1
-              Mobile:  w-[190px] → auto-h = 95px
-              PC:      w-[260px] → auto-h = 130px
-              Container con aspectRatio para que fill Image no se recorte
+          {/* ── LOGO — Compacto, SIN recorte ──
+              Mobile: w-[130px] → ~65px
+              PC:     w-[180px] → ~90px
           ── */}
           <Link
             href="/"
-            className="relative shrink-0 w-[190px] md:w-[260px]"
+            className="relative shrink-0 w-[130px] md:w-[180px]"
             style={{ aspectRatio: "1774 / 887" }}
             aria-label="Unión El Progreso - Inicio"
           >
@@ -93,7 +90,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
+                  className={`relative px-3 py-1.5 text-sm font-medium rounded-lg transition-all duration-300 {
                     isSolid
                       ? isActive
                         ? "text-[#FF6A00]"
@@ -124,7 +121,7 @@ export default function Navbar() {
               href={getWhatsAppUrl("contacto")}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-[1.03] {
                 isSolid
                   ? "bg-[#FF6A00] hover:bg-[#D6000C] text-white shadow-lg shadow-[#FF6A00]/20"
                   : "bg-white/15 hover:bg-white/25 text-white backdrop-blur-sm border border-white/20"
@@ -138,14 +135,14 @@ export default function Navbar() {
           {/* ── MOBILE TOGGLE ── */}
           <button
             onClick={() => setIsOpen(true)}
-            className={`lg:hidden p-2 rounded-xl transition-colors duration-300 ${
+            className={`lg:hidden p-1.5 rounded-xl transition-colors duration-300 {
               isSolid
                 ? "text-slate-800 hover:bg-slate-100"
                 : "text-white hover:bg-white/10"
             }`}
             aria-label="Abrir menú"
           >
-            <Menu className="w-7 h-7" />
+            <Menu className="w-6 h-6" />
           </button>
         </nav>
       </header>
@@ -188,7 +185,7 @@ export default function Navbar() {
               {/* Panel Header — Logo ancho proporcional */}
               <div className="flex items-center justify-between px-4 pt-5 pb-4 border-b border-slate-100">
                 <div
-                  className="relative shrink-0 w-[180px]"
+                  className="relative shrink-0 w-[130px]"
                   style={{ aspectRatio: "1774 / 887" }}
                 >
                   <Image

@@ -77,8 +77,8 @@ export default function PrestamosPersonalesPage() {
     <>
       <Navbar />
       <main>
-        {/* Hero — Immersive Background */}
-        <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-slate-950">
+        {/* Hero — Full Bleed Immersive */}
+        <section className="relative h-screen w-full flex items-center overflow-hidden bg-slate-950">
           {/* Background Image */}
           <Image
             src="/hero-prestamos.webp"
@@ -90,9 +90,9 @@ export default function PrestamosPersonalesPage() {
           />
           {/* Asymmetric Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/50 to-transparent mix-blend-multiply" />
-          {/* Bottom fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-10" />
-          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32 sm:py-40">
+          {/* Bottom fade — dark blend */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
             <div className="grid lg:grid-cols-2 gap-10 items-center">
               <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
@@ -143,10 +143,21 @@ export default function PrestamosPersonalesPage() {
               </div>
             </div>
           </div>
+
+          {/* Ver Más — scroll suave a Beneficios */}
+          <a
+            href="#beneficios"
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 text-slate-300 hover:text-orange-400 transition-colors group"
+          >
+            <span className="text-xs font-semibold tracking-wider uppercase">Ver más</span>
+            <svg className="w-5 h-5 mt-1 animate-bounce text-orange-400 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </a>
         </section>
 
         {/* Benefits */}
-        <section className="py-16 sm:py-24">
+        <section id="beneficios" className="py-16 sm:py-24 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-3 gap-12 items-start">
               <div className="lg:col-span-2">
@@ -245,7 +256,7 @@ export default function PrestamosPersonalesPage() {
         </section>
 
         {/* Process Steps */}
-        <section className="py-16 sm:py-24">
+        <section className="py-16 sm:py-24 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight text-center mb-4">
               Proceso en <span className="text-orange-600">3 Pasos</span>

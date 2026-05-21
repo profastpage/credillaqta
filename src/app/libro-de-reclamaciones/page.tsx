@@ -145,8 +145,8 @@ export default function LibroDeReclamacionesPage() {
     <>
       <Navbar />
       <main>
-        {/* ──────── Hero — Immersive Background ──────── */}
-        <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-slate-950">
+        {/* ──────── Hero — Full Bleed Immersive ──────── */}
+        <section className="relative h-screen w-full flex items-center overflow-hidden bg-slate-950">
           {/* Background Image */}
           <Image
             src="/hero-reclamaciones.webp"
@@ -158,9 +158,9 @@ export default function LibroDeReclamacionesPage() {
           />
           {/* Asymmetric Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/50 to-transparent mix-blend-multiply" />
-          {/* Bottom fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-10" />
-          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32 sm:py-40">
+          {/* Bottom fade — dark blend */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <motion.div
@@ -206,10 +206,25 @@ export default function LibroDeReclamacionesPage() {
               </motion.div>
             </div>
           </div>
+
+          {/* Ver Más — scroll suave a Info */}
+          <button
+            type="button"
+            onClick={() => {
+              const el = document.getElementById("reclamaciones-info");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 text-slate-300 hover:text-orange-400 transition-colors group cursor-pointer"
+          >
+            <span className="text-xs font-semibold tracking-wider uppercase">Ver más</span>
+            <svg className="w-5 h-5 mt-1 animate-bounce text-orange-400 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </button>
         </section>
 
         {/* ──────── Info Section ──────── */}
-        <section className="py-16 sm:py-24">
+        <section id="reclamaciones-info" className="py-16 sm:py-24 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={fadeUp}
@@ -628,7 +643,7 @@ export default function LibroDeReclamacionesPage() {
         </section>
 
         {/* ──────── Company Info Box ──────── */}
-        <section className="py-16 sm:py-24">
+        <section className="py-16 sm:py-24 bg-white">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={fadeUp}

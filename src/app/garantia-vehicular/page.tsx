@@ -85,8 +85,7 @@ export default function GarantiaVehicularPage() {
             src="/hero-vehicular.webp"
             alt="Préstamo con garantía vehicular"
             fill
-            priority
-            quality={90}
+            quality={75}
             sizes="100vw"
             className="object-cover object-center opacity-45 pointer-events-none select-none"
           />

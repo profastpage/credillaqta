@@ -225,7 +225,7 @@ export default function LibroDeReclamacionesPage() {
         </section>
 
         {/* ──────── Info Section ──────── */}
-        <section id="reclamaciones-info" className="py-16 sm:py-24 bg-white">
+        <section id="reclamaciones-info" className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={fadeUp}
@@ -235,14 +235,14 @@ export default function LibroDeReclamacionesPage() {
               custom={0}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
                 ¿Qué es el Libro de{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
                   Reclamaciones
                 </span>
                 ?
               </h2>
-              <p className="mt-4 text-lg text-slate-500 max-w-3xl mx-auto leading-relaxed">
+              <p className="mt-4 text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
                 Es un registro obligatorio donde los consumidores pueden
                 consignar sus quejas o reclamos sobre los productos o servicios
                 recibidos. Regulado por el Código de Protección y Defensa del
@@ -275,15 +275,15 @@ export default function LibroDeReclamacionesPage() {
                   whileInView="visible"
                   viewport={{ once: true, margin: "-60px" }}
                   custom={i + 1}
-                  className="bg-white rounded-2xl p-6 border border-slate-100 shadow-lg shadow-slate-900/5 hover:shadow-xl transition-shadow duration-300"
+                  className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-2xl p-6 shadow-xl shadow-black/10 hover:shadow-xl hover:shadow-black/20 transition-shadow duration-300"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
-                    <item.icon className="w-6 h-6 text-orange-600" />
+                  <div className="w-12 h-12 rounded-xl bg-white/[0.06] flex items-center justify-center mb-4">
+                    <item.icon className="w-6 h-6 text-[#FF6B00]" />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  <h3 className="text-lg font-bold text-white mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">
+                  <p className="text-sm text-slate-400 leading-relaxed">
                     {item.desc}
                   </p>
                 </motion.div>
@@ -293,7 +293,7 @@ export default function LibroDeReclamacionesPage() {
         </section>
 
         {/* ──────── Form Section ──────── */}
-        <section className="py-16 sm:py-24 bg-orange-50/40">
+        <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={fadeUp}
@@ -303,13 +303,13 @@ export default function LibroDeReclamacionesPage() {
               custom={0}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
                 Presenta tu{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
                   Reclamo o Queja
                 </span>
               </h2>
-              <p className="mt-4 text-slate-500 max-w-xl mx-auto">
+              <p className="mt-4 text-slate-400 max-w-xl mx-auto">
                 Completa el formulario y tu reclamo será enviado por WhatsApp
                 para un seguimiento inmediato.
               </p>
@@ -322,7 +322,7 @@ export default function LibroDeReclamacionesPage() {
               viewport={{ once: true, margin: "-40px" }}
               custom={1}
               onSubmit={handleSubmit}
-              className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl shadow-slate-900/5 border border-slate-100"
+              className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden"
               noValidate
             >
               <div className="grid sm:grid-cols-2 gap-6">
@@ -330,7 +330,7 @@ export default function LibroDeReclamacionesPage() {
                 <div>
                   <label
                     htmlFor="tipo"
-                    className="block text-sm font-semibold text-slate-900 mb-2"
+                    className="block text-sm font-semibold text-slate-200 mb-2"
                   >
                     Tipo de Registro *
                   </label>
@@ -340,7 +340,7 @@ export default function LibroDeReclamacionesPage() {
                     onChange={(e) =>
                       updateField("tipo", e.target.value)
                     }
-                    className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200"
+                    className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200"
                   >
                     <option value="Reclamo">Reclamo</option>
                     <option value="Queja">Queja</option>
@@ -356,7 +356,7 @@ export default function LibroDeReclamacionesPage() {
                 <div>
                   <label
                     htmlFor="nombres"
-                    className="block text-sm font-semibold text-slate-900 mb-2"
+                    className="block text-sm font-semibold text-slate-200 mb-2"
                   >
                     Nombres Completos *
                   </label>
@@ -368,10 +368,10 @@ export default function LibroDeReclamacionesPage() {
                       updateField("nombresCompletos", e.target.value)
                     }
                     placeholder="Ej. Juan Pérez García"
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-400 ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200 placeholder:text-slate-500 ${
                       errors.nombresCompletos
-                        ? "border-red-400 bg-red-50/50"
-                        : "border-slate-200 bg-white"
+                        ? "border-red-400/60 bg-red-500/10"
+                        : "border-white/10 bg-white/[0.06]"
                     }`}
                   />
                   {errors.nombresCompletos && (
@@ -386,7 +386,7 @@ export default function LibroDeReclamacionesPage() {
                 <div>
                   <label
                     htmlFor="documento"
-                    className="block text-sm font-semibold text-slate-900 mb-2"
+                    className="block text-sm font-semibold text-slate-200 mb-2"
                   >
                     Tipo de Documento *
                   </label>
@@ -396,7 +396,7 @@ export default function LibroDeReclamacionesPage() {
                     onChange={(e) =>
                       updateField("documento", e.target.value)
                     }
-                    className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200"
+                    className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200"
                   >
                     <option value="DNI">DNI</option>
                     <option value="Carné de Extranjería">
@@ -410,7 +410,7 @@ export default function LibroDeReclamacionesPage() {
                 <div>
                   <label
                     htmlFor="numDoc"
-                    className="block text-sm font-semibold text-slate-900 mb-2"
+                    className="block text-sm font-semibold text-slate-200 mb-2"
                   >
                     Número de Documento *
                   </label>
@@ -427,10 +427,10 @@ export default function LibroDeReclamacionesPage() {
                         ? "8 dígitos"
                         : "Número de documento"
                     }
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-400 ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200 placeholder:text-slate-500 ${
                       errors.numeroDocumento
-                        ? "border-red-400 bg-red-50/50"
-                        : "border-slate-200 bg-white"
+                        ? "border-red-400/60 bg-red-500/10"
+                        : "border-white/10 bg-white/[0.06]"
                     }`}
                   />
                   {errors.numeroDocumento && (
@@ -445,7 +445,7 @@ export default function LibroDeReclamacionesPage() {
                 <div>
                   <label
                     htmlFor="telefono"
-                    className="block text-sm font-semibold text-slate-900 mb-2"
+                    className="block text-sm font-semibold text-slate-200 mb-2"
                   >
                     Teléfono *
                   </label>
@@ -457,10 +457,10 @@ export default function LibroDeReclamacionesPage() {
                       updateField("telefono", e.target.value)
                     }
                     placeholder="Ej. 987654321"
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-400 ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200 placeholder:text-slate-500 ${
                       errors.telefono
-                        ? "border-red-400 bg-red-50/50"
-                        : "border-slate-200 bg-white"
+                        ? "border-red-400/60 bg-red-500/10"
+                        : "border-white/10 bg-white/[0.06]"
                     }`}
                   />
                   {errors.telefono && (
@@ -475,7 +475,7 @@ export default function LibroDeReclamacionesPage() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-semibold text-slate-900 mb-2"
+                    className="block text-sm font-semibold text-slate-200 mb-2"
                   >
                     Correo Electrónico *
                   </label>
@@ -487,10 +487,10 @@ export default function LibroDeReclamacionesPage() {
                       updateField("email", e.target.value)
                     }
                     placeholder="correo@ejemplo.com"
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-400 ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200 placeholder:text-slate-500 ${
                       errors.email
-                        ? "border-red-400 bg-red-50/50"
-                        : "border-slate-200 bg-white"
+                        ? "border-red-400/60 bg-red-500/10"
+                        : "border-white/10 bg-white/[0.06]"
                     }`}
                   />
                   {errors.email && (
@@ -505,7 +505,7 @@ export default function LibroDeReclamacionesPage() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="direccion"
-                    className="block text-sm font-semibold text-slate-900 mb-2"
+                    className="block text-sm font-semibold text-slate-200 mb-2"
                   >
                     Dirección
                   </label>
@@ -517,7 +517,7 @@ export default function LibroDeReclamacionesPage() {
                       updateField("direccion", e.target.value)
                     }
                     placeholder="Ej. Av. Arequipa 1234, Lima"
-                    className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-400"
+                    className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200 placeholder:text-slate-500"
                   />
                 </div>
 
@@ -525,7 +525,7 @@ export default function LibroDeReclamacionesPage() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="producto"
-                    className="block text-sm font-semibold text-slate-900 mb-2"
+                    className="block text-sm font-semibold text-slate-200 mb-2"
                   >
                     Producto / Servicio Relacionado
                   </label>
@@ -535,7 +535,7 @@ export default function LibroDeReclamacionesPage() {
                     onChange={(e) =>
                       updateField("producto", e.target.value)
                     }
-                    className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200"
+                    className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200"
                   >
                     <option value="Préstamo Personal">
                       Préstamo Personal
@@ -551,7 +551,7 @@ export default function LibroDeReclamacionesPage() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="descripcion"
-                    className="block text-sm font-semibold text-slate-900 mb-2"
+                    className="block text-sm font-semibold text-slate-200 mb-2"
                   >
                     Descripción del Reclamo / Queja *
                   </label>
@@ -563,10 +563,10 @@ export default function LibroDeReclamacionesPage() {
                       updateField("descripcion", e.target.value)
                     }
                     placeholder="Describe detalladamente la situación que motiva tu reclamo o queja..."
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-400 resize-none ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200 placeholder:text-slate-500 resize-none ${
                       errors.descripcion
-                        ? "border-red-400 bg-red-50/50"
-                        : "border-slate-200 bg-white"
+                        ? "border-red-400/60 bg-red-500/10"
+                        : "border-white/10 bg-white/[0.06]"
                     }`}
                   />
                   {errors.descripcion && (
@@ -581,7 +581,7 @@ export default function LibroDeReclamacionesPage() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="pedido"
-                    className="block text-sm font-semibold text-slate-900 mb-2"
+                    className="block text-sm font-semibold text-slate-200 mb-2"
                   >
                     Pedido del Consumidor *
                   </label>
@@ -593,10 +593,10 @@ export default function LibroDeReclamacionesPage() {
                       updateField("pedido", e.target.value)
                     }
                     placeholder="¿Qué solución esperas de nuestra parte?"
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all duration-200 placeholder:text-slate-400 resize-none ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200 placeholder:text-slate-500 resize-none ${
                       errors.pedido
-                        ? "border-red-400 bg-red-50/50"
-                        : "border-slate-200 bg-white"
+                        ? "border-red-400/60 bg-red-500/10"
+                        : "border-white/10 bg-white/[0.06]"
                     }`}
                   />
                   {errors.pedido && (
@@ -613,12 +613,12 @@ export default function LibroDeReclamacionesPage() {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 bg-green-50 border border-green-200 rounded-xl p-4 flex items-center gap-3"
+                  className="mb-6 bg-green-500/10 border border-green-500/20 rounded-xl p-4 flex items-center gap-3"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0" />
                   <div>
-                    <p className="text-sm font-semibold text-green-800">Reclamo enviado correctamente</p>
-                    <p className="text-xs text-green-600 mt-0.5">
+                    <p className="text-sm font-semibold text-green-300">Reclamo enviado correctamente</p>
+                    <p className="text-xs text-green-400 mt-0.5">
                       Tu reclamo ha sido enviado por WhatsApp. Te responderemos en un plazo maximo de 30 dias habiles.
                     </p>
                   </div>
@@ -644,7 +644,7 @@ export default function LibroDeReclamacionesPage() {
         </section>
 
         {/* ──────── Company Info Box ──────── */}
-        <section className="py-16 sm:py-24 bg-white">
+        <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={fadeUp}

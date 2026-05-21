@@ -122,7 +122,7 @@ export default function NosotrosPage() {
         </section>
 
         {/* About */}
-        <section id="nosotros-info" className="py-16 sm:py-24 bg-white">
+        <section id="nosotros-info" className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {/* Team & Office Images */}
             <div className="grid md:grid-cols-2 gap-6 mb-12">
@@ -156,13 +156,13 @@ export default function NosotrosPage() {
             </div>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-6">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-6">
                   ¿Quiénes somos?
                 </h2>
-                <div className="space-y-4 text-slate-600 leading-relaxed">
+                <div className="space-y-4 text-slate-300 leading-relaxed">
                   <p>
-                    <strong className="text-slate-900">Unión El Progreso</strong> es una marca comercial de{" "}
-                    <strong className="text-slate-900">Grupo El Progreso Perú S.A.C.</strong> (RUC: {SITE_CONFIG.ruc}),
+                    <strong className="text-white">Unión El Progreso</strong> es una marca comercial de{" "}
+                    <strong className="text-white">Grupo El Progreso Perú S.A.C.</strong> (RUC: {SITE_CONFIG.ruc}),
                     una empresa peruana dedicada a brindar soluciones financieras
                     accesibles y confiables a miles de familias en todo el territorio
                     nacional.
@@ -183,17 +183,17 @@ export default function NosotrosPage() {
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-4 mt-8">
-                  <div className="bg-orange-50 rounded-xl px-5 py-3">
-                    <p className="text-2xl font-bold text-orange-700">5K+</p>
-                    <p className="text-xs text-orange-500 mt-0.5">Clientes Atendidos</p>
+                  <div className="bg-white/[0.04] rounded-xl px-5 py-3">
+                    <p className="text-2xl font-bold text-[#FF6B00]">5K+</p>
+                    <p className="text-xs text-orange-400 mt-0.5">Clientes Atendidos</p>
                   </div>
-                  <div className="bg-green-50 rounded-xl px-5 py-3">
-                    <p className="text-2xl font-bold text-green-700">98%</p>
-                    <p className="text-xs text-green-500 mt-0.5">Satisfacción</p>
+                  <div className="bg-white/[0.04] rounded-xl px-5 py-3">
+                    <p className="text-2xl font-bold text-green-400">98%</p>
+                    <p className="text-xs text-green-400 mt-0.5">Satisfacción</p>
                   </div>
-                  <div className="bg-amber-50 rounded-xl px-5 py-3">
-                    <p className="text-2xl font-bold text-amber-700">24h</p>
-                    <p className="text-xs text-amber-500 mt-0.5">Aprobación Express</p>
+                  <div className="bg-white/[0.04] rounded-xl px-5 py-3">
+                    <p className="text-2xl font-bold text-amber-400">24h</p>
+                    <p className="text-xs text-amber-400 mt-0.5">Aprobación Express</p>
                   </div>
                 </div>
               </div>
@@ -223,30 +223,30 @@ export default function NosotrosPage() {
         </section>
 
         {/* Values */}
-        <section className="py-16 sm:py-24 bg-white">
+        <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-3 gap-12 items-start">
               <div className="lg:col-span-2">
-                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-4">
-                  Nuestros <span className="text-orange-600">Valores</span>
+                <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+                  Nuestros <span className="text-[#FF6B00]">Valores</span>
                 </h2>
-                <p className="text-slate-500 max-w-2xl mb-12">
+                <p className="text-slate-400 max-w-2xl mb-12">
                   Cada decisión que tomamos está guiada por estos principios fundamentales que definen nuestra identidad como empresa.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-6">
                   {VALUES.map((v) => (
-                    <div key={v.title} className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-xl hover:shadow-orange-900/5 transition-shadow duration-300">
-                      <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
-                        <v.icon className="w-6 h-6 text-orange-600" />
+                    <div key={v.title} className="bg-white/[0.02] backdrop-blur-md rounded-2xl p-6 border border-white/5 hover:shadow-xl hover:shadow-black/20 transition-shadow duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-white/[0.06] flex items-center justify-center mb-4">
+                        <v.icon className="w-6 h-6 text-[#FF6B00]" />
                       </div>
-                      <h3 className="text-lg font-bold text-slate-900 mb-2">{v.title}</h3>
-                      <p className="text-sm text-slate-500 leading-relaxed">{v.desc}</p>
+                      <h3 className="text-lg font-bold text-white mb-2">{v.title}</h3>
+                      <p className="text-sm text-slate-400 leading-relaxed">{v.desc}</p>
                     </div>
                   ))}
                 </div>
               </div>
               <div className="hidden lg:block">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-orange-900/10 sticky top-24">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/30 sticky top-24">
                   <Image
                     src="/images/office-team.jpg"
                     alt="Equipo de trabajo colaborando en oficinas de Unión El Progreso"
@@ -262,22 +262,22 @@ export default function NosotrosPage() {
         </section>
 
         {/* Legal */}
-        <section className="py-16 sm:py-24 bg-white">
+        <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <Scale className="w-10 h-10 text-orange-600 mx-auto mb-4" />
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-                Información <span className="text-orange-600">Legal</span>
+              <Scale className="w-10 h-10 text-[#FF6B00] mx-auto mb-4" />
+              <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                Información <span className="text-[#FF6B00]">Legal</span>
               </h2>
-              <p className="mt-4 text-slate-500 max-w-2xl mx-auto">
+              <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
                 Cumplimos con todas las normativas legales vigentes para garantizar tu protección y seguridad como consumidor financiero.
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               {LEGAL_ITEMS.map((item) => (
-                <div key={item.title} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-lg shadow-slate-900/5">
-                  <h3 className="text-lg font-bold text-slate-900 mb-3">{item.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+                <div key={item.title} className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-2xl p-6 shadow-xl shadow-black/10">
+                  <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -285,9 +285,11 @@ export default function NosotrosPage() {
         </section>
 
         {/* Contact */}
-        <section className="py-16 sm:py-24 bg-white">
+        <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="hero-gradient rounded-3xl p-10 sm:p-16 text-center">
+            <div className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl p-10 sm:p-16 text-center shadow-2xl relative overflow-hidden">
+              <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#FF6B00]/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#D6000C]/10 rounded-full blur-[80px] pointer-events-none" />
               <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
                 ¿Necesitas más información?
               </h2>

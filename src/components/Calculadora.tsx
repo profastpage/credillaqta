@@ -58,8 +58,7 @@ export default function Calculadora() {
 
   return (
     <section className="relative py-16 sm:py-24" id="calculadora">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white to-orange-50/30" />
+      {/* Background removed — inherits bg-slate-950 from body */}
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -70,17 +69,17 @@ export default function Calculadora() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 bg-orange-50 text-orange-600 px-4 py-2 rounded-full text-sm font-medium mb-4">
+          <div className="inline-flex items-center gap-2 bg-white/[0.06] text-[#FF6B00] px-4 py-2 rounded-full text-sm font-medium mb-4">
             <Calculator className="w-4 h-4" />
             Simulador Financiero
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             Calcula tu{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
               cuota mensual
             </span>
           </h2>
-          <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
             Simula tu préstamo de forma rápida y obtén una estimación
             personalizada. Tu cotización no genera ningún compromiso.
           </p>
@@ -94,9 +93,9 @@ export default function Calculadora() {
           className="grid lg:grid-cols-5 gap-8"
         >
           {/* Calculator Card */}
-          <div className="lg:col-span-3 bg-white rounded-3xl shadow-xl shadow-slate-900/5 border border-slate-100 p-6 sm:p-8 lg:p-10">
+          <div className="lg:col-span-3 bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl shadow-xl shadow-black/20 p-6 sm:p-8 lg:p-10">
             {/* Loan Type Toggle */}
-            <div className="flex rounded-2xl bg-slate-100 p-1.5 mb-8">
+            <div className="flex rounded-2xl bg-white/[0.06] p-1.5 mb-8">
               {[
                 { type: "personal" as LoanType, label: "Préstamo Personal" },
                 { type: "vehicular" as LoanType, label: "Garantía Vehicular" },
@@ -106,8 +105,8 @@ export default function Calculadora() {
                   onClick={() => handleLoanTypeChange(opt.type)}
                   className={`flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 ${
                     loanType === opt.type
-                      ? "bg-white text-slate-900 shadow-md shadow-slate-900/10"
-                      : "text-slate-500 hover:text-slate-700"
+                      ? "bg-white/[0.1] text-white shadow-md shadow-black/20"
+                      : "text-slate-400 hover:text-slate-200"
                   }`}
                 >
                   {opt.label}
@@ -118,14 +117,14 @@ export default function Calculadora() {
             {/* Amount Slider */}
             <div className="mb-8">
               <div className="flex items-baseline justify-between mb-3">
-                <label className="text-sm font-semibold text-slate-700">
+                <label className="text-sm font-semibold text-slate-200">
                   Monto del Préstamo
                 </label>
                 <motion.span
                   key={amount}
                   initial={{ scale: 1.1, opacity: 0.7 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="text-2xl sm:text-3xl font-bold text-orange-600"
+                  className="text-2xl sm:text-3xl font-bold text-[#FF6B00]"
                 >
                   {formatCurrency(amount)}
                 </motion.span>
@@ -149,14 +148,14 @@ export default function Calculadora() {
             {/* Term Slider */}
             <div className="mb-8">
               <div className="flex items-baseline justify-between mb-3">
-                <label className="text-sm font-semibold text-slate-700">
+                <label className="text-sm font-semibold text-slate-200">
                   Plazo (meses)
                 </label>
                 <motion.span
                   key={months}
                   initial={{ scale: 1.1, opacity: 0.7 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="text-2xl sm:text-3xl font-bold text-slate-900"
+                  className="text-2xl sm:text-3xl font-bold text-white"
                 >
                   {months}{" "}
                   <span className="text-base font-medium text-slate-400">
@@ -182,41 +181,41 @@ export default function Calculadora() {
 
             {/* Results Grid */}
             <div className="grid grid-cols-3 gap-3 sm:gap-4">
-              <div className="bg-orange-50 rounded-2xl p-4 text-center">
-                <p className="text-xs sm:text-sm text-orange-600 font-medium mb-1">
+              <div className="bg-white/[0.04] rounded-2xl p-4 text-center">
+                <p className="text-xs sm:text-sm text-[#FF6B00] font-medium mb-1">
                   Cuota Mensual
                 </p>
                 <motion.p
                   key={calculation.cuota.toFixed(2)}
                   initial={{ scale: 1.05 }}
                   animate={{ scale: 1 }}
-                  className="text-lg sm:text-2xl font-bold text-orange-700"
+                  className="text-lg sm:text-2xl font-bold text-[#FF6B00]"
                 >
                   {formatCurrency(calculation.cuota)}
                 </motion.p>
               </div>
-              <div className="bg-slate-50 rounded-2xl p-4 text-center">
-                <p className="text-xs sm:text-sm text-slate-500 font-medium mb-1">
+              <div className="bg-white/[0.04] rounded-2xl p-4 text-center">
+                <p className="text-xs sm:text-sm text-slate-400 font-medium mb-1">
                   Total a Pagar
                 </p>
                 <motion.p
                   key={calculation.totalPayable.toFixed(2)}
                   initial={{ scale: 1.05 }}
                   animate={{ scale: 1 }}
-                  className="text-lg sm:text-2xl font-bold text-slate-700"
+                  className="text-lg sm:text-2xl font-bold text-slate-200"
                 >
                   {formatCurrency(calculation.totalPayable)}
                 </motion.p>
               </div>
-              <div className="bg-amber-50 rounded-2xl p-4 text-center">
-                <p className="text-xs sm:text-sm text-amber-600 font-medium mb-1">
+              <div className="bg-white/[0.04] rounded-2xl p-4 text-center">
+                <p className="text-xs sm:text-sm text-amber-400 font-medium mb-1">
                   Interés Total
                 </p>
                 <motion.p
                   key={calculation.totalInterest.toFixed(2)}
                   initial={{ scale: 1.05 }}
                   animate={{ scale: 1 }}
-                  className="text-lg sm:text-2xl font-bold text-amber-700"
+                  className="text-lg sm:text-2xl font-bold text-amber-300"
                 >
                   {formatCurrency(calculation.totalInterest)}
                 </motion.p>
@@ -265,24 +264,24 @@ export default function Calculadora() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-lg shadow-slate-900/5 border border-slate-100 hover:shadow-xl hover:shadow-slate-900/8 transition-shadow duration-300 flex items-start gap-4"
+                className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-2xl p-6 shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/20 transition-shadow duration-300 flex items-start gap-4"
               >
                 <div
                   className={`shrink-0 w-12 h-12 rounded-xl flex items-center justify-center ${
                     item.color === "orange"
-                      ? "bg-orange-50 text-orange-600"
+                      ? "bg-white/[0.06] text-[#FF6B00]"
                       : item.color === "green"
-                      ? "bg-green-50 text-green-600"
-                      : "bg-amber-50 text-amber-600"
+                      ? "bg-white/[0.06] text-green-400"
+                      : "bg-white/[0.06] text-amber-400"
                   }`}
                 >
                   <item.icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-slate-900 mb-1">
+                  <h3 className="text-base font-bold text-white mb-1">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">
+                  <p className="text-sm text-slate-400 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>

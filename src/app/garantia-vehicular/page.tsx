@@ -196,22 +196,22 @@ export default function GarantiaVehicularPage() {
         </section>
 
         {/* Requirements */}
-        <section className="py-16 sm:py-24 bg-white" id="requisitos">
+        <section className="py-16 sm:py-24" id="requisitos">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-6">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-6">
                   Requisitos para tu{" "}
-                  <span className="text-orange-600">Garantía Vehicular</span>
+                  <span className="text-[#FF6B00]">Garantía Vehicular</span>
                 </h2>
-                <p className="text-slate-500 mb-8 leading-relaxed">
+                <p className="text-slate-400 mb-8 leading-relaxed">
                   Documentación clara y concisa para que puedas acceder a tu préstamo vehicular de manera ágil. Nuestro equipo te guiará en cada paso.
                 </p>
                 <ul className="space-y-4">
                   {REQUIREMENTS.map((req) => (
                     <li key={req} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-green-500 mt-0.5 shrink-0" />
-                      <span className="text-sm text-slate-700">{req}</span>
+                      <span className="text-sm text-slate-300">{req}</span>
                     </li>
                   ))}
                 </ul>
@@ -248,20 +248,20 @@ export default function GarantiaVehicularPage() {
         </section>
 
         {/* Process */}
-        <section className="py-16 sm:py-24 bg-white">
+        <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight text-center mb-4">
-              Proceso <span className="text-orange-600">Seguro y Transparente</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight text-center mb-4">
+              Proceso <span className="text-[#FF6B00]">Seguro y Transparente</span>
             </h2>
-            <p className="text-slate-500 text-center max-w-2xl mx-auto mb-12">
+            <p className="text-slate-400 text-center max-w-2xl mx-auto mb-12">
               Tres pasos simples para acceder a tu préstamo vehicular.
             </p>
             <div className="grid md:grid-cols-3 gap-8">
               {PROCESS.map((s) => (
-                <div key={s.step} className="bg-white rounded-3xl p-8 shadow-lg shadow-slate-900/5 border border-slate-100">
-                  <span className="text-5xl font-black text-orange-100">{s.step}</span>
-                  <h3 className="text-xl font-bold text-slate-900 mt-3 mb-3">{s.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{s.desc}</p>
+                <div key={s.step} className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl p-8 shadow-xl relative overflow-hidden">
+                  <span className="text-5xl font-black text-white/10">{s.step}</span>
+                  <h3 className="text-xl font-bold text-white mt-3 mb-3">{s.title}</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">{s.desc}</p>
                 </div>
               ))}
             </div>
@@ -271,7 +271,9 @@ export default function GarantiaVehicularPage() {
         {/* CTA */}
         <section className="py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="hero-gradient rounded-3xl p-10 sm:p-16 text-center">
+            <div className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl shadow-2xl relative overflow-hidden p-10 sm:p-16 text-center">
+              <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#FF6B00]/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#D6000C]/10 rounded-full blur-[80px] pointer-events-none" />
               <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
                 ¿Tu auto puede ayudarte?
               </h2>

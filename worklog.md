@@ -178,3 +178,79 @@ Stage Summary:
 - Logo is bigger on desktop (260px vs 220px)
 - Navbar scroll stability improved with specific transition properties
 - Deployed: https://union-el-progreso.vercel.app/
+
+---
+Task ID: 4
+Agent: Main Agent
+Task: Refactor prestamos-personales and garantia-vehicular to unified immersive dark theme
+
+Work Log:
+- Refactored `/src/app/prestamos-personales/page.tsx` (3 sections):
+  - Requirements section: removed `bg-white`, updated h2 to `text-white`, accent to `text-[#FF6B00]`, body text to `text-slate-400`, list items to `text-slate-300`, right card to glassmorphism (`bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl shadow-xl relative overflow-hidden`), FileText icon to `text-[#FF6B00]`, card h3 to `text-white`, inner doc cards to `bg-white/[0.04] border border-white/5`, inner card titles to `text-slate-200`
+  - Process Steps section: removed `bg-white`, h2/step h3 to `text-white`, accent to `text-[#FF6B00]`, body to `text-slate-400`, step cards to glassmorphism, step numbers to `text-white/10`
+  - CTA section: replaced `hero-gradient` with glassmorphism card, added glow orbs (orange + red blur circles)
+- Refactored `/src/app/garantia-vehicular/page.tsx` (3 sections):
+  - Requirements section: removed `bg-white`, h2 to `text-white`, accent to `text-[#FF6B00]`, body to `text-slate-400`, list items to `text-slate-300` (right glass card already dark, kept as-is)
+  - Process section: removed `bg-white`, h2/step h3 to `text-white`, accent to `text-[#FF6B00]`, body to `text-slate-400`, step cards to glassmorphism, step numbers to `text-white/10`
+  - CTA section: replaced `hero-gradient` with glassmorphism card, added glow orbs (orange + red blur circles)
+- Lint: 0 new errors (pre-existing Preloader.tsx error only)
+
+Stage Summary:
+- Both inner pages now use unified immersive dark theme (bg-slate-950 infinite base)
+- All `bg-white` sections removed, all light-mode text colors converted to dark-safe equivalents
+- Cards use glassmorphism pattern consistently across both pages
+- CTA sections feature decorative glow orbs for visual depth
+
+---
+Task ID: 5
+Agent: Main Agent
+Task: Refactor nosotros and libro-de-reclamaciones to unified immersive dark theme
+
+Work Log:
+- Refactored `/src/app/nosotros/page.tsx` (4 sections):
+  - About section: removed `bg-white`, h2 → `text-white`, body text → `text-slate-300`, bold text → `text-white`, stat cards (orange/green/amber) → `bg-white/[0.04]` with `text-[#FF6B00]`/`text-green-400`/`text-amber-400`, right column card kept as-is (already dark styled)
+  - Values section: removed `bg-white`, h2 → `text-white`, accent → `text-[#FF6B00]`, body → `text-slate-400`, value cards → glassmorphism (`bg-white/[0.02] backdrop-blur-md border border-white/5 hover:shadow-xl hover:shadow-black/20`), icon bg → `bg-white/[0.06]`, icon → `text-[#FF6B00]`, h3 → `text-white`, p → `text-slate-400`, image shadow → `shadow-black/30`
+  - Legal section: removed `bg-white`, Scale icon → `text-[#FF6B00]`, h2 → `text-white`, accent → `text-[#FF6B00]`, p → `text-slate-400`, legal cards → glassmorphism (`bg-white/[0.02] backdrop-blur-md border border-white/5 shadow-xl shadow-black/10`), h3 → `text-white`, p → `text-slate-400`
+  - Contact section: removed `bg-white`, replaced `hero-gradient` with glassmorphism (`bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl shadow-2xl relative overflow-hidden`), added orange + red glow orbs
+- Refactored `/src/app/libro-de-reclamaciones/page.tsx` (3 sections):
+  - Info section: removed `bg-white`, h2 → `text-white`, body → `text-slate-400`, info cards → glassmorphism with `shadow-black/10 hover:shadow-black/20`, icon bg → `bg-white/[0.06]`, icon → `text-[#FF6B00]`, h3 → `text-white`, p → `text-slate-400`
+  - Form section: removed `bg-orange-50/40`, h2 → `text-white`, body → `text-slate-400`, form container → glassmorphism (`bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl shadow-2xl relative overflow-hidden`), all labels → `text-slate-200`, all selects → `border-white/10 bg-white/[0.06] text-white focus:border-[#FF6B00]`, all inputs/textareas → `border-white/10 bg-white/[0.06] text-white placeholder:text-slate-500 focus:border-[#FF6B00]`, error states → `border-red-400/60 bg-red-500/10`, success banner → `bg-green-500/10 border-green-500/20` with `text-green-300`/`text-green-400`/`CheckCircle text-green-400`
+  - Company Info section: removed `bg-white`, inner container already dark styled → kept as-is
+- Lint: 0 new errors on modified files (pre-existing Preloader.tsx error only)
+
+Stage Summary:
+- Both pages now use unified immersive dark theme (bg-slate-950 infinite base)
+- All `bg-white` and `bg-orange-50/40` section backgrounds removed
+- All light-mode text colors converted to dark-safe equivalents
+- Cards use glassmorphism pattern consistently
+- Form inputs styled for dark backgrounds with proper focus/error states
+- Contact CTA features decorative glow orbs for visual depth
+
+---
+Task ID: 3
+Agent: Main Agent
+Task: Refactor homepage (page.tsx) and calculator (Calculadora.tsx) to unified immersive dark theme
+
+Work Log:
+- Refactored `/src/app/page.tsx` (5 sections):
+  - ProductsSection: removed `bg-white` from section, h2 → `text-white`, subtitle → `text-slate-400`
+  - FeaturesSection: removed `bg-white` from section, h2 → `text-white`, feature cards → `bg-white/[0.04] border-white/5 hover:border-white/10 hover:shadow-black/20`, icon bg → `bg-white/[0.06] group-hover:bg-white/[0.08]`, icon → `text-[#FF6B00]`, h3 → `text-white`, p → `text-slate-400`, image shadow → `shadow-black/30`
+  - ProcessSection: removed `bg-gradient-to-b from-white to-orange-50/30`, h2 → `text-white`, p → `text-slate-400`, step cards → glassmorphism (`bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl p-8 shadow-xl relative overflow-hidden`), step numbers → `text-white/10`, h3 → `text-white`, p → `text-slate-400`, connector → `bg-white/10`
+  - FAQSection: removed `bg-white`, h2 → `text-white`, p → `text-slate-400`, item borders → `border-slate-800/40`, question → `text-white group-hover:text-[#FF6B00]`, toggle bg → `bg-white/[0.06] group-hover:bg-white/[0.08]`, chevron → `text-slate-400 group-hover:text-[#FF6B00]`, answer → `text-slate-400`
+  - CTASection: added `bg-gradient-to-t from-slate-900/50 to-transparent` to section, replaced `hero-gradient` with glassmorphism (`bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl shadow-2xl`), removed old decorative circles, added orange + red glow orbs
+- Refactored `/src/components/Calculadora.tsx` (all sections):
+  - Removed absolute bg div (`bg-gradient-to-b from-white to-orange-50/30`)
+  - Section header: badge → `bg-white/[0.06] text-[#FF6B00]`, h2 → `text-white`, p → `text-slate-400`
+  - Calculator card → glassmorphism (`bg-white/[0.02] backdrop-blur-md border border-white/5 shadow-xl shadow-black/20`)
+  - Loan type toggle: bg → `bg-white/[0.06]`, active → `bg-white/[0.1] text-white shadow-md shadow-black/20`, inactive → `text-slate-400 hover:text-slate-200`
+  - Labels → `text-slate-200`, amount display → `text-[#FF6B00]`, months display → `text-white`
+  - Result cards: all → `bg-white/[0.04]`, cuota → `text-[#FF6B00]`, total → `text-slate-200`, interest → `text-amber-400`/`text-amber-300`
+  - Benefit sidebar cards → glassmorphism (`bg-white/[0.02] backdrop-blur-md border border-white/5 shadow-lg shadow-black/10 hover:shadow-black/20`), icon bgs → `bg-white/[0.06]` with `text-[#FF6B00]`/`text-green-400`/`text-amber-400`, h3 → `text-white`, p → `text-slate-400`
+- Verified: 0 occurrences of `bg-white`, `bg-slate-50`, `bg-orange-50`, `bg-green-50`, `bg-amber-50`, `text-slate-900`, `text-slate-500`, `text-slate-700` remain in either file
+- Lint: 0 new errors (pre-existing Preloader.tsx error only)
+
+Stage Summary:
+- Homepage and calculator now fully unified immersive dark theme (bg-slate-950 base)
+- All light-mode section backgrounds, text colors, and card styles converted to dark glassmorphism
+- Consistent design language with other already-refactored pages (prestamos-personales, garantia-vehicular, nosotros, libro-de-reclamaciones)
+- CTA section features decorative glow orbs matching inner pages

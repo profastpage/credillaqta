@@ -286,7 +286,7 @@ function ProductsSection() {
   ];
 
   return (
-    <section className="relative py-16 sm:py-24 bg-white">
+    <section className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
@@ -296,14 +296,14 @@ function ProductsSection() {
           custom={0}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             Tenemos la{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
               Solución Financiera
             </span>{" "}
             que necesitas
           </h2>
-          <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
             Elige el producto que mejor se adapte a tus necesidades. Ambos
             opciones con tasas competitivas y un proceso simplificado.
           </p>
@@ -402,7 +402,7 @@ function FeaturesSection() {
   ];
 
   return (
-    <section id="caracteristicas" className="relative py-16 sm:py-24 bg-white">
+    <section id="caracteristicas" className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
@@ -412,7 +412,7 @@ function FeaturesSection() {
           custom={0}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             Tu préstamo en minutos,{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
               sin complicaciones
@@ -434,15 +434,15 @@ function FeaturesSection() {
                   key={feature.title}
                   variants={fadeUp}
                   custom={i}
-                  className="group bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-100 hover:border-orange-100 hover:shadow-xl hover:shadow-orange-900/5 transition-all duration-300"
+                  className="group bg-white/[0.04] hover:bg-white/[0.06] rounded-2xl p-6 border border-white/5 hover:border-white/10 hover:shadow-xl hover:shadow-black/20 transition-all duration-300"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-orange-50 group-hover:bg-orange-100 flex items-center justify-center mb-4 transition-colors duration-300">
-                    <feature.icon className="w-6 h-6 text-orange-600" />
+                  <div className="w-12 h-12 rounded-xl bg-white/[0.06] group-hover:bg-white/[0.08] flex items-center justify-center mb-4 transition-colors duration-300">
+                    <feature.icon className="w-6 h-6 text-[#FF6B00]" />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  <h3 className="text-lg font-bold text-white mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">
+                  <p className="text-sm text-slate-400 leading-relaxed">
                     {feature.desc}
                   </p>
                 </motion.div>
@@ -457,7 +457,7 @@ function FeaturesSection() {
             custom={2}
             className="hidden lg:block lg:col-span-2"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-orange-900/10">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/30">
               <Image
                 src="/images/customer-service.jpg"
                 alt="Equipo de atención al cliente de Unión El Progreso"
@@ -476,7 +476,7 @@ function FeaturesSection() {
 
 function ProcessSection() {
   return (
-    <section className="relative py-16 sm:py-24 bg-gradient-to-b from-white to-orange-50/30">
+    <section className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
@@ -486,13 +486,13 @@ function ProcessSection() {
           custom={0}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             Realiza tu solicitud{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
               100% en línea
             </span>
           </h2>
-          <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
             Un proceso simple y transparente diseñado para que obtengas tu
             préstamo sin salir de casa.
           </p>
@@ -512,21 +512,21 @@ function ProcessSection() {
               custom={i}
               className="relative"
             >
-              <div className="bg-white rounded-3xl p-8 shadow-lg shadow-slate-900/5 border border-slate-100 relative z-10">
-                <span className="text-5xl font-black text-orange-100">
+              <div className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl p-8 shadow-xl relative overflow-hidden">
+                <span className="text-5xl font-black text-white/10">
                   {step.number}
                 </span>
-                <h3 className="text-xl font-bold text-slate-900 mt-3 mb-3">
+                <h3 className="text-xl font-bold text-white mt-3 mb-3">
                   {step.title}
                 </h3>
-                <p className="text-sm text-slate-500 leading-relaxed">
+                <p className="text-sm text-slate-400 leading-relaxed">
                   {step.description}
                 </p>
               </div>
 
               {/* Connector line (hidden on last item and mobile) */}
               {i < PROCESS_STEPS.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-px bg-orange-200 z-0" />
+                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-px bg-white/10 z-0" />
               )}
             </motion.div>
           ))}
@@ -540,7 +540,7 @@ function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative py-16 sm:py-24 bg-white" id="faq">
+    <section className="relative py-16 sm:py-24" id="faq">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
@@ -550,10 +550,10 @@ function FAQSection() {
           custom={0}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             Preguntas Frecuentes
           </h2>
-          <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
             Resolvemos tus dudas más comunes para que tomes la mejor decisión
             con confianza.
           </p>
@@ -568,22 +568,22 @@ function FAQSection() {
               whileInView="visible"
               viewport={{ once: true, margin: "-40px" }}
               custom={i}
-              className="border-b border-slate-100 last:border-0"
+              className="border-b border-slate-800/40 last:border-0"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between py-6 text-left group"
                 aria-expanded={openIndex === i}
               >
-                <span className="text-base sm:text-lg font-semibold text-slate-900 group-hover:text-orange-600 transition-colors pr-4">
+                <span className="text-base sm:text-lg font-semibold text-white group-hover:text-[#FF6B00] transition-colors pr-4">
                   {faq.question}
                 </span>
                 <motion.div
                   animate={{ rotate: openIndex === i ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
-                  className="shrink-0 w-8 h-8 rounded-full bg-slate-100 group-hover:bg-orange-50 flex items-center justify-center transition-colors"
+                  className="shrink-0 w-8 h-8 rounded-full bg-white/[0.06] group-hover:bg-white/[0.08] flex items-center justify-center transition-colors"
                 >
-                  <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-orange-600 transition-colors" />
+                  <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-[#FF6B00] transition-colors" />
                 </motion.div>
               </button>
               <motion.div
@@ -595,7 +595,7 @@ function FAQSection() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <p className="pb-6 text-sm text-slate-500 leading-relaxed">
+                <p className="pb-6 text-sm text-slate-400 leading-relaxed">
                   {faq.answer}
                 </p>
               </motion.div>
@@ -609,11 +609,11 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden">
-      <div className="hero-gradient rounded-3xl mx-4 sm:mx-6 lg:mx-8 relative">
-        {/* Decorative circles */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+    <section className="relative bg-gradient-to-t from-slate-900/50 to-transparent py-16 sm:py-20 overflow-hidden">
+      <div className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl mx-4 sm:mx-6 lg:mx-8 relative overflow-hidden p-10 sm:p-16 text-center shadow-2xl">
+        {/* Glow orbs */}
+        <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#FF6B00]/10 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#D6000C]/10 rounded-full blur-[80px] pointer-events-none" />
 
         <motion.div
           variants={fadeUp}
@@ -621,7 +621,7 @@ function CTASection() {
           whileInView="visible"
           viewport={{ once: true }}
           custom={0}
-          className="relative px-6 sm:px-12 lg:px-20 py-16 sm:py-20 text-center"
+          className="relative"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             ¡El momento es ahora!

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
-import Preloader from "@/components/Preloader";
 import "./globals.css";
+import SessionPreloader from "@/components/SessionPreloader";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -71,9 +71,9 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`}>
-        <Preloader>
+        <SessionPreloader>
           <div className="relative flex min-h-screen flex-col">{children}</div>
-        </Preloader>
+        </SessionPreloader>
       </body>
     </html>
   );

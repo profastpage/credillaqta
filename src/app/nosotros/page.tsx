@@ -20,7 +20,7 @@ import { getWhatsAppUrl } from "@/lib/whatsapp";
 export const metadata: Metadata = {
   title: "Nosotros — Información Institucional",
   description:
-    "Conoce Unión El Progreso (Grupo El Progreso Perú S.A.C., RUC: 20612539066). Tu aliado financiero de confianza con años de experiencia en soluciones crediticias en Perú.",
+    "Conoce UNIÓN EL PROGRESO PERÚ S.A.C. (RUC: 20612539066). Tu aliado financiero de confianza con años de experiencia en soluciones crediticias en Perú.",
   alternates: { canonical: "/nosotros" },
 };
 
@@ -162,7 +162,7 @@ export default function NosotrosPage() {
                 <div className="space-y-4 text-slate-300 leading-relaxed">
                   <p>
                     <strong className="text-white">Unión El Progreso</strong> es una marca comercial de{" "}
-                    <strong className="text-white">Grupo El Progreso Perú S.A.C.</strong> (RUC: {SITE_CONFIG.ruc}),
+                    <strong className="text-white">{SITE_CONFIG.businessName}</strong> (RUC: {SITE_CONFIG.ruc}),
                     una empresa peruana dedicada a brindar soluciones financieras
                     accesibles y confiables a miles de familias en todo el territorio
                     nacional.

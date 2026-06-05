@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Unión El Progreso",
   },
   description:
-    "Tu solución financiera fácil, rápida y segura. Préstamos personales al instante y préstamos con garantía vehicular sin dejar de usar tu auto. Grupo El Progreso Perú S.A.C. (RUC: 20612539066).",
+    "Tu solución financiera fácil, rápida y segura. Préstamos personales al instante y préstamos con garantía vehicular sin dejar de usar tu auto. UNIÓN EL PROGRESO PERÚ S.A.C. (RUC: 20612539066).",
   keywords: [
     "préstamos personales",
     "préstamo vehicular",
@@ -30,12 +30,12 @@ export const metadata: Metadata = {
     "Procustodia",
     "financiera Perú",
     "Unión El Progreso",
-    "Grupo El Progreso Perú",
+    "UNIÓN EL PROGRESO PERÚ",
     "crédito al instante",
     "dinero rápido",
     "RUC 20612539066",
   ],
-  authors: [{ name: "Grupo El Progreso Perú S.A.C." }],
+  authors: [{ name: "UNIÓN EL PROGRESO PERÚ S.A.C." }],
   metadataBase: new URL("https://unionelprogreso.com"),
   alternates: {
     canonical: "/",

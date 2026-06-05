@@ -19,7 +19,7 @@ import { getWhatsAppUrl } from "@/lib/whatsapp";
 export const metadata: Metadata = {
   title: "Préstamos Personales al Instante",
   description:
-    "Obtén tu préstamo personal rápido y sin complicaciones. Montos desde S/ 500 hasta S/ 20,000 con aprobación en menos de 24 horas. Unión El Progreso - Grupo El Progreso Perú S.A.C.",
+    "Obtén tu préstamo personal rápido y sin complicaciones. Montos desde S/ 500 hasta S/ 20,000 con aprobación en menos de 24 horas. UNIÓN EL PROGRESO PERÚ S.A.C.",
   alternates: { canonical: "/prestamos-personales" },
 };
 

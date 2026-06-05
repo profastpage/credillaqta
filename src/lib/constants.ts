@@ -1,12 +1,12 @@
 /**
  * Site-wide constants for Unión El Progreso
- * Razón Social: Grupo El Progreso Perú S.A.C.
+ * Razón Social: UNIÓN EL PROGRESO PERÚ S.A.C.
  * RUC: 20612539066
  */
 
 export const SITE_CONFIG = {
   name: "Unión El Progreso",
-  businessName: "Grupo El Progreso Perú S.A.C.",
+  businessName: "UNIÓN EL PROGRESO PERÚ S.A.C.",
   ruc: "20612539066",
   phone: "+51902495977",
   phoneDisplay: "(01) 800-1234",

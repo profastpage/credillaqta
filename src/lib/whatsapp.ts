@@ -1,7 +1,7 @@
 /**
  * WhatsApp Conversion Utility
  * Centralized redirect logic for all WhatsApp CTAs across the site.
- * Phone: +51902495977 (Unión El Progreso - Grupo El Progreso Perú S.A.C.)
+ * Phone: +51902495977 (UNIÓN EL PROGRESO PERÚ S.A.C.)
  */
 
 export const WHATSAPP_PHONE = "51902495977";

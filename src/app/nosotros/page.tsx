@@ -16,6 +16,7 @@ import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { SITE_CONFIG } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import DeepLinking from "@/components/DeepLinking";
 
 export const metadata: Metadata = {
   title: "Nosotros — Información Institucional",
@@ -71,8 +72,9 @@ export default function NosotrosPage() {
     <>
       <Navbar />
       <main>
+        <DeepLinking>
         {/* Hero — Full Bleed Immersive */}
-        <section className="relative h-screen w-full flex items-center overflow-hidden bg-slate-950">
+        <section id="inicio" className="relative h-screen w-full flex items-center overflow-hidden bg-slate-950">
           {/* Background Image */}
           <Image
             src="/hero-nosotros.webp"
@@ -223,7 +225,7 @@ export default function NosotrosPage() {
         </section>
 
         {/* Values */}
-        <section className="py-16 sm:py-24">
+        <section id="valores" className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-3 gap-12 items-start">
               <div className="lg:col-span-2">
@@ -262,7 +264,7 @@ export default function NosotrosPage() {
         </section>
 
         {/* Legal */}
-        <section className="py-16 sm:py-24">
+        <section id="legal" className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <Scale className="w-10 h-10 text-[#FF6B00] mx-auto mb-4" />
@@ -285,7 +287,7 @@ export default function NosotrosPage() {
         </section>
 
         {/* Contact */}
-        <section className="py-16 sm:py-24">
+        <section id="contacto" className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl p-10 sm:p-16 text-center shadow-2xl relative overflow-hidden">
               <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#FF6B00]/10 rounded-full blur-[80px] pointer-events-none" />
@@ -321,6 +323,7 @@ export default function NosotrosPage() {
             </div>
           </div>
         </section>
+        </DeepLinking>
       </main>
       <Footer />
       <FloatingWhatsApp />

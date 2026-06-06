@@ -15,6 +15,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import DeepLinking from "@/components/DeepLinking";
 
 export const metadata: Metadata = {
   title: "Préstamo con Garantía Vehicular",
@@ -78,8 +79,9 @@ export default function GarantiaVehicularPage() {
     <>
       <Navbar />
       <main>
+        <DeepLinking>
         {/* Hero — Full Bleed Immersive */}
-        <section className="relative h-screen w-full flex items-center overflow-hidden bg-slate-950">
+        <section id="inicio" className="relative h-screen w-full flex items-center overflow-hidden bg-slate-950">
           {/* Background Image */}
           <Image
             src="/hero-vehicular.webp"
@@ -248,7 +250,7 @@ export default function GarantiaVehicularPage() {
         </section>
 
         {/* Process */}
-        <section className="py-16 sm:py-24">
+        <section id="proceso" className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight text-center mb-4">
               Proceso <span className="text-[#FF6B00]">Seguro y Transparente</span>
@@ -269,7 +271,7 @@ export default function GarantiaVehicularPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-16 sm:py-20">
+        <section id="contacto" className="py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl shadow-2xl relative overflow-hidden p-10 sm:p-16 text-center">
               <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#FF6B00]/10 rounded-full blur-[80px] pointer-events-none" />
@@ -291,6 +293,7 @@ export default function GarantiaVehicularPage() {
             </div>
           </div>
         </section>
+        </DeepLinking>
       </main>
       <Footer />
       <FloatingWhatsApp />

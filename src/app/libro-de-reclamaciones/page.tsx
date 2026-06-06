@@ -16,6 +16,7 @@ import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { SITE_CONFIG } from "@/lib/constants";
 import { WHATSAPP_PHONE, getWhatsAppUrl } from "@/lib/whatsapp";
+import DeepLinking from "@/components/DeepLinking";
 
 /* ─────────────────────── Animation Variants ─────────────────────── */
 const fadeUp = {
@@ -145,8 +146,9 @@ export default function LibroDeReclamacionesPage() {
     <>
       <Navbar />
       <main>
+        <DeepLinking>
         {/* ──────── Hero — Full Bleed Immersive ──────── */}
-        <section className="relative h-screen w-full flex items-center overflow-hidden bg-slate-950">
+        <section id="inicio" className="relative h-screen w-full flex items-center overflow-hidden bg-slate-950">
           {/* Background Image */}
           <Image
             src="/hero-reclamaciones.webp"
@@ -293,7 +295,7 @@ export default function LibroDeReclamacionesPage() {
         </section>
 
         {/* ──────── Form Section ──────── */}
-        <section className="py-16 sm:py-24">
+        <section id="formulario" className="py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={fadeUp}
@@ -644,7 +646,7 @@ export default function LibroDeReclamacionesPage() {
         </section>
 
         {/* ──────── Company Info Box ──────── */}
-        <section className="py-16 sm:py-24">
+        <section id="empresa" className="py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={fadeUp}
@@ -709,6 +711,7 @@ export default function LibroDeReclamacionesPage() {
             </motion.div>
           </div>
         </section>
+        </DeepLinking>
       </main>
       <Footer />
       <FloatingWhatsApp />

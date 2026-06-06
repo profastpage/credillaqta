@@ -19,6 +19,7 @@ import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { FAQ_ITEMS, PROCESS_STEPS } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import DeepLinking from "@/components/DeepLinking";
 
 /* ───────────────────────── Animation Variants ───────────────────────── */
 const fadeUp = {
@@ -39,7 +40,7 @@ const staggerContainer = {
 
 function HeroSection() {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-slate-950 pt-16">
+    <section id="inicio" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-slate-950 pt-16">
       {/* ── Contenedor de fondo — imagen brillante sin oscurecer la modelo ── */}
       <div className="absolute inset-0 z-0">
         {/* Imagen de fondo — opacidad 65 para impacto visual */}
@@ -286,7 +287,7 @@ function ProductsSection() {
   ];
 
   return (
-    <section className="relative py-16 sm:py-24">
+    <section id="productos" className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
@@ -476,7 +477,7 @@ function FeaturesSection() {
 
 function ProcessSection() {
   return (
-    <section className="relative py-16 sm:py-24">
+    <section id="proceso" className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
@@ -609,7 +610,7 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="relative bg-gradient-to-t from-slate-900/50 to-transparent py-16 sm:py-20 overflow-hidden">
+    <section id="contacto" className="relative bg-gradient-to-t from-slate-900/50 to-transparent py-16 sm:py-20 overflow-hidden">
       <div className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl mx-4 sm:mx-6 lg:mx-8 relative overflow-hidden p-10 sm:p-16 text-center shadow-2xl">
         {/* Glow orbs */}
         <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#FF6B00]/10 rounded-full blur-[80px] pointer-events-none" />
@@ -657,6 +658,7 @@ export default function HomePage() {
     <>
       <Navbar />
       <main>
+        <DeepLinking>
         <HeroSection />
         <FeaturesSection />
         <ProductsSection />
@@ -664,6 +666,7 @@ export default function HomePage() {
         <Calculadora />
         <FAQSection />
         <CTASection />
+        </DeepLinking>
       </main>
       <Footer />
       <FloatingWhatsApp />

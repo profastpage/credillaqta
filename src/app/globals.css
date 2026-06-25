@@ -56,6 +56,22 @@
   --color-orange-600: #A97631;  /* gold-dark (dorado oscuro) */
   --color-orange-700: #6D4B21;  /* gold-deep (dorado profundo) */
   --color-orange-900: #2A2013;  /* black-soft (negro suave) */
+
+  /* ── Override Tailwind slate palette → NEGRO PURO MANDI (sin tinte azul) ── */
+  /* Elimina el fondo "azul medio" que se veía con slate-950 original */
+  --color-slate-950: #000000;   /* negro absoluto */
+  --color-slate-900: #060503;   /* negro MANDI principal */
+  --color-slate-800: #0F0C08;   /* negro con tinte dorado profundo */
+  --color-slate-700: #1A140B;   /* negro suave cálido */
+
+  /* ── Override red palette → dorado oscuro (mantener nombres) ── */
+  --color-red-300: #E0CBAB;  /* gold-light */
+  --color-red-400: #DCAA61;  /* gold-primary */
+  --color-red-500: #DCAA61;  /* gold-primary */
+  --color-red-600: #A97631;  /* gold-dark */
+  --color-red-700: #6D4B21;  /* gold-deep */
+  --color-red-800: #4A3216;  /* gold-deep oscuro */
+  --color-red-900: #2A2013;  /* black-soft */
 }
 
 :root {
@@ -95,9 +111,10 @@
     overflow-x: hidden;
   }
   body {
-    @apply bg-slate-950 text-slate-800;
+    @apply bg-slate-950 text-slate-800;  /* slate-950 sobreescrito a negro puro arriba */
     overflow-x: hidden;
     position: relative;
+    background-color: #000000 !important;  /* negro absoluto MANDI, garantiza cero tinte azul */
   }
 }
 
@@ -118,18 +135,93 @@
 
 /* Hero gradient background — MANDI CORP (negro→dorado profundo→dorado oscuro→dorado principal) */
 .hero-gradient {
-  background: linear-gradient(135deg, #060503 0%, #2A2013 20%, #6D4B21 45%, #A97631 70%, #DCAA61 100%);
+  background: linear-gradient(135deg, #000000 0%, #060503 25%, #2A2013 50%, #6D4B21 75%, #A97631 100%);
 }
 
-/* Animated gradient for accents — MANDI CORP dorado shimmer */
+/* ═══════════════════════════════════════════════════════════════
+   DORADO METÁLICO — Utilidades reutilizables
+   Simula brillo metálico con gradientes que imitan reflejos.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Texto con efecto dorado metálico (para titulares, números grandes) */
+.text-gold-metallic {
+  background: linear-gradient(
+    180deg,
+    #F5E6C8 0%,    /* highlight superior (casi blanco cálido) */
+    #E0CBAB 20%,
+    #DCAA61 45%,   /* dorado principal */
+    #A97631 70%,   /* dorado oscuro */
+    #6D4B21 90%,   /* sombra inferior */
+    #DCAA61 100%   /* reflejo inferior */
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: 0 1px 0 rgba(255, 245, 220, 0.15);  /* sutil brillo superior */
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+/* Botón / superficie con dorado metálico (para CTAs principales) */
+.bg-gold-metallic {
+  background: linear-gradient(
+    180deg,
+    #F5E6C8 0%,    /* highlight superior */
+    #E0CBAB 15%,
+    #DCAA61 35%,   /* dorado principal */
+    #C99545 55%,
+    #A97631 75%,   /* dorado oscuro */
+    #8B5E26 95%    /* sombra inferior */
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 250, 230, 0.6),    /* brillo superior interno */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25),         /* sombra inferior interna */
+    0 4px 14px rgba(220, 170, 97, 0.35),        /* glow exterior dorado */
+    0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.bg-gold-metallic:hover {
+  background: linear-gradient(
+    180deg,
+    #FFEDD0 0%,
+    #F5E6C8 15%,
+    #E0CBAB 30%,
+    #DCAA61 50%,
+    #B8862E 75%,
+    #8B5E26 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 250, 230, 0.7),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 6px 22px rgba(220, 170, 97, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Borde dorado metálico (para cards, divisores) */
+.border-gold-metallic {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#000, #000) padding-box,
+    linear-gradient(180deg, #E0CBAB 0%, #DCAA61 30%, #A97631 70%, #6D4B21 100%) border-box;
+}
+
+/* Glow orb dorado más intenso (para acentos difusos en secciones) */
+.glow-gold {
+  background: radial-gradient(circle, rgba(220, 170, 97, 0.45) 0%, rgba(220, 170, 97, 0.15) 40%, transparent 70%);
+  filter: blur(40px);
+}
+
+/* Animated gradient for accents — MANDI CORP dorado metálico shimmer */
 .gradient-shimmer {
   background: linear-gradient(
     110deg,
-    #DCAA61 0%,
-    #A97631 25%,
-    #6D4B21 50%,
-    #DCAA61 75%,
-    #E0CBAB 100%
+    #E0CBAB 0%,
+    #DCAA61 20%,
+    #F5E6C8 35%,
+    #DCAA61 50%,
+    #A97631 70%,
+    #6D4B21 85%,
+    #DCAA61 100%
   );
   background-size: 200% 100%;
   animation: shimmer 6s ease-in-out infinite;
@@ -167,7 +259,7 @@ input[type="range"] {
   appearance: none;
   height: 6px;
   border-radius: 3px;
-  background: #1e293b;
+  background: linear-gradient(90deg, #1A140B 0%, #2A2013 100%);
   outline: none;
 }
 
@@ -177,22 +269,28 @@ input[type="range"]::-webkit-slider-thumb {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #DCAA61;  /* dorado MANDI */
+  background: linear-gradient(180deg, #F5E6C8 0%, #DCAA61 50%, #A97631 100%);  /* dorado metálico */
   cursor: pointer;
-  border: none;
-  box-shadow: 0 0 0 4px rgba(220, 170, 97, 0.18), 0 2px 8px rgba(220, 170, 97, 0.45);
+  border: 1px solid rgba(245, 230, 200, 0.4);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 250, 230, 0.6),
+    0 0 0 4px rgba(220, 170, 97, 0.22),
+    0 2px 10px rgba(220, 170, 97, 0.55);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
   transform: scale(1.15);
-  box-shadow: 0 0 0 6px rgba(220, 170, 97, 0.25), 0 3px 12px rgba(220, 170, 97, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 250, 230, 0.7),
+    0 0 0 6px rgba(220, 170, 97, 0.30),
+    0 3px 14px rgba(220, 170, 97, 0.65);
 }
 
 input[type="range"]::-moz-range-track {
   height: 6px;
   border-radius: 3px;
-  background: #1e293b;
+  background: linear-gradient(90deg, #1A140B 0%, #2A2013 100%);
   border: none;
 }
 
@@ -200,8 +298,11 @@ input[type="range"]::-moz-range-thumb {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #DCAA61;  /* dorado MANDI */
+  background: linear-gradient(180deg, #F5E6C8 0%, #DCAA61 50%, #A97631 100%);
   cursor: pointer;
-  border: none;
-  box-shadow: 0 0 0 4px rgba(220, 170, 97, 0.18), 0 2px 8px rgba(220, 170, 97, 0.45);
+  border: 1px solid rgba(245, 230, 200, 0.4);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 250, 230, 0.6),
+    0 0 0 4px rgba(220, 170, 97, 0.22),
+    0 2px 10px rgba(220, 170, 97, 0.55);
 }

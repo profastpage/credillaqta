@@ -179,7 +179,7 @@ export default function LibroDeReclamacionesPage() {
                 </motion.div>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.08] tracking-tight">
                   Libro de{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-300">
+                  <span className="text-gold-metallic">
                     Reclamaciones
                   </span>
                 </h1>
@@ -239,7 +239,7 @@ export default function LibroDeReclamacionesPage() {
             >
               <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
                 ¿Qué es el Libro de{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
+                <span className="text-gold-metallic">
                   Reclamaciones
                 </span>
                 ?
@@ -307,7 +307,7 @@ export default function LibroDeReclamacionesPage() {
             >
               <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
                 Presenta tu{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
+                <span className="text-gold-metallic">
                   Reclamo o Queja
                 </span>
               </h2>
@@ -631,7 +631,7 @@ export default function LibroDeReclamacionesPage() {
               <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
                 <button
                   type="submit"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-2xl text-base font-bold shadow-lg shadow-orange-900/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-orange-900/30"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold-metallic text-white px-8 py-4 rounded-2xl text-base font-bold shadow-lg shadow-orange-900/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-orange-900/30"
                 >
                   <CheckCircle2 className="w-5 h-5" />
                   Enviar Reclamo por WhatsApp

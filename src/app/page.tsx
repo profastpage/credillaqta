@@ -97,7 +97,7 @@ function HeroSection() {
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.08] tracking-tight"
             >
               El momento es{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-300">
+              <span className="text-gold-metallic">
                 ahora
               </span>
             </motion.h1>
@@ -122,7 +122,7 @@ function HeroSection() {
                 href={getWhatsAppUrl("home")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-2xl text-base font-bold shadow-2xl shadow-orange-900/30 transition-all duration-300 hover:scale-[1.03] hover:shadow-orange-900/40"
+                className="inline-flex items-center justify-center gap-2 bg-gold-metallic text-white px-8 py-4 rounded-2xl text-base font-bold shadow-2xl shadow-orange-900/30 transition-all duration-300 hover:scale-[1.03] hover:shadow-orange-900/40"
               >
                 <svg
                   className="w-5 h-5"
@@ -299,7 +299,7 @@ function ProductsSection() {
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Tenemos la{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
+            <span className="text-gold-metallic">
               Solución Financiera
             </span>{" "}
             que necesitas
@@ -415,7 +415,7 @@ function FeaturesSection() {
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Tu préstamo en minutos,{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
+            <span className="text-gold-metallic">
               sin complicaciones
             </span>
           </h2>
@@ -489,7 +489,7 @@ function ProcessSection() {
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Realiza tu solicitud{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
+            <span className="text-gold-metallic">
               100% en línea
             </span>
           </h2>
@@ -635,7 +635,7 @@ function CTASection() {
             href={getWhatsAppUrl("home")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-2xl text-lg font-bold shadow-2xl shadow-orange-900/30 mt-8 transition-all duration-300 hover:scale-[1.03]"
+            className="inline-flex items-center gap-2 bg-gold-metallic text-white px-10 py-4 rounded-2xl text-lg font-bold shadow-2xl shadow-orange-900/30 mt-8 transition-all duration-300 hover:scale-[1.03]"
           >
             <svg
               className="w-6 h-6"

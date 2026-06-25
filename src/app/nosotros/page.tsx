@@ -99,7 +99,7 @@ export default function NosotrosPage() {
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.08] tracking-tight">
                 Tu aliado financiero{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-300">
+                <span className="text-gold-metallic">
                   de confianza
                 </span>
               </h1>

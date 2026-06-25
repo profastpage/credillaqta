@@ -57,7 +57,7 @@ export default function Navbar() {
 
   // Dynamic WhatsApp URL based on current pathname
   const dynamicWhatsAppUrl = getDynamicWhatsAppUrl(pathname);
-  const phoneHref = "tel:+51902495977";
+  const phoneHref = "tel:+51966897008";
 
   return (
     <>
@@ -85,11 +85,11 @@ export default function Navbar() {
             href="/"
             className="relative shrink-0 w-[130px] md:w-[180px]"
             style={{ aspectRatio: "1774 / 887" }}
-            aria-label="Unión El Progreso - Inicio"
+            aria-label="MANDI CORP - Inicio"
           >
             <Image
-              src="/logo-union-transparente.png"
-              alt="Logo Unión El Progreso"
+              src="/logo-mandi.png"
+              alt="Logo MANDI CORP"
               fill
               priority
               sizes="(max-width: 768px) 190px, 260px"
@@ -112,7 +112,7 @@ export default function Navbar() {
                   className={`relative px-3 py-1.5 text-sm font-medium rounded-lg transition-all duration-300 ${
                     isSolid
                       ? isActive
-                        ? "text-[#FF6A00]"
+                        ? "text-[#DCAA61]"
                         : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                       : isActive
                         ? "text-white"
@@ -124,7 +124,7 @@ export default function Navbar() {
                     <motion.div
                       layoutId="navbar-indicator"
                       className={`absolute bottom-0 left-2 right-2 h-0.5 rounded-full ${
-                        isSolid ? "bg-[#FF6A00]" : "bg-white/60"
+                        isSolid ? "bg-[#DCAA61]" : "bg-white/60"
                       }`}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
@@ -224,8 +224,8 @@ export default function Navbar() {
                   style={{ aspectRatio: "1774 / 887" }}
                 >
                   <Image
-                    src="/logo-union-transparente.png"
-                    alt="Unión El Progreso"
+                    src="/logo-mandi.png"
+                    alt="MANDI CORP"
                     fill
                     className="object-contain object-left"
                   />
@@ -260,7 +260,7 @@ export default function Navbar() {
                           onClick={closeMenu}
                           className={`flex items-center px-4 py-3.5 rounded-xl text-[15px] font-medium transition-all duration-200 active:scale-[0.98] ${
                             isActive
-                              ? "bg-[#FF6A00]/10 text-[#FF6A00] border-l-[3px] border-[#FF6A00]"
+                              ? "bg-[#DCAA61]/10 text-[#DCAA61] border-l-[3px] border-[#DCAA61]"
                               : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
                           }`}
                         >
@@ -302,9 +302,9 @@ export default function Navbar() {
                 </a>
 
                 <p className="text-center text-[11px] text-slate-400 mt-4 leading-relaxed">
-                  UNIÓN EL PROGRESO PERÚ S.A.C.
+                  CORPORACIÓN MANDI SAC
                   <br />
-                  RUC: 20612539066
+                  RUC: 20615991938
                 </p>
               </motion.div>
             </motion.div>

@@ -41,20 +41,21 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  /* ── Brand Colors ── */
-  --color-brand-blue: #FF6A00;
-  --color-brand-dark: #1C1917;
-  --color-brand-green: #1B9138;
-  --color-brand-orange: #FF6A00;
-  --color-brand-red: #D6000C;
+  /* ── MANDI CORP Brand Colors (Negro + Dorado) ── */
+  --color-brand-blue: #DCAA61;   /* alias legacy → dorado principal */
+  --color-brand-dark: #060503;   /* negro principal MANDI */
+  --color-brand-green: #A97631;  /* alias legacy → dorado oscuro */
+  --color-brand-orange: #DCAA61; /* dorado principal MANDI */
+  --color-brand-red: #A97631;    /* alias legacy → dorado oscuro */
 
-  /* ── Override Tailwind orange palette ── */
-  --color-orange-300: #FFB366;
-  --color-orange-400: #FF9933;
-  --color-orange-500: #FF6A00;
-  --color-orange-600: #E05E00;
-  --color-orange-700: #B84D00;
-  --color-orange-900: #431407;
+  /* ── Override Tailwind orange palette → MANDI Gold palette ── */
+  /* Mantener nombres orange-* para no tocar componentes; valores mapeados a dorado MANDI */
+  --color-orange-300: #E0CBAB;  /* gold-light (crema dorado) */
+  --color-orange-400: #DCAA61;  /* gold-primary (dorado principal) */
+  --color-orange-500: #DCAA61;  /* gold-primary (dorado principal) */
+  --color-orange-600: #A97631;  /* gold-dark (dorado oscuro) */
+  --color-orange-700: #6D4B21;  /* gold-deep (dorado profundo) */
+  --color-orange-900: #2A2013;  /* black-soft (negro suave) */
 }
 
 :root {
@@ -65,23 +66,24 @@
   --card-foreground: oklch(0.145 0.015 260);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0.015 260);
-  --primary: oklch(0.65 0.2 40);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.96 0.01 250);
-  --secondary-foreground: oklch(0.25 0.05 260);
-  --muted: oklch(0.965 0.005 250);
-  --muted-foreground: oklch(0.5 0.02 260);
-  --accent: oklch(0.55 0.2 30);
+  /* MANDI CORP — Dorado sobre Negro (OKLCH approximado desde hex) */
+  --primary: oklch(0.80 0.12 75);           /* #DCAA61 dorado principal */
+  --primary-foreground: oklch(0.02 0.005 60); /* #060503 negro */
+  --secondary: oklch(0.18 0.02 65);          /* #2A2013 black-soft */
+  --secondary-foreground: oklch(0.84 0.04 70); /* #E0CBAB gold-light */
+  --muted: oklch(0.18 0.02 65);              /* #2A2013 */
+  --muted-foreground: oklch(0.84 0.04 70);   /* #E0CBAB gold-light */
+  --accent: oklch(0.59 0.10 65);             /* #A97631 gold-dark */
   --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.91 0.01 250);
-  --input: oklch(0.91 0.01 250);
-  --ring: oklch(0.65 0.2 40);
-  --chart-1: oklch(0.65 0.2 40);
-  --chart-2: oklch(0.55 0.2 30);
-  --chart-3: oklch(0.5 0.18 150);
-  --chart-4: oklch(0.6 0.15 60);
-  --chart-5: oklch(0.65 0.1 280);
+  --destructive: oklch(0.577 0.245 27.325);  /* rojo semántico (errores) — mantener */
+  --border: oklch(0.42 0.07 60);             /* #6D4B21 gold-deep */
+  --input: oklch(0.42 0.07 60);              /* #6D4B21 gold-deep */
+  --ring: oklch(0.80 0.12 75);               /* #DCAA61 dorado */
+  --chart-1: oklch(0.80 0.12 75);            /* dorado principal */
+  --chart-2: oklch(0.59 0.10 65);            /* dorado oscuro */
+  --chart-3: oklch(0.84 0.04 70);            /* dorado claro */
+  --chart-4: oklch(0.42 0.07 60);            /* dorado profundo */
+  --chart-5: oklch(0.94 0.01 70);            /* blanco cálido */
 }
 
 @layer base {
@@ -108,26 +110,26 @@
 }
 
 .glass-dark {
-  background: rgba(28, 25, 23, 0.6);
+  background: rgba(6, 5, 3, 0.7);   /* #060503 negro MANDI con alpha */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(220, 170, 97, 0.18);  /* dorado sutil */
 }
 
-/* Hero gradient background */
+/* Hero gradient background — MANDI CORP (negro→dorado profundo→dorado oscuro→dorado principal) */
 .hero-gradient {
-  background: linear-gradient(135deg, #1C1917 0%, #431407 25%, #D6000C 55%, #FF6A00 100%);
+  background: linear-gradient(135deg, #060503 0%, #2A2013 20%, #6D4B21 45%, #A97631 70%, #DCAA61 100%);
 }
 
-/* Animated gradient for accents */
+/* Animated gradient for accents — MANDI CORP dorado shimmer */
 .gradient-shimmer {
   background: linear-gradient(
     110deg,
-    #FF6A00 0%,
-    #D6000C 25%,
-    #431407 50%,
-    #FF6A00 75%,
-    #D6000C 100%
+    #DCAA61 0%,
+    #A97631 25%,
+    #6D4B21 50%,
+    #DCAA61 75%,
+    #E0CBAB 100%
   );
   background-size: 200% 100%;
   animation: shimmer 6s ease-in-out infinite;
@@ -175,16 +177,16 @@ input[type="range"]::-webkit-slider-thumb {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #FF6B00;
+  background: #DCAA61;  /* dorado MANDI */
   cursor: pointer;
   border: none;
-  box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.15), 0 2px 8px rgba(255, 107, 0, 0.4);
+  box-shadow: 0 0 0 4px rgba(220, 170, 97, 0.18), 0 2px 8px rgba(220, 170, 97, 0.45);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
   transform: scale(1.15);
-  box-shadow: 0 0 0 6px rgba(255, 107, 0, 0.2), 0 3px 12px rgba(255, 107, 0, 0.5);
+  box-shadow: 0 0 0 6px rgba(220, 170, 97, 0.25), 0 3px 12px rgba(220, 170, 97, 0.55);
 }
 
 input[type="range"]::-moz-range-track {
@@ -198,8 +200,8 @@ input[type="range"]::-moz-range-thumb {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #FF6B00;
+  background: #DCAA61;  /* dorado MANDI */
   cursor: pointer;
   border: none;
-  box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.15), 0 2px 8px rgba(255, 107, 0, 0.4);
+  box-shadow: 0 0 0 4px rgba(220, 170, 97, 0.18), 0 2px 8px rgba(220, 170, 97, 0.45);
 }

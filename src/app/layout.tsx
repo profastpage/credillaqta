@@ -12,16 +12,16 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#1C1917",
+  themeColor: "#060503",
 };
 
 export const metadata: Metadata = {
   title: {
-    default: "Unión El Progreso — Préstamos Personales y Garantía Vehicular en Perú",
-    template: "%s | Unión El Progreso",
+    default: "MANDI CORP — Préstamos Personales y Garantía Vehicular en Perú",
+    template: "%s | MANDI CORP",
   },
   description:
-    "Tu solución financiera fácil, rápida y segura. Préstamos personales al instante y préstamos con garantía vehicular sin dejar de usar tu auto. UNIÓN EL PROGRESO PERÚ S.A.C. (RUC: 20612539066).",
+    "Tu solución financiera fácil, rápida y segura. Préstamos personales al instante y préstamos con garantía vehicular sin dejar de usar tu auto. CORPORACIÓN MANDI SAC (RUC: 20615991938).",
   keywords: [
     "préstamos personales",
     "préstamo vehicular",
@@ -29,29 +29,29 @@ export const metadata: Metadata = {
     "garantía de auto",
     "Procustodia",
     "financiera Perú",
-    "Unión El Progreso",
-    "UNIÓN EL PROGRESO PERÚ",
+    "MANDI CORP",
+    "CORPORACIÓN MANDI SAC",
     "crédito al instante",
     "dinero rápido",
-    "RUC 20612539066",
+    "RUC 20615991938",
   ],
-  authors: [{ name: "UNIÓN EL PROGRESO PERÚ S.A.C." }],
-  metadataBase: new URL("https://unionelprogreso.com"),
+  authors: [{ name: "CORPORACIÓN MANDI SAC" }],
+  metadataBase: new URL("https://mandi-corp.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Unión El Progreso — Tu Solución Financiera de Confianza",
+    title: "MANDI CORP — Tu Solución Financiera de Confianza",
     description:
       "Préstamos personales al instante y préstamos con garantía vehicular. Tu aliado financiero confiable en Perú.",
-    url: "https://unionelprogreso.com",
-    siteName: "Unión El Progreso",
+    url: "https://mandi-corp.vercel.app",
+    siteName: "MANDI CORP",
     locale: "es_PE",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Unión El Progreso — Préstamos Rápidos y Seguros",
+    title: "MANDI CORP — Préstamos Rápidos y Seguros",
     description:
       "Consigue tu préstamo en minutos. Préstamos personales y con garantía vehicular.",
   },

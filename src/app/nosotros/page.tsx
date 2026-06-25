@@ -21,7 +21,7 @@ import DeepLinking from "@/components/DeepLinking";
 export const metadata: Metadata = {
   title: "Nosotros — Información Institucional",
   description:
-    "Conoce UNIÓN EL PROGRESO PERÚ S.A.C. (RUC: 20612539066). Tu aliado financiero de confianza con años de experiencia en soluciones crediticias en Perú.",
+    "Conoce CORPORACIÓN MANDI SAC (RUC: 20615991938). Tu aliado financiero de confianza con años de experiencia en soluciones crediticias en Perú.",
   alternates: { canonical: "/nosotros" },
 };
 
@@ -78,7 +78,7 @@ export default function NosotrosPage() {
           {/* Background Image */}
           <Image
             src="/hero-nosotros.webp"
-            alt="Sobre Unión El Progreso"
+            alt="Sobre MANDI CORP"
             fill
             priority
             quality={75}
@@ -104,7 +104,7 @@ export default function NosotrosPage() {
                 </span>
               </h1>
               <p className="mt-6 text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed">
-                En Unión El Progreso creemos que cada persona merece acceso a
+                En MANDI CORP creemos que cada persona merece acceso a
                 soluciones financieras justas, transparentes y adaptadas a sus
                 necesidades reales.
               </p>
@@ -131,7 +131,7 @@ export default function NosotrosPage() {
               <div className="relative rounded-3xl overflow-hidden shadow-xl h-64 md:h-80">
                 <Image
                   src="/images/team-meeting.jpg"
-                  alt="Equipo de trabajo de Unión El Progreso en reunión"
+                  alt="Equipo de trabajo de MANDI CORP en reunión"
                   fill
                   className="object-cover"
                   priority
@@ -145,7 +145,7 @@ export default function NosotrosPage() {
               <div className="relative rounded-3xl overflow-hidden shadow-xl h-64 md:h-80">
                 <Image
                   src="/images/office-building.jpg"
-                  alt="Oficinas de Unión El Progreso en Lima, Perú"
+                  alt="Oficinas de MANDI CORP en Lima, Perú"
                   fill
                   className="object-cover"
                 />
@@ -163,7 +163,7 @@ export default function NosotrosPage() {
                 </h2>
                 <div className="space-y-4 text-slate-300 leading-relaxed">
                   <p>
-                    <strong className="text-white">Unión El Progreso</strong> es una marca comercial de{" "}
+                    <strong className="text-white">MANDI CORP</strong> es una marca comercial de{" "}
                     <strong className="text-white">{SITE_CONFIG.businessName}</strong> (RUC: {SITE_CONFIG.ruc}),
                     una empresa peruana dedicada a brindar soluciones financieras
                     accesibles y confiables a miles de familias en todo el territorio
@@ -186,7 +186,7 @@ export default function NosotrosPage() {
                 </div>
                 <div className="flex flex-wrap gap-4 mt-8">
                   <div className="bg-white/[0.04] rounded-xl px-5 py-3">
-                    <p className="text-2xl font-bold text-[#FF6B00]">5K+</p>
+                    <p className="text-2xl font-bold text-[#DCAA61]">5K+</p>
                     <p className="text-xs text-orange-400 mt-0.5">Clientes Atendidos</p>
                   </div>
                   <div className="bg-white/[0.04] rounded-xl px-5 py-3">
@@ -230,7 +230,7 @@ export default function NosotrosPage() {
             <div className="grid lg:grid-cols-3 gap-12 items-start">
               <div className="lg:col-span-2">
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-                  Nuestros <span className="text-[#FF6B00]">Valores</span>
+                  Nuestros <span className="text-[#DCAA61]">Valores</span>
                 </h2>
                 <p className="text-slate-400 max-w-2xl mb-12">
                   Cada decisión que tomamos está guiada por estos principios fundamentales que definen nuestra identidad como empresa.
@@ -239,7 +239,7 @@ export default function NosotrosPage() {
                   {VALUES.map((v) => (
                     <div key={v.title} className="bg-white/[0.02] backdrop-blur-md rounded-2xl p-6 border border-white/5 hover:shadow-xl hover:shadow-black/20 transition-shadow duration-300">
                       <div className="w-12 h-12 rounded-xl bg-white/[0.06] flex items-center justify-center mb-4">
-                        <v.icon className="w-6 h-6 text-[#FF6B00]" />
+                        <v.icon className="w-6 h-6 text-[#DCAA61]" />
                       </div>
                       <h3 className="text-lg font-bold text-white mb-2">{v.title}</h3>
                       <p className="text-sm text-slate-400 leading-relaxed">{v.desc}</p>
@@ -251,7 +251,7 @@ export default function NosotrosPage() {
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/30 sticky top-24">
                   <Image
                     src="/images/office-team.jpg"
-                    alt="Equipo de trabajo colaborando en oficinas de Unión El Progreso"
+                    alt="Equipo de trabajo colaborando en oficinas de MANDI CORP"
                     width={360}
                     height={480}
                     className="w-full h-auto object-cover rounded-3xl"
@@ -267,9 +267,9 @@ export default function NosotrosPage() {
         <section id="legal" className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <Scale className="w-10 h-10 text-[#FF6B00] mx-auto mb-4" />
+              <Scale className="w-10 h-10 text-[#DCAA61] mx-auto mb-4" />
               <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                Información <span className="text-[#FF6B00]">Legal</span>
+                Información <span className="text-[#DCAA61]">Legal</span>
               </h2>
               <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
                 Cumplimos con todas las normativas legales vigentes para garantizar tu protección y seguridad como consumidor financiero.
@@ -290,8 +290,8 @@ export default function NosotrosPage() {
         <section id="contacto" className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl p-10 sm:p-16 text-center shadow-2xl relative overflow-hidden">
-              <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#FF6B00]/10 rounded-full blur-[80px] pointer-events-none" />
-              <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#D6000C]/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#DCAA61]/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#A97631]/10 rounded-full blur-[80px] pointer-events-none" />
               <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
                 ¿Necesitas más información?
               </h2>

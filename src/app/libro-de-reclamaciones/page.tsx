@@ -184,7 +184,7 @@ export default function LibroDeReclamacionesPage() {
                   </span>
                 </h1>
                 <p className="mt-6 text-lg sm:text-xl text-white/70 max-w-xl leading-relaxed">
-                  Ejerce tu derecho como consumidor. En Unión El Progreso
+                  Ejerce tu derecho como consumidor. En MANDI CORP
                   garantizamos una atención justa y transparente conforme a la
                   Ley N° 29571 — Código de Protección y Defensa del Consumidor.
                 </p>
@@ -198,7 +198,7 @@ export default function LibroDeReclamacionesPage() {
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/30">
                   <Image
                     src="/images/claim-form.jpg"
-                    alt="Formulario de Libro de Reclamaciones - Unión El Progreso"
+                    alt="Formulario de Libro de Reclamaciones - MANDI CORP"
                     width={560}
                     height={380}
                     className="w-full h-auto object-cover rounded-3xl"
@@ -280,7 +280,7 @@ export default function LibroDeReclamacionesPage() {
                   className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-2xl p-6 shadow-xl shadow-black/10 hover:shadow-xl hover:shadow-black/20 transition-shadow duration-300"
                 >
                   <div className="w-12 h-12 rounded-xl bg-white/[0.06] flex items-center justify-center mb-4">
-                    <item.icon className="w-6 h-6 text-[#FF6B00]" />
+                    <item.icon className="w-6 h-6 text-[#DCAA61]" />
                   </div>
                   <h3 className="text-lg font-bold text-white mb-2">
                     {item.title}
@@ -342,7 +342,7 @@ export default function LibroDeReclamacionesPage() {
                     onChange={(e) =>
                       updateField("tipo", e.target.value)
                     }
-                    className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200"
+                    className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white focus:border-[#DCAA61] focus:ring-2 focus:ring-[#DCAA61]/20 outline-none transition-all duration-200"
                   >
                     <option value="Reclamo">Reclamo</option>
                     <option value="Queja">Queja</option>
@@ -370,7 +370,7 @@ export default function LibroDeReclamacionesPage() {
                       updateField("nombresCompletos", e.target.value)
                     }
                     placeholder="Ej. Juan Pérez García"
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200 placeholder:text-slate-500 ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#DCAA61] focus:ring-2 focus:ring-[#DCAA61]/20 outline-none transition-all duration-200 placeholder:text-slate-500 ${
                       errors.nombresCompletos
                         ? "border-red-400/60 bg-red-500/10"
                         : "border-white/10 bg-white/[0.06]"
@@ -398,7 +398,7 @@ export default function LibroDeReclamacionesPage() {
                     onChange={(e) =>
                       updateField("documento", e.target.value)
                     }
-                    className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200"
+                    className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white focus:border-[#DCAA61] focus:ring-2 focus:ring-[#DCAA61]/20 outline-none transition-all duration-200"
                   >
                     <option value="DNI">DNI</option>
                     <option value="Carné de Extranjería">
@@ -429,7 +429,7 @@ export default function LibroDeReclamacionesPage() {
                         ? "8 dígitos"
                         : "Número de documento"
                     }
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200 placeholder:text-slate-500 ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#DCAA61] focus:ring-2 focus:ring-[#DCAA61]/20 outline-none transition-all duration-200 placeholder:text-slate-500 ${
                       errors.numeroDocumento
                         ? "border-red-400/60 bg-red-500/10"
                         : "border-white/10 bg-white/[0.06]"
@@ -459,7 +459,7 @@ export default function LibroDeReclamacionesPage() {
                       updateField("telefono", e.target.value)
                     }
                     placeholder="Ej. 987654321"
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200 placeholder:text-slate-500 ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#DCAA61] focus:ring-2 focus:ring-[#DCAA61]/20 outline-none transition-all duration-200 placeholder:text-slate-500 ${
                       errors.telefono
                         ? "border-red-400/60 bg-red-500/10"
                         : "border-white/10 bg-white/[0.06]"
@@ -489,7 +489,7 @@ export default function LibroDeReclamacionesPage() {
                       updateField("email", e.target.value)
                     }
                     placeholder="correo@ejemplo.com"
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200 placeholder:text-slate-500 ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#DCAA61] focus:ring-2 focus:ring-[#DCAA61]/20 outline-none transition-all duration-200 placeholder:text-slate-500 ${
                       errors.email
                         ? "border-red-400/60 bg-red-500/10"
                         : "border-white/10 bg-white/[0.06]"
@@ -519,7 +519,7 @@ export default function LibroDeReclamacionesPage() {
                       updateField("direccion", e.target.value)
                     }
                     placeholder="Ej. Av. Arequipa 1234, Lima"
-                    className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200 placeholder:text-slate-500"
+                    className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white focus:border-[#DCAA61] focus:ring-2 focus:ring-[#DCAA61]/20 outline-none transition-all duration-200 placeholder:text-slate-500"
                   />
                 </div>
 
@@ -537,7 +537,7 @@ export default function LibroDeReclamacionesPage() {
                     onChange={(e) =>
                       updateField("producto", e.target.value)
                     }
-                    className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200"
+                    className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white focus:border-[#DCAA61] focus:ring-2 focus:ring-[#DCAA61]/20 outline-none transition-all duration-200"
                   >
                     <option value="Préstamo Personal">
                       Préstamo Personal
@@ -565,7 +565,7 @@ export default function LibroDeReclamacionesPage() {
                       updateField("descripcion", e.target.value)
                     }
                     placeholder="Describe detalladamente la situación que motiva tu reclamo o queja..."
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200 placeholder:text-slate-500 resize-none ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#DCAA61] focus:ring-2 focus:ring-[#DCAA61]/20 outline-none transition-all duration-200 placeholder:text-slate-500 resize-none ${
                       errors.descripcion
                         ? "border-red-400/60 bg-red-500/10"
                         : "border-white/10 bg-white/[0.06]"
@@ -595,7 +595,7 @@ export default function LibroDeReclamacionesPage() {
                       updateField("pedido", e.target.value)
                     }
                     placeholder="¿Qué solución esperas de nuestra parte?"
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 outline-none transition-all duration-200 placeholder:text-slate-500 resize-none ${
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-white focus:border-[#DCAA61] focus:ring-2 focus:ring-[#DCAA61]/20 outline-none transition-all duration-200 placeholder:text-slate-500 resize-none ${
                       errors.pedido
                         ? "border-red-400/60 bg-red-500/10"
                         : "border-white/10 bg-white/[0.06]"

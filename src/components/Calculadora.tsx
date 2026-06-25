@@ -69,7 +69,7 @@ export default function Calculadora() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 bg-white/[0.06] text-[#FF6B00] px-4 py-2 rounded-full text-sm font-medium mb-4">
+          <div className="inline-flex items-center gap-2 bg-white/[0.06] text-[#DCAA61] px-4 py-2 rounded-full text-sm font-medium mb-4">
             <Calculator className="w-4 h-4" />
             Simulador Financiero
           </div>
@@ -124,7 +124,7 @@ export default function Calculadora() {
                   key={amount}
                   initial={{ scale: 1.1, opacity: 0.7 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="text-2xl sm:text-3xl font-extrabold text-[#FF6B00]"
+                  className="text-2xl sm:text-3xl font-extrabold text-[#DCAA61]"
                 >
                   {formatCurrency(amount)}
                 </motion.span>
@@ -182,14 +182,14 @@ export default function Calculadora() {
             {/* Results Grid */}
             <div className="grid grid-cols-3 gap-3 sm:gap-4">
               <div className="bg-white/[0.04] rounded-2xl p-4 text-center">
-                <p className="text-xs sm:text-sm text-[#FF6B00] font-medium mb-1">
+                <p className="text-xs sm:text-sm text-[#DCAA61] font-medium mb-1">
                   Cuota Mensual
                 </p>
                 <motion.p
                   key={calculation.cuota.toFixed(2)}
                   initial={{ scale: 1.05 }}
                   animate={{ scale: 1 }}
-                  className="text-lg sm:text-2xl font-extrabold text-[#FF6B00]"
+                  className="text-lg sm:text-2xl font-extrabold text-[#DCAA61]"
                 >
                   {formatCurrency(calculation.cuota)}
                 </motion.p>
@@ -269,7 +269,7 @@ export default function Calculadora() {
                 <div
                   className={`shrink-0 w-12 h-12 rounded-xl flex items-center justify-center ${
                     item.color === "orange"
-                      ? "bg-white/[0.06] text-[#FF6B00]"
+                      ? "bg-white/[0.06] text-[#DCAA61]"
                       : item.color === "green"
                       ? "bg-white/[0.06] text-green-400"
                       : "bg-white/[0.06] text-amber-400"
@@ -297,14 +297,14 @@ export default function Calculadora() {
               className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-2xl p-6 text-white mt-auto shadow-2xl relative overflow-hidden"
             >
               {/* Glow orbs */}
-              <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#FF6B00]/10 rounded-full blur-[80px] pointer-events-none" />
-              <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#D6000C]/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#DCAA61]/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#A97631]/10 rounded-full blur-[80px] pointer-events-none" />
               <div className="glass rounded-xl p-4 relative">
                 <p className="text-sm font-semibold text-orange-200 mb-2">
-                  UNIÓN EL PROGRESO PERÚ S.A.C.
+                  CORPORACIÓN MANDI SAC
                 </p>
                 <p className="text-xs text-white/70">
-                  RUC: 20612539066. Empresa registrada y autorizada para
+                  RUC: 20615991938. Empresa registrada y autorizada para
                   operaciones financieras en el territorio nacional.
                   Respaldados por años de experiencia y compromiso con
                   nuestros clientes.

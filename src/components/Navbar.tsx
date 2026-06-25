@@ -49,6 +49,21 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
+  // ── Listener para el evento 'mandi:open-drawer' ──────────────────
+  // Permite que el BottomNav (u otros componentes) abran el drawer lateral
+  // sin necesidad de acoplar estados ni contextos.
+  useEffect(() => {
+    const handleOpenDrawer = () => setIsOpen(true);
+    if (typeof window !== "undefined") {
+      window.addEventListener("mandi:open-drawer", handleOpenDrawer);
+    }
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("mandi:open-drawer", handleOpenDrawer);
+      }
+    };
+  }, []);
+
   const closeMenu = useCallback(() => {
     setIsOpen(false);
   }, []);

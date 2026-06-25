@@ -18,10 +18,20 @@ export default function FloatingWhatsApp() {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 z-50 transition-opacity duration-300 ${
+      className={`fixed right-6 z-50 transition-opacity duration-300 ${
         visible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
+      style={{
+        /* En mobile (con BottomNav visible) se sitúa por encima del BottomNav (~96px).
+           En desktop (sin BottomNav) usa 24px desde el borde inferior. */
+        bottom: "calc(72px + env(safe-area-inset-bottom, 0px) + 16px)",
+      }}
     >
+      <style>{`
+        @media (min-width: 1024px) {
+          .mandi-floating-wa { bottom: 24px !important; }
+        }
+      `}</style>
       {/* Pulse ring */}
       <span className="absolute w-16 h-16 rounded-full bg-[#25D366]/30 whatsapp-pulse" />
       <motion.a
@@ -34,7 +44,7 @@ export default function FloatingWhatsApp() {
         transition={{ delay: 1.5, type: "spring", stiffness: 260, damping: 20 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="relative w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform border border-white"
+        className="mandi-floating-wa relative w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform border border-white"
       >
         <svg
           className="w-6 h-6"

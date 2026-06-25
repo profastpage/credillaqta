@@ -115,6 +115,16 @@
     overflow-x: hidden;
     position: relative;
     background-color: #000000 !important;  /* negro absoluto MANDI, garantiza cero tinte azul */
+    /* Padding inferior en mobile para que el BottomNav no tape contenido.
+       72px = altura del BottomNav (48px área táctil + 24px padding/borde).
+       Env(safe-area-inset-bottom) suma el espacio de iPhone con notch/home indicator.
+       En desktop (>=1024px) no aplica porque el BottomNav está hidden. */
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  }
+  @media (min-width: 1024px) {
+    body {
+      padding-bottom: 0 !important;  /* Desktop: sin BottomNav, sin padding */
+    }
   }
 }
 

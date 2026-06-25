@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SessionPreloader from "@/components/SessionPreloader";
+import BottomNav from "@/components/BottomNav";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -73,6 +74,8 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans antialiased`}>
         <SessionPreloader>
           <div className="relative flex min-h-screen flex-col">{children}</div>
+          {/* Bottom Navigation Mobile — aparece en todas las páginas, solo <1024px */}
+          <BottomNav />
         </SessionPreloader>
       </body>
     </html>

@@ -149,7 +149,7 @@ export default function Navbar() {
           <Link
             href="/"
             className="relative shrink-0 w-[140px] md:w-[220px]"
-            style={{ aspectRatio: "3756 / 894" }}
+            style={{ aspectRatio: "3596 / 862" }}
             aria-label="MANDI CORP - Inicio"
           >
             <Image
@@ -351,7 +351,7 @@ export default function Navbar() {
               >
                 <div
                   className="relative shrink-0 w-[150px]"
-                  style={{ aspectRatio: "3756 / 894" }}
+                  style={{ aspectRatio: "3596 / 862" }}
                 >
                   <Image
                     src="/logo-mandi.png"

@@ -10,7 +10,20 @@ import { NAV_LINKS } from "@/lib/constants";
 import { getDynamicWhatsAppUrl } from "@/lib/whatsapp";
 
 /* ═══════════════════════════════════════════════════════════════
-    WhatsApp SVG Icon — Brand green #25D366
+    GOLD PALETTE — MANDI CORP Ultra Premium
+   ═══════════════════════════════════════════════════════════════ */
+const GOLD = {
+  lightest: "#F5E6C8",
+  light: "#E8D5A3",
+  primary: "#DCAA61",
+  medium: "#A97631",
+  dark: "#6D4B21",
+  glow: "rgba(220, 170, 97, 0.25)",
+  glowStrong: "rgba(220, 170, 97, 0.45)",
+};
+
+/* ═══════════════════════════════════════════════════════════════
+    WhatsApp SVG Icon
    ═══════════════════════════════════════════════════════════════ */
 function WhatsAppIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
@@ -22,6 +35,22 @@ function WhatsAppIcon({ className = "w-4 h-4" }: { className?: string }) {
     >
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
     </svg>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+    Gold Gradient Text utility
+   ═══════════════════════════════════════════════════════════════ */
+function GoldText({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <span
+      className={`bg-clip-text text-transparent ${className}`}
+      style={{
+        backgroundImage: `linear-gradient(135deg, ${GOLD.lightest} 0%, ${GOLD.primary} 40%, ${GOLD.medium} 70%, ${GOLD.primary} 100%)`,
+      }}
+    >
+      {children}
+    </span>
   );
 }
 
@@ -50,8 +79,6 @@ export default function Navbar() {
   }, [isOpen]);
 
   // ── Listener para el evento 'mandi:open-drawer' ──────────────────
-  // Permite que el BottomNav (u otros componentes) abran el drawer lateral
-  // sin necesidad de acoplar estados ni contextos.
   useEffect(() => {
     const handleOpenDrawer = () => setIsOpen(true);
     if (typeof window !== "undefined") {
@@ -77,128 +104,195 @@ export default function Navbar() {
   return (
     <>
       {/* ═══════════════════════════════════════════════════════════════
-          HEADER — Fixed, compacto minimalista
-          Transparente: py-3 sm:py-4
-          Scrolled:     h-16 sm:h-[72px]
+          HEADER — GOLD IMMERSIVE ULTRA PREMIUM
+          ─────────────────────────────────────────────────────────────
+          · Transparente (top): fondo transparente, texto blanco/dorado
+          · Scrolled:           fondo negro glass con borde dorado
+          · Siempre: sutil glow dorado
       ═══════════════════════════════════════════════════════════════ */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 flex items-center transition-colors duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center transition-all duration-500 ${
           isSolid
-            ? "bg-white shadow-md border-b border-slate-100 h-16 sm:h-[72px]"
-            : "bg-transparent py-3 sm:py-4"
+            ? "h-16 sm:h-[72px]"
+            : "py-3 sm:py-4"
         }`}
+        style={
+          isSolid
+            ? {
+                background: "linear-gradient(180deg, rgba(6,5,3,0.92) 0%, rgba(6,5,3,0.97) 100%)",
+                backdropFilter: "blur(20px) saturate(1.4)",
+                WebkitBackdropFilter: "blur(20px) saturate(1.4)",
+                borderBottom: `1px solid rgba(220, 170, 97, 0.2)`,
+                boxShadow: `0 4px 30px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(220, 170, 97, 0.15) inset`,
+              }
+            : {
+                background: "transparent",
+                borderBottom: "1px solid transparent",
+              }
+        }
       >
+        {/* Subtle gold glow line at very top — always visible */}
+        <div
+          className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none"
+          style={{
+            background: `linear-gradient(90deg, transparent 5%, ${GOLD.dark} 20%, ${GOLD.primary} 50%, ${GOLD.dark} 80%, transparent 95%)`,
+            opacity: isSolid ? 1 : 0.6,
+            transition: "opacity 0.5s",
+          }}
+        />
+
         <nav
           className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
           aria-label="Navegación principal"
         >
-          {/* ── LOGO — Sin fondo, webp optimizado ──
-              Mobile: w-[130px]
-              PC:     w-[200px]
-          ── */}
+          {/* ── LOGO — Retina 2x PNG lossless ── */}
           <Link
             href="/"
-            className="relative shrink-0 w-[130px] md:w-[200px]"
-            style={{ aspectRatio: "1914 / 455" }}
+            className="relative shrink-0 w-[140px] md:w-[220px]"
+            style={{ aspectRatio: "3756 / 894" }}
             aria-label="MANDI CORP - Inicio"
           >
             <Image
-              src="/logo-mandi.webp"
+              src="/logo-mandi.png"
               alt="Logo MANDI CORP"
               fill
               priority
-              sizes="(max-width: 768px) 190px, 300px"
+              sizes="(max-width: 768px) 210px, 350px"
               className="object-contain object-left select-none"
             />
           </Link>
 
-          {/* ── DESKTOP NAV ── */}
-          <div
-            className={`hidden lg:flex items-center gap-1 transition-colors duration-300 ${
-              isSolid ? "text-slate-600" : "text-white"
-            }`}
-          >
+          {/* ── DESKTOP NAV — Gold gradient links ── */}
+          <div className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-3 py-1.5 text-sm font-medium rounded-lg transition-all duration-300 ${
+                  className={`relative px-3.5 py-2 text-[13px] font-medium tracking-wide rounded-lg transition-all duration-300 group ${
                     isSolid
-                      ? isActive
-                        ? "text-[#DCAA61]"
-                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-                      : isActive
-                        ? "text-white"
-                        : "text-white/80 hover:text-white hover:bg-white/10"
+                      ? ""
+                      : ""
                   }`}
                 >
-                  {link.label}
+                  {/* Gold text — always gold */}
+                  <span
+                    className={`relative z-10 transition-all duration-300 ${
+                      isActive
+                        ? ""
+                        : "group-hover:drop-shadow-[0_0_8px_rgba(220,170,97,0.5)]"
+                    }`}
+                    style={{
+                      backgroundImage: isActive
+                        ? `linear-gradient(135deg, ${GOLD.lightest} 0%, ${GOLD.primary} 50%, ${GOLD.lightest} 100%)`
+                        : `linear-gradient(135deg, ${GOLD.light} 0%, ${GOLD.primary} 50%, ${GOLD.medium} 100%)`,
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    {link.label}
+                  </span>
+
+                  {/* Active indicator — gold line */}
                   {isActive && (
                     <motion.div
                       layoutId="navbar-indicator"
-                      className={`absolute bottom-0 left-2 right-2 h-0.5 rounded-full ${
-                        isSolid ? "bg-[#DCAA61]" : "bg-white/60"
-                      }`}
+                      className="absolute bottom-0.5 left-3 right-3 h-[2px] rounded-full"
+                      style={{
+                        background: `linear-gradient(90deg, ${GOLD.medium} 0%, ${GOLD.primary} 50%, ${GOLD.lightest} 100%)`,
+                        boxShadow: `0 0 12px ${GOLD.glowStrong}, 0 0 4px ${GOLD.primary}`,
+                      }}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
+
+                  {/* Hover background glow */}
+                  <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    style={{
+                      background: `radial-gradient(ellipse at center, ${GOLD.glow} 0%, transparent 70%)`,
+                    }}
+                  />
                 </Link>
               );
             })}
           </div>
 
-          {/* ── DESKTOP DUAL CONTACT BUTTONS ── */}
+          {/* ── DESKTOP BUTTONS — Gold premium ── */}
           <div className="hidden lg:flex items-center gap-3">
-            {/* WhatsApp Button */}
+            {/* WhatsApp Button — Gold border + green icon */}
             <a
               href={dynamicWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${
-                isSolid
-                  ? "bg-[#25D366] hover:bg-[#1fb855] text-white shadow-lg shadow-[#25D366]/20"
-                  : "border border-white/30 text-white hover:bg-white/10"
-              }`}
+              className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-xl text-[13px] font-semibold tracking-wide transition-all duration-300 hover:scale-[1.03] overflow-hidden"
+              style={{
+                border: `1px solid ${isSolid ? `${GOLD.primary}40` : "rgba(255,255,255,0.2)"}`,
+                color: isSolid ? GOLD.lightest : "rgba(255,255,255,0.9)",
+                background: isSolid
+                  ? "rgba(220, 170, 97, 0.08)"
+                  : "rgba(255,255,255,0.05)",
+              }}
               aria-label="Contactar por WhatsApp"
             >
-              <WhatsAppIcon className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
               <span>WhatsApp</span>
+              {/* Gold shimmer on hover */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{
+                  background: `linear-gradient(135deg, transparent 30%, ${GOLD.glow} 50%, transparent 70%)`,
+                }}
+              />
             </a>
 
-            {/* Call Button */}
+            {/* Call Button — Solid gold */}
             <a
               href={phoneHref}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${
-                isSolid
-                  ? "bg-slate-900 hover:bg-slate-800 text-white shadow-lg shadow-slate-900/20"
-                  : "border border-white/30 text-white hover:bg-white/10"
-              }`}
+              className="group relative inline-flex items-center gap-2 px-5 py-2 rounded-xl text-[13px] font-bold tracking-wide transition-all duration-300 hover:scale-[1.03] overflow-hidden"
+              style={{
+                background: `linear-gradient(135deg, ${GOLD.dark} 0%, ${GOLD.medium} 40%, ${GOLD.primary} 100%)`,
+                color: "#060503",
+                boxShadow: `0 2px 16px ${GOLD.glow}, 0 1px 0 rgba(255,255,255,0.1) inset`,
+              }}
               aria-label="Llamar por teléfono"
             >
               <Phone className="w-4 h-4" />
               <span>Llamar</span>
+              {/* Shine effect on hover */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{
+                  background: `linear-gradient(135deg, transparent 20%, rgba(255,255,255,0.15) 50%, transparent 80%)`,
+                }}
+              />
             </a>
           </div>
 
-          {/* ── MOBILE TOGGLE ── */}
+          {/* ── MOBILE TOGGLE — Gold hamburger ── */}
           <button
             onClick={() => setIsOpen(true)}
-            className={`lg:hidden p-1.5 rounded-xl transition-colors duration-300 ${
-              isSolid
-                ? "text-slate-800 hover:bg-slate-100"
-                : "text-white hover:bg-white/10"
-            }`}
+            className="lg:hidden relative p-2 rounded-xl transition-all duration-300 active:scale-95"
+            style={{
+              color: isSolid ? GOLD.primary : "rgba(255,255,255,0.9)",
+            }}
             aria-label="Abrir menú"
           >
             <Menu className="w-6 h-6" />
+            {/* Subtle gold ring on touch */}
+            <div
+              className="absolute inset-0 rounded-xl opacity-0 active:opacity-100 transition-opacity duration-200 pointer-events-none"
+              style={{
+                background: GOLD.glow,
+              }}
+            />
           </button>
         </nav>
       </header>
 
       {/* ═══════════════════════════════════════════════════════════════
-          MOBILE MENU — Slide-in overlay z-[100]
+          MOBILE DRAWER — GOLD DARK IMMERSIVE
       ═══════════════════════════════════════════════════════════════ */}
       <AnimatePresence>
         {isOpen && (
@@ -209,17 +303,20 @@ export default function Navbar() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="fixed inset-0 z-[100] lg:hidden"
           >
-            {/* Backdrop */}
+            {/* Backdrop — dark with gold tint */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="absolute inset-0 bg-slate-900/50 backdrop-blur-md"
+              className="absolute inset-0 backdrop-blur-md"
+              style={{
+                background: "radial-gradient(ellipse at right center, rgba(6,5,3,0.7) 0%, rgba(0,0,0,0.5) 100%)",
+              }}
               onClick={closeMenu}
             />
 
-            {/* Panel */}
+            {/* Panel — Dark gold immersive */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -230,16 +327,34 @@ export default function Navbar() {
                 stiffness: 300,
                 mass: 0.8,
               }}
-              className="absolute right-0 top-0 bottom-0 w-[82%] max-w-[380px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-black/20 flex flex-col overflow-hidden"
+              className="absolute right-0 top-0 bottom-0 w-[82%] max-w-[380px] flex flex-col overflow-hidden"
+              style={{
+                background: "linear-gradient(180deg, #0a0806 0%, #060503 30%, #080604 100%)",
+                borderLeft: `1px solid rgba(220, 170, 97, 0.25)`,
+                boxShadow: `-20px 0 60px rgba(0, 0, 0, 0.6), -1px 0 0 rgba(220, 170, 97, 0.1) inset`,
+              }}
             >
-              {/* Panel Header — Logo sin fondo */}
-              <div className="flex items-center justify-between px-4 pt-5 pb-4 border-b border-slate-100">
+              {/* Gold glow line at top of panel */}
+              <div
+                className="h-[2px] shrink-0"
+                style={{
+                  background: `linear-gradient(90deg, transparent 0%, ${GOLD.dark} 15%, ${GOLD.primary} 50%, ${GOLD.dark} 85%, transparent 100%)`,
+                }}
+              />
+
+              {/* Panel Header — Logo + Close */}
+              <div
+                className="flex items-center justify-between px-5 pt-5 pb-4"
+                style={{
+                  borderBottom: `1px solid rgba(220, 170, 97, 0.12)`,
+                }}
+              >
                 <div
-                  className="relative shrink-0 w-[140px]"
-                  style={{ aspectRatio: "1914 / 455" }}
+                  className="relative shrink-0 w-[150px]"
+                  style={{ aspectRatio: "3756 / 894" }}
                 >
                   <Image
-                    src="/logo-mandi.webp"
+                    src="/logo-mandi.png"
                     alt="MANDI CORP"
                     fill
                     className="object-contain object-left"
@@ -247,16 +362,21 @@ export default function Navbar() {
                 </div>
                 <button
                   onClick={closeMenu}
-                  className="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-all duration-200 active:scale-95"
+                  className="p-2.5 rounded-xl transition-all duration-200 active:scale-90"
+                  style={{
+                    background: "rgba(220, 170, 97, 0.08)",
+                    border: "1px solid rgba(220, 170, 97, 0.15)",
+                    color: GOLD.primary,
+                  }}
                   aria-label="Cerrar menú"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              {/* Links */}
-              <div className="flex-1 overflow-y-auto px-4 py-6">
-                <nav className="flex flex-col gap-1.5">
+              {/* Links — Gold immersive */}
+              <div className="flex-1 overflow-y-auto px-4 py-5">
+                <nav className="flex flex-col gap-1">
                   {NAV_LINKS.map((link, i) => {
                     const isActive = pathname === link.href;
                     return (
@@ -273,13 +393,44 @@ export default function Navbar() {
                         <Link
                           href={link.href}
                           onClick={closeMenu}
-                          className={`flex items-center px-4 py-3.5 rounded-xl text-[15px] font-medium transition-all duration-200 active:scale-[0.98] ${
-                            isActive
-                              ? "bg-[#DCAA61]/10 text-[#DCAA61] border-l-[3px] border-[#DCAA61]"
-                              : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                          className={`relative flex items-center px-4 py-3.5 rounded-xl text-[15px] font-medium transition-all duration-300 active:scale-[0.98] overflow-hidden ${
+                            isActive ? "" : ""
                           }`}
+                          style={
+                            isActive
+                              ? {
+                                  background: `linear-gradient(135deg, rgba(220,170,97,0.12) 0%, rgba(220,170,97,0.05) 100%)`,
+                                  borderLeft: `3px solid ${GOLD.primary}`,
+                                  color: GOLD.lightest,
+                                  boxShadow: `inset 0 0 20px rgba(220, 170, 97, 0.05)`,
+                                }
+                              : {
+                                  color: "rgba(255,255,255,0.6)",
+                                  borderLeft: "3px solid transparent",
+                                }
+                          }
                         >
-                          <span className="ml-1.5">{link.label}</span>
+                          <span
+                            className="ml-1.5 transition-all duration-300"
+                            style={
+                              !isActive
+                                ? {
+                                    // Hover handled via group - we use inline approach
+                                  }
+                                : undefined
+                            }
+                          >
+                            {link.label}
+                          </span>
+                          {/* Hover glow overlay */}
+                          {!isActive && (
+                            <div
+                              className="absolute inset-0 rounded-xl opacity-0 active:opacity-100 transition-opacity duration-200 pointer-events-none"
+                              style={{
+                                background: `linear-gradient(135deg, rgba(220,170,97,0.06) 0%, transparent 100%)`,
+                              }}
+                            />
+                          )}
                         </Link>
                       </motion.div>
                     );
@@ -287,36 +438,53 @@ export default function Navbar() {
                 </nav>
               </div>
 
-              {/* ── DUAL CONTACT BUTTONS — Ergonomic mobile touch targets ── */}
+              {/* ── DUAL CONTACT BUTTONS — Gold themed ── */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.3 }}
-                className="px-4 pb-4 pt-4 border-t border-slate-100"
+                className="px-4 pb-5 pt-4"
+                style={{
+                  borderTop: `1px solid rgba(220, 170, 97, 0.12)`,
+                }}
               >
-                {/* WhatsApp Giant Button */}
+                {/* WhatsApp Button — Dark with green icon + gold border */}
                 <a
                   href={dynamicWhatsAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={closeMenu}
-                  className="flex items-center justify-center gap-3 w-full bg-[#25D366] hover:bg-[#1fb855] text-white min-h-[48px] rounded-xl text-[15px] font-bold shadow-lg shadow-[#25D366]/20 transition-all duration-300 active:scale-[0.98]"
+                  className="flex items-center justify-center gap-3 w-full min-h-[52px] rounded-xl text-[15px] font-bold transition-all duration-300 active:scale-[0.98]"
+                  style={{
+                    background: "rgba(37, 211, 102, 0.1)",
+                    border: `1px solid rgba(37, 211, 102, 0.25)`,
+                    color: "#25D366",
+                    boxShadow: "0 4px 20px rgba(37, 211, 102, 0.1)",
+                  }}
                 >
                   <WhatsAppIcon className="w-5 h-5" />
                   Asesoría por WhatsApp
                 </a>
 
-                {/* Call Giant Button */}
+                {/* Call Button — Solid gold */}
                 <a
                   href={phoneHref}
                   onClick={closeMenu}
-                  className="flex items-center justify-center gap-3 w-full bg-slate-900 hover:bg-slate-800 text-white min-h-[48px] rounded-xl text-[15px] font-bold shadow-lg shadow-slate-900/20 transition-all duration-300 active:scale-[0.98] mt-3"
+                  className="flex items-center justify-center gap-3 w-full min-h-[52px] rounded-xl text-[15px] font-bold transition-all duration-300 active:scale-[0.98] mt-3"
+                  style={{
+                    background: `linear-gradient(135deg, ${GOLD.dark} 0%, ${GOLD.medium} 40%, ${GOLD.primary} 100%)`,
+                    color: "#060503",
+                    boxShadow: `0 4px 24px ${GOLD.glow}`,
+                  }}
                 >
                   <Phone className="w-5 h-5" />
                   Llamar Ahora
                 </a>
 
-                <p className="text-center text-[11px] text-slate-400 mt-4 leading-relaxed">
+                <p
+                  className="text-center text-[11px] mt-5 leading-relaxed"
+                  style={{ color: "rgba(220, 170, 97, 0.4)" }}
+                >
                   CORPORACIÓN MANDI SAC
                   <br />
                   RUC: 20615991938

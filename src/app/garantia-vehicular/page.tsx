@@ -202,7 +202,7 @@ export default function GarantiaVehicularPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-6">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight mb-6">
                   Requisitos para tu{" "}
                   <span className="text-[#DCAA61]">Garantía Vehicular</span>
                 </h2>
@@ -236,7 +236,7 @@ export default function GarantiaVehicularPage() {
                   />
                 </div>
                 <FileCheck className="w-12 h-12 text-orange-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-4">¿No tienes tasación?</h3>
+                <h3 className="text-xl font-bold text-gold-luxury-subtle mb-4">¿No tienes tasación?</h3>
                 <p className="text-sm text-slate-300 leading-relaxed mb-6">
                   No te preocupes. A través de nuestra alianza con Procustodia, puedes obtener la tasación de tu vehículo de forma rápida y confiable. Ellos se encargan de toda la inspección técnica y documentación necesaria.
                 </p>
@@ -252,7 +252,7 @@ export default function GarantiaVehicularPage() {
         {/* Process */}
         <section id="proceso" className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight text-center mb-4">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight text-center mb-4">
               Proceso <span className="text-[#DCAA61]">Seguro y Transparente</span>
             </h2>
             <p className="text-slate-400 text-center max-w-2xl mx-auto mb-12">
@@ -262,7 +262,7 @@ export default function GarantiaVehicularPage() {
               {PROCESS.map((s) => (
                 <div key={s.step} className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl p-8 shadow-xl relative overflow-hidden">
                   <span className="text-5xl font-black text-white/10">{s.step}</span>
-                  <h3 className="text-xl font-bold text-white mt-3 mb-3">{s.title}</h3>
+                  <h3 className="text-xl font-bold text-gold-luxury-subtle mt-3 mb-3">{s.title}</h3>
                   <p className="text-sm text-slate-400 leading-relaxed">{s.desc}</p>
                 </div>
               ))}
@@ -276,7 +276,7 @@ export default function GarantiaVehicularPage() {
             <div className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl shadow-2xl relative overflow-hidden p-10 sm:p-16 text-center">
               <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#DCAA61]/10 rounded-full blur-[80px] pointer-events-none" />
               <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#A97631]/10 rounded-full blur-[80px] pointer-events-none" />
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight">
                 ¿Tu auto puede ayudarte?
               </h2>
               <p className="mt-4 text-lg text-white/70 max-w-xl mx-auto">

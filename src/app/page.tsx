@@ -341,7 +341,7 @@ function ProductsSection() {
                     <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-6">
                       <product.icon className="w-7 h-7 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gold-luxury-subtle leading-tight">
                       {product.title}
                       <br />
                       <span className="text-orange-300">{product.subtitle}</span>
@@ -517,7 +517,7 @@ function ProcessSection() {
                 <span className="text-5xl font-black text-white/10">
                   {step.number}
                 </span>
-                <h3 className="text-xl font-bold text-white mt-3 mb-3">
+                <h3 className="text-xl font-bold text-gold-luxury-subtle mt-3 mb-3">
                   {step.title}
                 </h3>
                 <p className="text-sm text-slate-400 leading-relaxed">
@@ -551,7 +551,7 @@ function FAQSection() {
           custom={0}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gold-luxury tracking-tight">
             Preguntas Frecuentes
           </h2>
           <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
@@ -624,7 +624,7 @@ function CTASection() {
           custom={0}
           className="relative"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gold-luxury tracking-tight">
             ¡El momento es ahora!
           </h2>
           <p className="mt-4 text-lg text-white/70 max-w-xl mx-auto">

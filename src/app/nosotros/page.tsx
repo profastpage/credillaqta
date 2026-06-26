@@ -158,7 +158,7 @@ export default function NosotrosPage() {
             </div>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-6">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight mb-6">
                   ¿Quiénes somos?
                 </h2>
                 <div className="space-y-4 text-slate-300 leading-relaxed">
@@ -200,7 +200,7 @@ export default function NosotrosPage() {
                 </div>
               </div>
               <div className="bg-white/[0.03] backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl">
-                <h3 className="text-xl font-bold text-white mb-6">Información Legal</h3>
+                <h3 className="text-xl font-bold text-gold-luxury-subtle mb-6">Información Legal</h3>
                 <div className="space-y-4">
                   <div className="glass rounded-xl p-4">
                     <p className="text-xs text-slate-400">Razón Social</p>
@@ -229,7 +229,7 @@ export default function NosotrosPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-3 gap-12 items-start">
               <div className="lg:col-span-2">
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight mb-4">
                   Nuestros <span className="text-[#DCAA61]">Valores</span>
                 </h2>
                 <p className="text-slate-400 max-w-2xl mb-12">
@@ -268,7 +268,7 @@ export default function NosotrosPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <Scale className="w-10 h-10 text-[#DCAA61] mx-auto mb-4" />
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight">
                 Información <span className="text-[#DCAA61]">Legal</span>
               </h2>
               <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
@@ -292,7 +292,7 @@ export default function NosotrosPage() {
             <div className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl p-10 sm:p-16 text-center shadow-2xl relative overflow-hidden">
               <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#DCAA61]/10 rounded-full blur-[80px] pointer-events-none" />
               <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#A97631]/10 rounded-full blur-[80px] pointer-events-none" />
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight">
                 ¿Necesitas más información?
               </h2>
               <p className="mt-4 text-lg text-white/70 max-w-xl mx-auto mb-8">

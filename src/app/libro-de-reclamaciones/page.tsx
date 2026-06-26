@@ -660,7 +660,7 @@ export default function LibroDeReclamacionesPage() {
                 <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center">
                   <Building2 className="w-6 h-6 text-orange-400" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-white">
+                <h2 className="text-xl sm:text-2xl font-extrabold text-gold-luxury">
                   Información de la Empresa
                 </h2>
               </div>

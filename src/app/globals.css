@@ -153,7 +153,7 @@
    Simula brillo metálico con gradientes que imitan reflejos.
    ═══════════════════════════════════════════════════════════════ */
 
-/* Texto con efecto dorado metálico (para titulares, números grandes) */
+/* Texto con efecto dorado metálico básico (para spans destacados) */
 .text-gold-metallic {
   background: linear-gradient(
     180deg,
@@ -172,39 +172,146 @@
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 }
 
-/* Botón / superficie con dorado metálico (para CTAs principales) */
-.bg-gold-metallic {
+/* ═══════════════════════════════════════════════════════════════
+   LUXURY GOLD TEXT — Efecto premium para títulos principales
+   6 capas: sombra → oro oscuro → oro → reflejo → oro → sombra
+   + Highlight superior + Bevel + Inner glow + Outer glow sutil
+   + Drop shadow elegante + Brillo especular
+   ═══════════════════════════════════════════════════════════════ */
+.text-gold-luxury {
+  /* Gradiente metálico vertical de 6 capas (simula reflejo en metal pulido) */
   background: linear-gradient(
     180deg,
-    #F5E6C8 0%,    /* highlight superior */
-    #E0CBAB 15%,
-    #DCAA61 35%,   /* dorado principal */
-    #C99545 55%,
-    #A97631 75%,   /* dorado oscuro */
-    #8B5E26 95%    /* sombra inferior */
+    #6D4B21 0%,       /* sombra superior profunda */
+    #A97631 12%,      /* oro oscuro */
+    #DCAA61 28%,      /* oro principal */
+    #E0CBAB 42%,      /* gold light */
+    #FFF8E8 48%,      /* white highlight (reflejo especular superior) */
+    #E0CBAB 54%,      /* gold light */
+    #DCAA61 68%,      /* oro principal */
+    #A97631 82%,      /* oro oscuro */
+    #6D4B21 96%,      /* sombra inferior */
+    #4A3216 100%      /* sombra profunda */
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  /* Bevel effect: sombra inferior oscura + brillo superior claro */
+  text-shadow:
+    0 1px 0 rgba(255, 248, 232, 0.25),    /* highlight superior sutil */
+    0 -1px 0 rgba(74, 50, 22, 0.4);       /* sombra superior profunda */
+
+  /* Inner glow + outer glow sutil + drop shadow elegante */
+  filter:
+    drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6))
+    drop-shadow(0 0 8px rgba(220, 170, 97, 0.25))
+    drop-shadow(0 0 1px rgba(255, 248, 232, 0.4));
+
+  /* Suavizado de transición para hover */
+  transition: filter 200ms ease, text-shadow 200ms ease;
+
+  /* Brillo especular adicional vía pseudo-elemento (sin afectar layout) */
+  position: relative;
+  display: inline-block;
+}
+
+/* Hover: incrementa brillo, glow y contraste — sin mover ni escalar */
+.text-gold-luxury:hover {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 245, 0.45),
+    0 -1px 0 rgba(74, 50, 22, 0.5);
+  filter:
+    drop-shadow(0 1px 3px rgba(0, 0, 0, 0.7))
+    drop-shadow(0 0 14px rgba(220, 170, 97, 0.5))
+    drop-shadow(0 0 2px rgba(255, 248, 232, 0.6))
+    brightness(1.08)
+    contrast(1.05);
+}
+
+/* Variante más sutil para títulos medianos (H3 principales) */
+.text-gold-luxury-subtle {
+  background: linear-gradient(
+    180deg,
+    #A97631 0%,
+    #DCAA61 35%,
+    #E0CBAB 50%,
+    #FFF8E8 52%,
+    #E0CBAB 56%,
+    #DCAA61 75%,
+    #A97631 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow:
+    0 1px 0 rgba(255, 248, 232, 0.2),
+    0 -1px 0 rgba(74, 50, 22, 0.3);
+  filter:
+    drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 0 4px rgba(220, 170, 97, 0.2));
+  transition: filter 200ms ease, text-shadow 200ms ease;
+}
+
+.text-gold-luxury-subtle:hover {
+  filter:
+    drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6))
+    drop-shadow(0 0 8px rgba(220, 170, 97, 0.4))
+    brightness(1.08);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CTA GOLD LUXURY — Botones premium con efecto metálico completo
+   Mejora de .bg-gold-metallic con más capas y efectos premium
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Botón / superficie con dorado metálico LUXURY (para CTAs principales) */
+.bg-gold-metallic {
+  /* Gradiente metálico vertical de 8 capas — efecto premium con reflejo especular */
+  background: linear-gradient(
+    180deg,
+    #FFF8E8 0%,    /* white highlight (reflejo especular superior) */
+    #F5E6C8 8%,
+    #E0CBAB 18%,
+    #DCAA61 32%,   /* dorado principal */
+    #C99545 48%,
+    #A97631 65%,   /* dorado oscuro */
+    #8B5E26 82%,
+    #6D4B21 100%   /* sombra inferior profunda */
   );
   box-shadow:
-    inset 0 1px 0 rgba(255, 250, 230, 0.6),    /* brillo superior interno */
-    inset 0 -1px 0 rgba(0, 0, 0, 0.25),         /* sombra inferior interna */
-    0 4px 14px rgba(220, 170, 97, 0.35),        /* glow exterior dorado */
-    0 1px 3px rgba(0, 0, 0, 0.4);
+    inset 0 1px 0 rgba(255, 250, 230, 0.7),    /* brillo superior interno reforzado */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),          /* sombra inferior interna */
+    inset 0 0 8px rgba(255, 248, 232, 0.15),    /* inner glow sutil */
+    0 4px 14px rgba(220, 170, 97, 0.4),         /* glow exterior dorado */
+    0 2px 4px rgba(0, 0, 0, 0.5),               /* sombra base */
+    0 0 0 1px rgba(109, 75, 33, 0.4);           /* borde dorado profundo */
+  transition: all 200ms ease;
 }
 
 .bg-gold-metallic:hover {
+  /* Hover: brillo especular intensificado + glow dorado expandido */
   background: linear-gradient(
     180deg,
-    #FFEDD0 0%,
-    #F5E6C8 15%,
-    #E0CBAB 30%,
-    #DCAA61 50%,
-    #B8862E 75%,
-    #8B5E26 100%
+    #FFFFFF 0%,    /* white highlight máximo */
+    #FFF8E8 10%,
+    #F5E6C8 22%,
+    #E0CBAB 35%,
+    #DCAA61 50%,   /* dorado principal */
+    #B8862E 68%,
+    #8B5E26 85%,
+    #6D4B21 100%
   );
   box-shadow:
-    inset 0 1px 0 rgba(255, 250, 230, 0.7),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-    0 6px 22px rgba(220, 170, 97, 0.5),
-    0 2px 4px rgba(0, 0, 0, 0.4);
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),   /* brillo superior máximo */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
+    inset 0 0 12px rgba(255, 248, 232, 0.25),  /* inner glow reforzado */
+    0 6px 22px rgba(220, 170, 97, 0.55),       /* glow exterior expandido */
+    0 3px 6px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(109, 75, 33, 0.5);
+  filter: brightness(1.05) contrast(1.03);
 }
 
 /* Borde dorado metálico (para cards, divisores) */

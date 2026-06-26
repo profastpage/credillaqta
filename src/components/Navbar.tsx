@@ -10,7 +10,7 @@ import { NAV_LINKS } from "@/lib/constants";
 import { getDynamicWhatsAppUrl } from "@/lib/whatsapp";
 
 /* ═══════════════════════════════════════════════════════════════
-    GOLD PALETTE — MANDI CORP Ultra Premium
+    GOLD PALETTE
    ═══════════════════════════════════════════════════════════════ */
 const GOLD = {
   lightest: "#F5E6C8",
@@ -22,35 +22,11 @@ const GOLD = {
   glowStrong: "rgba(220, 170, 97, 0.45)",
 };
 
-/* ═══════════════════════════════════════════════════════════════
-    WhatsApp SVG Icon
-   ═══════════════════════════════════════════════════════════════ */
 function WhatsAppIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
     </svg>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-    Gold Gradient Text utility
-   ═══════════════════════════════════════════════════════════════ */
-function GoldText({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <span
-      className={`bg-clip-text text-transparent ${className}`}
-      style={{
-        backgroundImage: `linear-gradient(135deg, ${GOLD.lightest} 0%, ${GOLD.primary} 40%, ${GOLD.medium} 70%, ${GOLD.primary} 100%)`,
-      }}
-    >
-      {children}
-    </span>
   );
 }
 
@@ -60,84 +36,63 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
-  // ── Listener para el evento 'mandi:open-drawer' ──────────────────
   useEffect(() => {
-    const handleOpenDrawer = () => setIsOpen(true);
-    if (typeof window !== "undefined") {
-      window.addEventListener("mandi:open-drawer", handleOpenDrawer);
-    }
-    return () => {
-      if (typeof window !== "undefined") {
-        window.removeEventListener("mandi:open-drawer", handleOpenDrawer);
-      }
-    };
+    const handler = () => setIsOpen(true);
+    if (typeof window !== "undefined") window.addEventListener("mandi:open-drawer", handler);
+    return () => { if (typeof window !== "undefined") window.removeEventListener("mandi:open-drawer", handler); };
   }, []);
 
-  const closeMenu = useCallback(() => {
-    setIsOpen(false);
-  }, []);
-
-  const isSolid = isScrolled;
-
-  // Dynamic WhatsApp URL based on current pathname
+  const closeMenu = useCallback(() => setIsOpen(false), []);
   const dynamicWhatsAppUrl = getDynamicWhatsAppUrl(pathname);
   const phoneHref = "tel:+51966897008";
 
+  /* ─── Two-state design ───────────────────────────────────────
+     TOP (transparent):  dark glass overlay → gold text legible on any hero
+     SCROLLED (solid):    white clean bg → dark text, gold accents, max contrast
+     UX: consistent readability in both states, financial-trust white on scroll
+  ─────────────────────────────────────────────────────────────── */
+
   return (
     <>
-      {/* ═══════════════════════════════════════════════════════════════
-          HEADER — GOLD IMMERSIVE ULTRA PREMIUM
-          ─────────────────────────────────────────────────────────────
-          · Transparente (top): fondo transparente, texto blanco/dorado
-          · Scrolled:           fondo negro glass con borde dorado
-          · Siempre: sutil glow dorado
-      ═══════════════════════════════════════════════════════════════ */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 flex items-center transition-all duration-500 ${
-          isSolid
-            ? "h-16 sm:h-[72px]"
-            : "py-3 sm:py-4"
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center transition-all duration-500 ease-out ${
+          isScrolled ? "h-16 sm:h-[72px]" : "py-3 sm:py-4"
         }`}
         style={
-          isSolid
+          isScrolled
             ? {
-                background: "linear-gradient(180deg, rgba(6,5,3,0.92) 0%, rgba(6,5,3,0.97) 100%)",
-                backdropFilter: "blur(20px) saturate(1.4)",
-                WebkitBackdropFilter: "blur(20px) saturate(1.4)",
-                borderBottom: `1px solid rgba(220, 170, 97, 0.2)`,
-                boxShadow: `0 4px 30px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(220, 170, 97, 0.15) inset`,
+                background: "rgba(255, 255, 255, 0.97)",
+                backdropFilter: "blur(16px) saturate(1.2)",
+                WebkitBackdropFilter: "blur(16px) saturate(1.2)",
+                borderBottom: "1px solid rgba(0, 0, 0, 0.06)",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 20px rgba(0,0,0,0.06)",
               }
             : {
-                background: "transparent",
+                background: "linear-gradient(180deg, rgba(6,5,3,0.6) 0%, rgba(6,5,3,0.35) 100%)",
+                backdropFilter: "blur(12px) saturate(1.3)",
+                WebkitBackdropFilter: "blur(12px) saturate(1.3)",
                 borderBottom: "1px solid transparent",
               }
         }
       >
-        {/* Subtle gold glow line at very top — always visible */}
+        {/* Gold accent line — subtle on transparent, elegant on white */}
         <div
-          className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none"
+          className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none transition-opacity duration-500"
           style={{
-            background: `linear-gradient(90deg, transparent 5%, ${GOLD.dark} 20%, ${GOLD.primary} 50%, ${GOLD.dark} 80%, transparent 95%)`,
-            opacity: isSolid ? 1 : 0.6,
-            transition: "opacity 0.5s",
+            background: isScrolled
+              ? `linear-gradient(90deg, transparent 5%, ${GOLD.dark} 20%, ${GOLD.primary} 50%, ${GOLD.dark} 80%, transparent 95%)`
+              : `linear-gradient(90deg, transparent 10%, ${GOLD.primary}80 50%, transparent 90%)`,
+            opacity: isScrolled ? 0.7 : 0.4,
           }}
         />
 
@@ -145,7 +100,7 @@ export default function Navbar() {
           className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
           aria-label="Navegación principal"
         >
-          {/* ── LOGO — Retina 2x PNG lossless ── */}
+          {/* ── LOGO ── */}
           <Link
             href="/"
             className="relative shrink-0 w-[140px] md:w-[220px]"
@@ -162,137 +117,113 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* ── DESKTOP NAV — Gold gradient links ── */}
-          <div className="hidden lg:flex items-center gap-1">
+          {/* ── DESKTOP NAV LINKS ── */}
+          <div className="hidden lg:flex items-center gap-0.5">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-3.5 py-2 text-[13px] font-medium tracking-wide rounded-lg transition-all duration-300 group ${
-                    isSolid
-                      ? ""
-                      : ""
-                  }`}
+                  className={`relative px-3.5 py-2 text-[13px] font-medium tracking-wide rounded-lg transition-all duration-300 group`}
                 >
-                  {/* Gold text — always gold */}
                   <span
-                    className={`relative z-10 transition-all duration-300 ${
-                      isActive
-                        ? ""
-                        : "group-hover:drop-shadow-[0_0_8px_rgba(220,170,97,0.5)]"
+                    className={`relative z-10 block transition-all duration-300 ${
+                      !isActive && "group-hover:drop-shadow-[0_0_6px_rgba(220,170,97,0.4)]"
                     }`}
                     style={{
-                      backgroundImage: isActive
-                        ? `linear-gradient(135deg, ${GOLD.lightest} 0%, ${GOLD.primary} 50%, ${GOLD.lightest} 100%)`
-                        : `linear-gradient(135deg, ${GOLD.light} 0%, ${GOLD.primary} 50%, ${GOLD.medium} 100%)`,
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
+                      color: isScrolled
+                        ? isActive
+                          ? GOLD.medium
+                          : "#374151"
+                        : isActive
+                          ? GOLD.lightest
+                          : "rgba(255,255,255,0.85)",
+                      transition: "color 0.3s",
+                    }}
+                    onMouseEnter={(e) => {
+                      if (isScrolled && !isActive) e.currentTarget.style.color = GOLD.medium;
+                    }}
+                    onMouseLeave={(e) => {
+                      if (isScrolled && !isActive) e.currentTarget.style.color = "#374151";
                     }}
                   >
                     {link.label}
                   </span>
 
-                  {/* Active indicator — gold line */}
+                  {/* Active indicator */}
                   {isActive && (
                     <motion.div
                       layoutId="navbar-indicator"
                       className="absolute bottom-0.5 left-3 right-3 h-[2px] rounded-full"
                       style={{
                         background: `linear-gradient(90deg, ${GOLD.medium} 0%, ${GOLD.primary} 50%, ${GOLD.lightest} 100%)`,
-                        boxShadow: `0 0 12px ${GOLD.glowStrong}, 0 0 4px ${GOLD.primary}`,
+                        boxShadow: isScrolled
+                          ? `0 0 8px ${GOLD.glow}`
+                          : `0 0 12px ${GOLD.glowStrong}, 0 0 4px ${GOLD.primary}`,
                       }}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
-
-                  {/* Hover background glow */}
-                  <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                    style={{
-                      background: `radial-gradient(ellipse at center, ${GOLD.glow} 0%, transparent 70%)`,
-                    }}
-                  />
                 </Link>
               );
             })}
           </div>
 
-          {/* ── DESKTOP BUTTONS — Gold premium ── */}
-          <div className="hidden lg:flex items-center gap-3">
-            {/* WhatsApp Button — Gold border + green icon */}
+          {/* ── DESKTOP BUTTONS ── */}
+          <div className="hidden lg:flex items-center gap-2.5">
+            {/* WhatsApp */}
             <a
               href={dynamicWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-xl text-[13px] font-semibold tracking-wide transition-all duration-300 hover:scale-[1.03] overflow-hidden"
               style={{
-                border: `1px solid ${isSolid ? `${GOLD.primary}40` : "rgba(255,255,255,0.2)"}`,
-                color: isSolid ? GOLD.lightest : "rgba(255,255,255,0.9)",
-                background: isSolid
-                  ? "rgba(220, 170, 97, 0.08)"
-                  : "rgba(255,255,255,0.05)",
+                border: isScrolled
+                  ? `1px solid rgba(37, 211, 102, 0.3)`
+                  : "1px solid rgba(37, 211, 102, 0.35)",
+                color: "#25D366",
+                background: isScrolled
+                  ? "rgba(37, 211, 102, 0.06)"
+                  : "rgba(37, 211, 102, 0.1)",
               }}
               aria-label="Contactar por WhatsApp"
             >
-              <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
-              <span>WhatsApp</span>
-              {/* Gold shimmer on hover */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{
-                  background: `linear-gradient(135deg, transparent 30%, ${GOLD.glow} 50%, transparent 70%)`,
-                }}
-              />
+              <WhatsAppIcon className="w-4 h-4" />
+              <span className={isScrolled ? "text-gray-700" : "text-white/90"}>WhatsApp</span>
             </a>
 
-            {/* Call Button — Solid gold */}
+            {/* Llamar — Gold solid */}
             <a
               href={phoneHref}
               className="group relative inline-flex items-center gap-2 px-5 py-2 rounded-xl text-[13px] font-bold tracking-wide transition-all duration-300 hover:scale-[1.03] overflow-hidden"
               style={{
                 background: `linear-gradient(135deg, ${GOLD.dark} 0%, ${GOLD.medium} 40%, ${GOLD.primary} 100%)`,
                 color: "#060503",
-                boxShadow: `0 2px 16px ${GOLD.glow}, 0 1px 0 rgba(255,255,255,0.1) inset`,
+                boxShadow: `0 2px 12px ${GOLD.glow}, 0 1px 0 rgba(255,255,255,0.15) inset`,
               }}
               aria-label="Llamar por teléfono"
             >
               <Phone className="w-4 h-4" />
               <span>Llamar</span>
-              {/* Shine effect on hover */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{
-                  background: `linear-gradient(135deg, transparent 20%, rgba(255,255,255,0.15) 50%, transparent 80%)`,
-                }}
-              />
             </a>
           </div>
 
-          {/* ── MOBILE TOGGLE — Gold hamburger ── */}
+          {/* ── MOBILE TOGGLE ── */}
           <button
             onClick={() => setIsOpen(true)}
-            className="lg:hidden relative p-2 rounded-xl transition-all duration-300 active:scale-95"
-            style={{
-              color: isSolid ? GOLD.primary : "rgba(255,255,255,0.9)",
-            }}
+            className={`lg:hidden relative p-2 rounded-xl transition-all duration-300 active:scale-95 ${
+              isScrolled ? "text-gray-700 hover:bg-gray-100" : "text-white/90 hover:bg-white/10"
+            }`}
             aria-label="Abrir menú"
           >
             <Menu className="w-6 h-6" />
-            {/* Subtle gold ring on touch */}
-            <div
-              className="absolute inset-0 rounded-xl opacity-0 active:opacity-100 transition-opacity duration-200 pointer-events-none"
-              style={{
-                background: GOLD.glow,
-              }}
-            />
           </button>
         </nav>
       </header>
 
       {/* ═══════════════════════════════════════════════════════════════
-          MOBILE DRAWER — GOLD DARK IMMERSIVE
+          MOBILE DRAWER — Clean white + gold accents (UX: readable)
       ═══════════════════════════════════════════════════════════════ */}
       <AnimatePresence>
         {isOpen && (
@@ -303,38 +234,25 @@ export default function Navbar() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="fixed inset-0 z-[100] lg:hidden"
           >
-            {/* Backdrop — dark with gold tint */}
+            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="absolute inset-0 backdrop-blur-md"
-              style={{
-                background: "radial-gradient(ellipse at right center, rgba(6,5,3,0.7) 0%, rgba(0,0,0,0.5) 100%)",
-              }}
+              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
               onClick={closeMenu}
             />
 
-            {/* Panel — Dark gold immersive */}
+            {/* Panel — White clean */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{
-                type: "spring",
-                damping: 28,
-                stiffness: 300,
-                mass: 0.8,
-              }}
-              className="absolute right-0 top-0 bottom-0 w-[82%] max-w-[380px] flex flex-col overflow-hidden"
-              style={{
-                background: "linear-gradient(180deg, #0a0806 0%, #060503 30%, #080604 100%)",
-                borderLeft: `1px solid rgba(220, 170, 97, 0.25)`,
-                boxShadow: `-20px 0 60px rgba(0, 0, 0, 0.6), -1px 0 0 rgba(220, 170, 97, 0.1) inset`,
-              }}
+              transition={{ type: "spring", damping: 28, stiffness: 300, mass: 0.8 }}
+              className="absolute right-0 top-0 bottom-0 w-[82%] max-w-[380px] bg-white shadow-2xl shadow-black/20 flex flex-col overflow-hidden"
             >
-              {/* Gold glow line at top of panel */}
+              {/* Gold accent line */}
               <div
                 className="h-[2px] shrink-0"
                 style={{
@@ -342,13 +260,8 @@ export default function Navbar() {
                 }}
               />
 
-              {/* Panel Header — Logo + Close */}
-              <div
-                className="flex items-center justify-between px-5 pt-5 pb-4"
-                style={{
-                  borderBottom: `1px solid rgba(220, 170, 97, 0.12)`,
-                }}
-              >
+              {/* Header */}
+              <div className="flex items-center justify-between px-4 pt-5 pb-4 border-b border-gray-100">
                 <div
                   className="relative shrink-0 w-[150px]"
                   style={{ aspectRatio: "1941 / 466" }}
@@ -362,21 +275,16 @@ export default function Navbar() {
                 </div>
                 <button
                   onClick={closeMenu}
-                  className="p-2.5 rounded-xl transition-all duration-200 active:scale-90"
-                  style={{
-                    background: "rgba(220, 170, 97, 0.08)",
-                    border: "1px solid rgba(220, 170, 97, 0.15)",
-                    color: GOLD.primary,
-                  }}
+                  className="p-2.5 rounded-xl bg-gray-50 hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition-all duration-200 active:scale-90"
                   aria-label="Cerrar menú"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              {/* Links — Gold immersive */}
+              {/* Links */}
               <div className="flex-1 overflow-y-auto px-4 py-5">
-                <nav className="flex flex-col gap-1">
+                <nav className="flex flex-col gap-0.5">
                   {NAV_LINKS.map((link, i) => {
                     const isActive = pathname === link.href;
                     return (
@@ -384,53 +292,19 @@ export default function Navbar() {
                         key={link.href}
                         initial={{ opacity: 0, x: 30 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          delay: 0.08 + i * 0.05,
-                          duration: 0.3,
-                          ease: "easeOut",
-                        }}
+                        transition={{ delay: 0.06 + i * 0.04, duration: 0.3, ease: "easeOut" }}
                       >
                         <Link
                           href={link.href}
                           onClick={closeMenu}
-                          className={`relative flex items-center px-4 py-3.5 rounded-xl text-[15px] font-medium transition-all duration-300 active:scale-[0.98] overflow-hidden ${
-                            isActive ? "" : ""
-                          }`}
-                          style={
+                          className={`flex items-center px-4 py-3.5 rounded-xl text-[15px] font-medium transition-all duration-200 active:scale-[0.98] ${
                             isActive
-                              ? {
-                                  background: `linear-gradient(135deg, rgba(220,170,97,0.12) 0%, rgba(220,170,97,0.05) 100%)`,
-                                  borderLeft: `3px solid ${GOLD.primary}`,
-                                  color: GOLD.lightest,
-                                  boxShadow: `inset 0 0 20px rgba(220, 170, 97, 0.05)`,
-                                }
-                              : {
-                                  color: "rgba(255,255,255,0.6)",
-                                  borderLeft: "3px solid transparent",
-                                }
-                          }
+                              ? `bg-[#DCAA61]/8 text-[#A97631]`
+                              : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                          }`}
+                          style={isActive ? { borderLeft: `3px solid ${GOLD.primary}` } : { borderLeft: "3px solid transparent" }}
                         >
-                          <span
-                            className="ml-1.5 transition-all duration-300"
-                            style={
-                              !isActive
-                                ? {
-                                    // Hover handled via group - we use inline approach
-                                  }
-                                : undefined
-                            }
-                          >
-                            {link.label}
-                          </span>
-                          {/* Hover glow overlay */}
-                          {!isActive && (
-                            <div
-                              className="absolute inset-0 rounded-xl opacity-0 active:opacity-100 transition-opacity duration-200 pointer-events-none"
-                              style={{
-                                background: `linear-gradient(135deg, rgba(220,170,97,0.06) 0%, transparent 100%)`,
-                              }}
-                            />
-                          )}
+                          <span className="ml-1">{link.label}</span>
                         </Link>
                       </motion.div>
                     );
@@ -438,35 +312,26 @@ export default function Navbar() {
                 </nav>
               </div>
 
-              {/* ── DUAL CONTACT BUTTONS — Gold themed ── */}
+              {/* Contact Buttons */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.3 }}
-                className="px-4 pb-5 pt-4"
-                style={{
-                  borderTop: `1px solid rgba(220, 170, 97, 0.12)`,
-                }}
+                transition={{ delay: 0.35, duration: 0.3 }}
+                className="px-4 pb-5 pt-4 border-t border-gray-100"
               >
-                {/* WhatsApp Button — Dark with green icon + gold border */}
+                {/* WhatsApp */}
                 <a
                   href={dynamicWhatsAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={closeMenu}
-                  className="flex items-center justify-center gap-3 w-full min-h-[52px] rounded-xl text-[15px] font-bold transition-all duration-300 active:scale-[0.98]"
-                  style={{
-                    background: "rgba(37, 211, 102, 0.1)",
-                    border: `1px solid rgba(37, 211, 102, 0.25)`,
-                    color: "#25D366",
-                    boxShadow: "0 4px 20px rgba(37, 211, 102, 0.1)",
-                  }}
+                  className="flex items-center justify-center gap-3 w-full bg-[#25D366] hover:bg-[#1fb855] text-white min-h-[52px] rounded-xl text-[15px] font-bold shadow-lg shadow-[#25D366]/20 transition-all duration-300 active:scale-[0.98]"
                 >
                   <WhatsAppIcon className="w-5 h-5" />
                   Asesoría por WhatsApp
                 </a>
 
-                {/* Call Button — Solid gold */}
+                {/* Llamar — Gold */}
                 <a
                   href={phoneHref}
                   onClick={closeMenu}
@@ -474,17 +339,14 @@ export default function Navbar() {
                   style={{
                     background: `linear-gradient(135deg, ${GOLD.dark} 0%, ${GOLD.medium} 40%, ${GOLD.primary} 100%)`,
                     color: "#060503",
-                    boxShadow: `0 4px 24px ${GOLD.glow}`,
+                    boxShadow: `0 4px 20px ${GOLD.glow}`,
                   }}
                 >
                   <Phone className="w-5 h-5" />
                   Llamar Ahora
                 </a>
 
-                <p
-                  className="text-center text-[11px] mt-5 leading-relaxed"
-                  style={{ color: "rgba(220, 170, 97, 0.4)" }}
-                >
+                <p className="text-center text-[11px] text-gray-400 mt-4 leading-relaxed">
                   CORPORACIÓN MANDI SAC
                   <br />
                   RUC: 20615991938

@@ -49,12 +49,21 @@ export const metadata: Metadata = {
     siteName: "MANDI CORP",
     locale: "es_PE",
     type: "website",
+    images: [
+      {
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "MANDI CORP — Préstamos Personales y Garantía Vehicular",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "MANDI CORP — Préstamos Rápidos y Seguros",
     description:
       "Consigue tu préstamo en minutos. Préstamos personales y con garantía vehicular.",
+    images: ["/og-image.webp"],
   },
   robots: {
     index: true,

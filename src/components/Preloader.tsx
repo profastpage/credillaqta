@@ -21,10 +21,10 @@ export default function Preloader() {
         {/* Brand text */}
         <div className="flex flex-col items-center">
           <span className="text-lg font-bold text-white tracking-tight">
-            Unión
+            MANDI
           </span>
-          <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-orange-400 -mt-1">
-            El Progreso
+          <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#DCAA61] -mt-1">
+            CORP
           </span>
         </div>
       </div>

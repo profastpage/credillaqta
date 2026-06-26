@@ -34,10 +34,10 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/logo-mandi.png"
+                src="/logo-mandi.webp"
                 alt="Logo MANDI CORP"
                 width={150}
-                height={40}
+                height={36}
                 className="object-contain h-8 w-auto"
               />
             </Link>

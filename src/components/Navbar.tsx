@@ -92,22 +92,22 @@ export default function Navbar() {
           className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
           aria-label="Navegación principal"
         >
-          {/* ── LOGO — Compacto, SIN recorte ──
-              Mobile: w-[130px] → ~65px
-              PC:     w-[180px] → ~90px
+          {/* ── LOGO — Sin fondo, webp optimizado ──
+              Mobile: w-[130px]
+              PC:     w-[200px]
           ── */}
           <Link
             href="/"
-            className="relative shrink-0 w-[130px] md:w-[180px]"
-            style={{ aspectRatio: "1774 / 887" }}
+            className="relative shrink-0 w-[130px] md:w-[200px]"
+            style={{ aspectRatio: "1914 / 455" }}
             aria-label="MANDI CORP - Inicio"
           >
             <Image
-              src="/logo-mandi.png"
+              src="/logo-mandi.webp"
               alt="Logo MANDI CORP"
               fill
               priority
-              sizes="(max-width: 768px) 190px, 260px"
+              sizes="(max-width: 768px) 190px, 300px"
               className="object-contain object-left select-none"
             />
           </Link>
@@ -232,14 +232,14 @@ export default function Navbar() {
               }}
               className="absolute right-0 top-0 bottom-0 w-[82%] max-w-[380px] bg-white/95 backdrop-blur-xl shadow-2xl shadow-black/20 flex flex-col overflow-hidden"
             >
-              {/* Panel Header — Logo ancho proporcional */}
+              {/* Panel Header — Logo sin fondo */}
               <div className="flex items-center justify-between px-4 pt-5 pb-4 border-b border-slate-100">
                 <div
-                  className="relative shrink-0 w-[130px]"
-                  style={{ aspectRatio: "1774 / 887" }}
+                  className="relative shrink-0 w-[140px]"
+                  style={{ aspectRatio: "1914 / 455" }}
                 >
                   <Image
-                    src="/logo-mandi.png"
+                    src="/logo-mandi.webp"
                     alt="MANDI CORP"
                     fill
                     className="object-contain object-left"

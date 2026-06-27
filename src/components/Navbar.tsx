@@ -45,7 +45,18 @@ function WhatsAppIcon({ className = "w-4 h-4" }: { className?: string }) {
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+
+  // ── Scroll detection ──────────────────────────────────────
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // initial check
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -79,23 +90,41 @@ export default function Navbar() {
   const dynamicWhatsAppUrl = getDynamicWhatsAppUrl(pathname);
   const phoneHref = "tel:+51966897008";
 
+  /* ═══════════════════════════════════════════════════════════════
+      DYNAMIC COLORS — two states:
+      · !scrolled → full bleed transparent (white text on dark hero)
+      · scrolled  → cream solid (#e5ded6, dark text)
+  ═══════════════════════════════════════════════════════════════ */
+  const navTextColor = isScrolled ? CREAM.text : "rgba(255,255,255,0.9)";
+  const navActiveColor = CREAM.goldLight; // gold stays gold always
+  const btnTextColor = isScrolled ? CREAM.text : "rgba(255,255,255,0.9)";
+  const menuIconColor = isScrolled ? CREAM.text : "rgba(255,255,255,0.9)";
+  const waBtnBg = isScrolled ? CREAM.whatsappBg : "rgba(37, 211, 102, 0.1)";
+  const waBtnBorder = isScrolled ? "rgba(37, 211, 102, 0.2)" : "rgba(37, 211, 102, 0.3)";
+
   return (
     <>
       {/* ═══════════════════════════════════════════════════════════════
-          HEADER — CREAM PREMIUM PASTEL
+          HEADER — TWO STATES
           ─────────────────────────────────────────────────────────────
-          · Fondo sólido crema #e5ded6 — siempre visible
-          · Texto oscuro para legibilidad premium
-          · Active link en dorado
-          · Botones: WhatsApp verde, Llamar dorado
+          · Full bleed transparent (top): fondo transparente, texto blanco, dorado activo
+          · Cream solid (scrolled): fondo #e5ded6, texto oscuro, dorado activo
       ═══════════════════════════════════════════════════════════════ */}
       <header
-        className="fixed top-0 left-0 right-0 z-50 flex items-center h-16 sm:h-[72px]"
-        style={{
-          background: `linear-gradient(180deg, ${CREAM.bg} 0%, ${CREAM.bgAlt} 100%)`,
-          borderBottom: `1px solid ${CREAM.border}`,
-          boxShadow: "0 1px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02)",
-        }}
+        className="fixed top-0 left-0 right-0 z-50 flex items-center h-16 sm:h-[72px] transition-all duration-500"
+        style={
+          isScrolled
+            ? {
+                background: `linear-gradient(180deg, ${CREAM.bg} 0%, ${CREAM.bgAlt} 100%)`,
+                borderBottom: `1px solid ${CREAM.border}`,
+                boxShadow: "0 1px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02)",
+              }
+            : {
+                background: "transparent",
+                borderBottom: "1px solid transparent",
+                boxShadow: "none",
+              }
+        }
       >
         <nav
           className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
@@ -118,7 +147,7 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* ── DESKTOP NAV — Dark text, gold active ── */}
+          {/* ── DESKTOP NAV ── */}
           <div className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
@@ -128,11 +157,11 @@ export default function Navbar() {
                   href={link.href}
                   className="relative px-3.5 py-2 text-[13px] font-medium tracking-wide rounded-lg transition-all duration-300 group"
                 >
-                  {/* Text — dark gray default, gold when active */}
+                  {/* Text — white when transparent, dark when cream; gold stays gold */}
                   <span
                     className="relative z-10 transition-all duration-300"
                     style={{
-                      color: isActive ? CREAM.goldLight : CREAM.text,
+                      color: isActive ? navActiveColor : navTextColor,
                       fontWeight: isActive ? 700 : 500,
                     }}
                   >
@@ -152,11 +181,11 @@ export default function Navbar() {
                     />
                   )}
 
-                  {/* Hover background */}
+                  {/* Hover background — adapts to state */}
                   <div
                     className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                     style={{
-                      background: "rgba(0, 0, 0, 0.04)",
+                      background: isScrolled ? "rgba(0, 0, 0, 0.04)" : "rgba(255, 255, 255, 0.08)",
                     }}
                   />
                 </Link>
@@ -166,16 +195,16 @@ export default function Navbar() {
 
           {/* ── DESKTOP BUTTONS ── */}
           <div className="hidden lg:flex items-center gap-3">
-            {/* WhatsApp Button — Light green pill */}
+            {/* WhatsApp Button */}
             <a
               href={dynamicWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[13px] font-semibold tracking-wide transition-all duration-300 hover:scale-[1.03] hover:shadow-md overflow-hidden"
               style={{
-                background: CREAM.whatsappBg,
-                color: CREAM.text,
-                border: `1px solid rgba(37, 211, 102, 0.2)`,
+                background: waBtnBg,
+                color: btnTextColor,
+                border: `1px solid ${waBtnBorder}`,
               }}
               aria-label="Contactar por WhatsApp"
             >
@@ -183,7 +212,7 @@ export default function Navbar() {
               <span>WhatsApp</span>
             </a>
 
-            {/* Call Button — Gold/amber pill */}
+            {/* Call Button — Gold always */}
             <a
               href={phoneHref}
               className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[13px] font-bold tracking-wide transition-all duration-300 hover:scale-[1.03] hover:shadow-md overflow-hidden"
@@ -199,12 +228,12 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* ── MOBILE TOGGLE — Dark hamburger on cream bg ── */}
+          {/* ── MOBILE TOGGLE ── */}
           <button
             onClick={() => setIsOpen(true)}
             className="lg:hidden relative p-2 rounded-xl transition-all duration-300 active:scale-95"
             style={{
-              color: CREAM.text,
+              color: menuIconColor,
             }}
             aria-label="Abrir menú"
           >
@@ -214,7 +243,7 @@ export default function Navbar() {
       </header>
 
       {/* ═══════════════════════════════════════════════════════════════
-          MOBILE DRAWER — CREAM PREMIUM
+          MOBILE DRAWER — CREAM PREMIUM (always cream)
       ═══════════════════════════════════════════════════════════════ */}
       <AnimatePresence>
         {isOpen && (
@@ -225,7 +254,7 @@ export default function Navbar() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="fixed inset-0 z-[100] lg:hidden"
           >
-            {/* Backdrop — subtle blur */}
+            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -287,7 +316,7 @@ export default function Navbar() {
                 </button>
               </div>
 
-              {/* Links — Premium dark text */}
+              {/* Links */}
               <div className="flex-1 overflow-y-auto px-4 py-5">
                 <nav className="flex flex-col gap-1">
                   {NAV_LINKS.map((link, i) => {
@@ -324,7 +353,6 @@ export default function Navbar() {
                           <span className="ml-1.5">
                             {link.label}
                           </span>
-                          {/* Hover glow */}
                           {!isActive && (
                             <div
                               className="absolute inset-0 rounded-xl opacity-0 active:opacity-100 transition-opacity duration-200 pointer-events-none"
@@ -350,7 +378,6 @@ export default function Navbar() {
                   borderTop: `1px solid ${CREAM.border}`,
                 }}
               >
-                {/* WhatsApp Button — Light green */}
                 <a
                   href={dynamicWhatsAppUrl}
                   target="_blank"
@@ -367,7 +394,6 @@ export default function Navbar() {
                   Asesoría por WhatsApp
                 </a>
 
-                {/* Call Button — Gold */}
                 <a
                   href={phoneHref}
                   onClick={closeMenu}

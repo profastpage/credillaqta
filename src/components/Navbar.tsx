@@ -101,6 +101,11 @@ export default function Navbar() {
   const menuIconColor = isScrolled ? CREAM.text : "rgba(255,255,255,0.9)";
   const waBtnBg = isScrolled ? CREAM.whatsappBg : "rgba(37, 211, 102, 0.1)";
   const waBtnBorder = isScrolled ? "rgba(37, 211, 102, 0.2)" : "rgba(37, 211, 102, 0.3)";
+  const hoverBg = isScrolled ? "rgba(0, 0, 0, 0.04)" : "rgba(255, 255, 255, 0.08)";
+
+  /* ── Logo: gold when transparent, normal when scrolled ── */
+  const logoSrc = isScrolled ? "/logo-mandi.png" : "/logo-transparent.png";
+  const logoAspect = isScrolled ? "3756 / 894" : "1804 / 554";
 
   return (
     <>
@@ -130,19 +135,19 @@ export default function Navbar() {
           className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
           aria-label="Navegación principal"
         >
-          {/* ── LOGO — Retina 2x PNG lossless ── */}
+          {/* ── LOGO — Swaps: gold (transparent) ↔ normal (scrolled) ── */}
           <Link
             href="/"
-            className="relative shrink-0 w-[140px] md:w-[200px]"
-            style={{ aspectRatio: "3756 / 894" }}
+            className="relative shrink-0 w-[130px] md:w-[190px]"
+            style={{ aspectRatio: logoAspect }}
             aria-label="MANDI CORP - Inicio"
           >
             <Image
-              src="/logo-mandi.png"
+              src={logoSrc}
               alt="Logo MANDI CORP"
               fill
               priority
-              sizes="(max-width: 768px) 210px, 350px"
+              sizes="(max-width: 768px) 200px, 340px"
               className="object-contain object-left select-none"
             />
           </Link>
@@ -184,9 +189,7 @@ export default function Navbar() {
                   {/* Hover background — adapts to state */}
                   <div
                     className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                    style={{
-                      background: isScrolled ? "rgba(0, 0, 0, 0.04)" : "rgba(255, 255, 255, 0.08)",
-                    }}
+                    style={{ background: hoverBg }}
                   />
                 </Link>
               );

@@ -652,6 +652,24 @@ function CTASection() {
   );
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   VACA FULL BLEED — Ultra Pro Image Section
+   ═══════════════════════════════════════════════════════════════════════════ */
+function VacaFullBleed() {
+  return (
+    <section className="relative w-full">
+      <Image
+        src="/images/vaca-oficial.webp"
+        alt="MANDI CORP"
+        width={1536}
+        height={1024}
+        className="w-full h-auto object-cover"
+        quality={92}
+      />
+    </section>
+  );
+}
+
 /* ───────────────────────── Main Page Component ───────────────────────── */
 export default function HomePage() {
   return (
@@ -661,6 +679,7 @@ export default function HomePage() {
         <DeepLinking>
         <HeroSection />
         <FeaturesSection />
+        <VacaFullBleed />
         <ProductsSection />
         <ProcessSection />
         <Calculadora />

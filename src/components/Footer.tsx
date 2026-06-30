@@ -207,20 +207,7 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-          {/* Agency credit */}
-          <div className="border-t border-slate-800/50 pt-4 mt-4 text-center">
-            <p className="text-xs text-slate-500">
-              Diseñado y desarrollado por{" "}
-              <a
-                href="https://fastpagepro.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#DCAA61] hover:underline font-medium transition-all"
-              >
-                fastpagepro.com
-              </a>
-            </p>
-          </div>
+          
         </div>
       </div>
     </footer>

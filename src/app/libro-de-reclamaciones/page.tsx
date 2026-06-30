@@ -196,7 +196,7 @@ export default function LibroDeReclamacionesPage() {
               >
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/30">
                   <Image
-                    src="/images/claim-form.jpg"
+                    src="/images/claim-form.webp"
                     alt="Formulario de Libro de Reclamaciones - MANDI CORP"
                     width={560}
                     height={380}

@@ -133,7 +133,7 @@ export default function PrestamosPersonalesPage() {
               <div className="hidden lg:block">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/20">
                   <Image
-                    src="/images/personal-loan.jpg"
+                    src="/images/personal-loan.webp"
                     alt="Préstamo personal al instante - MANDI CORP"
                     width={480}
                     height={360}

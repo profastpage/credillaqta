@@ -423,3 +423,26 @@ input[type="range"]::-moz-range-thumb {
     0 0 0 4px rgba(220, 170, 97, 0.22),
     0 2px 10px rgba(220, 170, 97, 0.55);
 }
+
+/* ── Scrollbar dorado premium ── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #A97631 0%, #DCAA61 50%, #A97631 100%);
+  border-radius: 4px;
+  border: 1px solid rgba(220, 170, 97, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #DCAA61 0%, #F5E6C8 50%, #DCAA61 100%);
+}
+* { scrollbar-width: thin; scrollbar-color: #DCAA61 #0a0a0a; }
+
+/* ── Selección de texto dorado premium ── */
+::selection {
+  background: rgba(220, 170, 97, 0.35);
+  color: #F5E6C8;
+}
+::-moz-selection {
+  background: rgba(220, 170, 97, 0.35);
+  color: #F5E6C8;
+}

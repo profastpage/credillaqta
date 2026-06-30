@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import DeepLinking from "@/components/DeepLinking";
 
@@ -296,7 +295,6 @@ export default function GarantiaVehicularPage() {
         </DeepLinking>
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </>
   );
 }

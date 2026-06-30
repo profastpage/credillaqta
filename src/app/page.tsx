@@ -16,7 +16,6 @@ import {
 import Navbar from "@/components/Navbar";
 import Calculadora from "@/components/Calculadora";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { FAQ_ITEMS, PROCESS_STEPS } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import DeepLinking from "@/components/DeepLinking";
@@ -688,7 +687,6 @@ export default function HomePage() {
         </DeepLinking>
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </>
   );
 }

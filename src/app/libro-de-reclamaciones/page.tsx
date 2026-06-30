@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { SITE_CONFIG } from "@/lib/constants";
 import { WHATSAPP_PHONE, getWhatsAppUrl } from "@/lib/whatsapp";
 import DeepLinking from "@/components/DeepLinking";
@@ -714,7 +713,6 @@ export default function LibroDeReclamacionesPage() {
         </DeepLinking>
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </>
   );
 }

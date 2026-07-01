@@ -657,6 +657,13 @@ function CTASection() {
 function VacaFullBleed() {
   return (
     <section className="relative w-full">
+      {/* Fade superior — se fusiona con la sección anterior (oscura) */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[20px] md:h-[35px] z-10 pointer-events-none"
+        style={{
+          background: "linear-gradient(to bottom, rgba(2, 6, 23, 0.18) 0%, transparent 100%)",
+        }}
+      />
       <Image
         src="/images/vaca-oficial.webp"
         alt="MANDI CORP"
@@ -664,6 +671,13 @@ function VacaFullBleed() {
         height={1024}
         className="w-full h-auto object-cover"
         quality={92}
+      />
+      {/* Fade inferior — se fusiona con la sección siguiente */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-[20px] md:h-[35px] z-10 pointer-events-none"
+        style={{
+          background: "linear-gradient(to top, rgba(2, 6, 23, 0.14) 0%, transparent 100%)",
+        }}
       />
     </section>
   );

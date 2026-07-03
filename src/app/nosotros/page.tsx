@@ -223,6 +223,70 @@ export default function NosotrosPage() {
           </div>
         </section>
 
+        {/* Misión y Visión */}
+        <section id="mision-vision" className="py-16 sm:py-24 bg-gradient-to-b from-slate-950 via-slate-950/95 to-slate-950">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-14">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight">
+                Misión y <span className="text-[#DCAA61]">Visión</span>
+              </h2>
+              <p className="mt-4 text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                Los pilares estratégicos que guían cada decisión y acción de CORPORACIÓN MANDI SAC en su compromiso con la inclusión financiera en el Perú.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+              {/* MISIÓN */}
+              <div className="relative group">
+                {/* Glow de fondo */}
+                <div className="absolute -inset-1 bg-gradient-to-br from-[#DCAA61]/20 via-transparent to-[#A97631]/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-3xl p-8 sm:p-10 h-full hover:border-[#DCAA61]/20 transition-all duration-500">
+                  {/* Ícono decorativo */}
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#DCAA61]/20 to-[#A97631]/10 flex items-center justify-center mb-6 border border-[#DCAA61]/20">
+                    <Target className="w-7 h-7 text-[#DCAA61]" />
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-4 tracking-tight">
+                    Nuestra <span className="text-[#DCAA61]">Misión</span>
+                  </h3>
+                  <div className="w-16 h-[2px] bg-gradient-to-r from-[#DCAA61] to-transparent mb-6" />
+                  <p className="text-slate-300 leading-relaxed text-[15px]">
+                    En <strong className="text-white">CORPORACIÓN MANDI SAC</strong>, nuestra misión es democratizar el acceso a soluciones crediticias en el Perú, ofreciendo productos financieros ágiles, transparentes y adaptados a las necesidades reales de cada cliente. Nos comprometemos a brindar una experiencia de servicio excepcional, eliminando barreras burocráticas y utilizando tecnología de punta para que cada persona pueda acceder al crédito que merece, en el momento que lo necesita, con condiciones claras y justas.
+                  </p>
+                  <div className="flex flex-wrap gap-3 mt-6">
+                    <span className="text-xs font-medium bg-[#DCAA61]/10 text-[#DCAA61] border border-[#DCAA61]/20 px-3 py-1.5 rounded-full">Inclusión Financiera</span>
+                    <span className="text-xs font-medium bg-[#DCAA61]/10 text-[#DCAA61] border border-[#DCAA61]/20 px-3 py-1.5 rounded-full">Transparencia Total</span>
+                    <span className="text-xs font-medium bg-[#DCAA61]/10 text-[#DCAA61] border border-[#DCAA61]/20 px-3 py-1.5 rounded-full">Servicio Personalizado</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* VISIÓN */}
+              <div className="relative group">
+                {/* Glow de fondo */}
+                <div className="absolute -inset-1 bg-gradient-to-br from-[#F5E6C8]/15 via-transparent to-[#DCAA61]/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-3xl p-8 sm:p-10 h-full hover:border-[#DCAA61]/20 transition-all duration-500">
+                  {/* Ícono decorativo */}
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F5E6C8]/15 to-[#DCAA61]/10 flex items-center justify-center mb-6 border border-[#DCAA61]/20">
+                    <Eye className="w-7 h-7 text-[#F5E6C8]" />
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-4 tracking-tight">
+                    Nuestra <span className="text-[#F5E6C8]">Visión</span>
+                  </h3>
+                  <div className="w-16 h-[2px] bg-gradient-to-r from-[#F5E6C8] to-transparent mb-6" />
+                  <p className="text-slate-300 leading-relaxed text-[15px]">
+                    Ser reconocidos como la empresa líder en soluciones crediticias accesibles del Perú, destacando por la innovación tecnológica, la excelencia en el servicio al cliente y el compromiso irrestricto con la responsabilidad financiera. Aspiramos a transformar el ecosistema crediticio peruano, consolidando a <strong className="text-white">MANDI CORP</strong> como sinónimo de confianza, eficiencia y crecimiento económico para miles de familias y emprendedores en todo el territorio nacional.
+                  </p>
+                  <div className="flex flex-wrap gap-3 mt-6">
+                    <span className="text-xs font-medium bg-[#F5E6C8]/10 text-[#F5E6C8] border border-[#F5E6C8]/20 px-3 py-1.5 rounded-full">Liderazgo Nacional</span>
+                    <span className="text-xs font-medium bg-[#F5E6C8]/10 text-[#F5E6C8] border border-[#F5E6C8]/20 px-3 py-1.5 rounded-full">Innovación Continua</span>
+                    <span className="text-xs font-medium bg-[#F5E6C8]/10 text-[#F5E6C8] border border-[#F5E6C8]/20 px-3 py-1.5 rounded-full">Crecimiento Conjunto</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Values */}
         <section id="valores" className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

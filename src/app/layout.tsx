@@ -4,6 +4,7 @@ import "./globals.css";
 import SessionPreloader from "@/components/SessionPreloader";
 import BottomNav from "@/components/BottomNav";
 import GoldProgressBar from "@/components/GoldProgressBar";
+import GlowingParticles from "@/components/GlowingParticles";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -86,6 +87,7 @@ export default function RootLayout({
           <div className="relative flex min-h-screen flex-col">{children}</div>
           {/* Bottom Navigation Mobile — aparece en todas las páginas, solo <1024px */}
           <GoldProgressBar />
+          <GlowingParticles />
           <BottomNav />
         </SessionPreloader>
       </body>

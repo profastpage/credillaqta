@@ -231,7 +231,7 @@ export default function NosotrosPage() {
                 Misión y <span className="text-[#DCAA61]">Visión</span>
               </h2>
               <p className="mt-4 text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                Los pilares estratégicos que guían cada decisión y acción de CORPORACIÓN MANDI SAC en su compromiso con la inclusión financiera en el Perú.
+                Los pilares estratégicos que guían cada decisión y acción de CORPORACIÓN MANDI SAC<br />en su compromiso con la inclusión financiera en el Perú.
               </p>
             </div>
 

@@ -152,9 +152,9 @@ export default function Footer() {
                   <p className="text-sm text-slate-300 font-medium">
                     Central Telefónica
                   </p>
-                  <p className="text-sm text-slate-400">
+                  <a href="tel:+51966897008" className="text-sm text-slate-400 hover:text-[#DCAA61] transition-colors duration-200">
                     {SITE_CONFIG.phoneDisplay}
-                  </p>
+                  </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -163,9 +163,9 @@ export default function Footer() {
                   <p className="text-sm text-slate-300 font-medium">
                     Correo Electrónico
                   </p>
-                  <p className="text-sm text-slate-400">
+                  <a href="mailto:contacto@mandicorp.com" className="text-sm text-slate-400 hover:text-[#DCAA61] transition-colors duration-200">
                     {SITE_CONFIG.email}
-                  </p>
+                  </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">

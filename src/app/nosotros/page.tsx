@@ -230,9 +230,14 @@ export default function NosotrosPage() {
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight">
                 Misión y <span className="text-[#DCAA61]">Visión</span>
               </h2>
-              <p className="mt-4 text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                Los pilares estratégicos que guían cada decisión y acción de CORPORACIÓN MANDI SAC<br />en su compromiso con la inclusión financiera en el Perú.
-              </p>
+              <div className="mt-4 max-w-2xl mx-auto">
+                <p className="text-slate-400 leading-relaxed">
+                  Los pilares estratégicos que guían cada decisión y acción de CORPORACIÓN MANDI SAC
+                </p>
+                <p className="text-slate-400 leading-relaxed">
+                  en su compromiso con la inclusión financiera en el Perú.
+                </p>
+              </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12">

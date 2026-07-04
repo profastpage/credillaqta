@@ -231,7 +231,7 @@ export default function NosotrosPage() {
                 Misión y <span className="text-[#DCAA61]">Visión</span>
               </h2>
               <div className="mt-4 max-w-2xl mx-auto">
-                <p className="text-slate-400 leading-relaxed">
+                <p className="text-slate-400 leading-relaxed whitespace-nowrap overflow-hidden text-ellipsis max-w-full">
                   Los pilares estratégicos que guían cada decisión y acción de CORPORACIÓN MANDI SAC
                 </p>
                 <p className="text-slate-400 leading-relaxed">

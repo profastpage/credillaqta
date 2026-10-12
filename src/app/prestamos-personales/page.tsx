@@ -19,8 +19,33 @@ import DeepLinking from "@/components/DeepLinking";
 export const metadata: Metadata = {
   title: "Préstamos Personales al Instante",
   description:
-    "Obtén tu préstamo personal rápido y sin complicaciones. Montos desde S/ 500 hasta S/ 20,000 con aprobación en menos de 24 horas. CREDILLAQTA.",
+    "Obtén tu préstamo personal rápido y sin complicaciones. Montos desde S/ 500 hasta S/ 20,000 con aprobación en menos de 24 horas. CREDILLAQTA (RUC: 20615326926).",
   alternates: { canonical: "/prestamos-personales" },
+  openGraph: {
+    title: "Préstamos Personales al Instante | CREDILLAQTA",
+    description:
+      "Dinero rápido cuando más lo necesitas. Montos desde S/ 500 hasta S/ 20,000 con aprobación en menos de 24 horas. RUC: 20615326926.",
+    url: "https://credillaqta.com/prestamos-personales",
+    siteName: "CREDILLAQTA",
+    locale: "es_PE",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "Préstamos Personales al Instante — CREDILLAQTA",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Préstamos Personales al Instante | CREDILLAQTA",
+    description:
+      "Aprobación express en menos de 24 horas. Montos desde S/ 500 hasta S/ 20,000. RUC: 20615326926.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const BENEFITS = [

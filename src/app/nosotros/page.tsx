@@ -22,6 +22,31 @@ export const metadata: Metadata = {
   description:
     "Conoce CREDILLAQTA (RUC: 20615326926). Tu aliado financiero de confianza con años de experiencia en soluciones crediticias en Perú.",
   alternates: { canonical: "/nosotros" },
+  openGraph: {
+    title: "Sobre CREDILLAQTA — Solidez y Confianza Financiera",
+    description:
+      "Conoce nuestra misión, visión y principios de transparencia en soluciones de financiamiento en Perú. RUC: 20615326926.",
+    url: "https://credillaqta.com/nosotros",
+    siteName: "CREDILLAQTA",
+    locale: "es_PE",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "Nosotros — CREDILLAQTA",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sobre CREDILLAQTA | Solidez Financiera",
+    description:
+      "Tu aliado financiero en Perú. Préstamos personales y vehiculares con total seguridad. RUC: 20615326926.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const VALUES = [

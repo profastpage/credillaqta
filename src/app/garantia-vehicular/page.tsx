@@ -19,8 +19,33 @@ import DeepLinking from "@/components/DeepLinking";
 export const metadata: Metadata = {
   title: "Préstamo con Garantía Vehicular",
   description:
-    "Usa tu auto como garantía sin dejar de usarlo. Alianza estratégica con Procustodia. Montos hasta S/ 100,000 con tasas competitivas. CREDILLAQTA.",
+    "Usa tu auto como garantía sin dejar de usarlo. Alianza estratégica con Procustodia. Montos hasta S/ 100,000 con tasas competitivas. CREDILLAQTA (RUC: 20615326926).",
   alternates: { canonical: "/garantia-vehicular" },
+  openGraph: {
+    title: "Préstamo con Garantía Vehicular | CREDILLAQTA",
+    description:
+      "Dinero al instante usando tu auto como garantía y ¡continúa manejándolo! Tasas competitivas y montos de hasta S/ 100,000. RUC: 20615326926.",
+    url: "https://credillaqta.com/garantia-vehicular",
+    siteName: "CREDILLAQTA",
+    locale: "es_PE",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "Préstamo con Garantía Vehicular — CREDILLAQTA",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Préstamo con Garantía Vehicular | CREDILLAQTA",
+    description:
+      "Usa tu auto como garantía y sigue conduciéndolo. Aprobación rápida con Procustodia. RUC: 20615326926.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const BENEFITS = [

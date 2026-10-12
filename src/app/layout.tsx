@@ -45,16 +45,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "CREDILLAQTA — Tu Solución Financiera de Confianza",
     description:
-      "Préstamos personales al instante y préstamos con garantía vehicular. Tu aliado financiero confiable en Perú.",
+      "Préstamos personales al instante y préstamos con garantía vehicular. Tu aliado financiero confiable en Perú. RUC: 20615326926.",
     url: "https://credillaqta.com",
     siteName: "CREDILLAQTA",
     locale: "es_PE",
     type: "website",
     images: [
       {
-        url: "/og-image.webp",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
+        type: "image/jpeg",
         alt: "CREDILLAQTA — Préstamos Personales y Garantía Vehicular",
       },
     ],
@@ -63,8 +64,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CREDILLAQTA — Préstamos Rápidos y Seguros",
     description:
-      "Consigue tu préstamo en minutos. Préstamos personales y con garantía vehicular.",
-    images: ["/og-image.webp"],
+      "Consigue tu préstamo en minutos. Préstamos personales y con garantía vehicular. RUC: 20615326926.",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,

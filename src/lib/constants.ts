@@ -1,18 +1,17 @@
 /**
- * Site-wide constants for MANDI CORP
- * Razón Social: CORPORACIÓN MANDI SAC
- * RUC: 20615991938
+ * Site-wide constants for CREDILLAQTA
+ * RUC: 20615326926
  */
 
 export const SITE_CONFIG = {
-  name: "MANDI CORP",
-  businessName: "CORPORACIÓN MANDI SAC",
-  ruc: "20615991938",
+  name: "CREDILLAQTA",
+  businessName: "CREDILLAQTA",
+  ruc: "20615326926",
   phone: "+51966897008",
   phoneDisplay: "+51 966 897 008",
-  email: "contacto@mandicorp.com",
-  domain: "mandi-corp.vercel.app",
-  url: "https://mandi-corp.vercel.app",
+  email: "contacto@credillaqta.com",
+  domain: "credillaqta.com",
+  url: "https://credillaqta.com",
   description:
     "Tu solución financiera fácil, rápida y segura. Préstamos personales al instante y préstamos con garantía vehicular sin dejar de usar tu auto. El momento es ahora.",
   keywords: [
@@ -22,8 +21,7 @@ export const SITE_CONFIG = {
     "garantía de auto",
     "Procustodia",
     "financiera Perú",
-    "MANDI CORP",
-    "CORPORACIÓN MANDI SAC",
+    "CREDILLAQTA",
     "crédito al instante",
     "dinero rápido",
   ],

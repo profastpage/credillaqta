@@ -41,37 +41,36 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  /* ── MANDI CORP Brand Colors (Negro + Dorado) ── */
-  --color-brand-blue: #DCAA61;   /* alias legacy → dorado principal */
-  --color-brand-dark: #060503;   /* negro principal MANDI */
-  --color-brand-green: #A97631;  /* alias legacy → dorado oscuro */
-  --color-brand-orange: #DCAA61; /* dorado principal MANDI */
-  --color-brand-red: #A97631;    /* alias legacy → dorado oscuro */
+  /* ── CREDILLAQTA Brand Colors (Negro + Dorado Champagne) ── */
+  --color-brand-blue: #CAA25E;   /* alias legacy → dorado principal CREDILLAQTA */
+  --color-brand-dark: #080604;   /* negro profundo CREDILLAQTA */
+  --color-brand-green: #A37834;  /* alias legacy → dorado oscuro */
+  --color-brand-orange: #CAA25E; /* dorado principal CREDILLAQTA */
+  --color-brand-red: #A37834;    /* alias legacy → dorado oscuro */
 
-  /* ── Override Tailwind orange palette → MANDI Gold palette ── */
-  /* Mantener nombres orange-* para no tocar componentes; valores mapeados a dorado MANDI */
-  --color-orange-300: #E0CBAB;  /* gold-light (crema dorado) */
-  --color-orange-400: #DCAA61;  /* gold-primary (dorado principal) */
-  --color-orange-500: #DCAA61;  /* gold-primary (dorado principal) */
-  --color-orange-600: #A97631;  /* gold-dark (dorado oscuro) */
-  --color-orange-700: #6D4B21;  /* gold-deep (dorado profundo) */
-  --color-orange-900: #2A2013;  /* black-soft (negro suave) */
+  /* ── Override Tailwind orange palette → CREDILLAQTA Gold palette ── */
+  /* Mantener nombres orange-* para compatibilidad; valores calibrados con el logo CREDILLAQTA */
+  --color-orange-300: #F0D8AE;  /* gold-light (champagne brillante) */
+  --color-orange-400: #D8B576;  /* gold-medium (dorado medio) */
+  --color-orange-500: #CAA25E;  /* gold-primary (dorado principal del logo) */
+  --color-orange-600: #A37834;  /* gold-dark (dorado oscuro/bronce) */
+  --color-orange-700: #6E4F1F;  /* gold-deep (dorado profundo) */
+  --color-orange-900: #261B0E;  /* black-warm (negro cálido) */
 
-  /* ── Override Tailwind slate palette → NEGRO PURO MANDI (sin tinte azul) ── */
-  /* Elimina el fondo "azul medio" que se veía con slate-950 original */
+  /* ── Override Tailwind slate palette → NEGRO PURO CREDILLAQTA ── */
   --color-slate-950: #000000;   /* negro absoluto */
-  --color-slate-900: #060503;   /* negro MANDI principal */
-  --color-slate-800: #0F0C08;   /* negro con tinte dorado profundo */
-  --color-slate-700: #1A140B;   /* negro suave cálido */
+  --color-slate-900: #080604;   /* negro CREDILLAQTA principal */
+  --color-slate-800: #120E09;   /* negro con tinte dorado sutil */
+  --color-slate-700: #1C1710;   /* fondo tarjeta cálido */
 
   /* ── Override red palette → dorado oscuro (mantener nombres) ── */
-  --color-red-300: #E0CBAB;  /* gold-light */
-  --color-red-400: #DCAA61;  /* gold-primary */
-  --color-red-500: #DCAA61;  /* gold-primary */
-  --color-red-600: #A97631;  /* gold-dark */
-  --color-red-700: #6D4B21;  /* gold-deep */
-  --color-red-800: #4A3216;  /* gold-deep oscuro */
-  --color-red-900: #2A2013;  /* black-soft */
+  --color-red-300: #F0D8AE;  /* gold-light */
+  --color-red-400: #D8B576;  /* gold-primary */
+  --color-red-500: #CAA25E;  /* gold-primary */
+  --color-red-600: #A37834;  /* gold-dark */
+  --color-red-700: #6E4F1F;  /* gold-deep */
+  --color-red-800: #4B3413;  /* gold-deep oscuro */
+  --color-red-900: #261B0E;  /* black-warm */
 }
 
 :root {
@@ -82,19 +81,19 @@
   --card-foreground: oklch(0.145 0.015 260);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0.015 260);
-  /* MANDI CORP — Dorado sobre Negro (OKLCH approximado desde hex) */
-  --primary: oklch(0.80 0.12 75);           /* #DCAA61 dorado principal */
-  --primary-foreground: oklch(0.02 0.005 60); /* #060503 negro */
-  --secondary: oklch(0.18 0.02 65);          /* #2A2013 black-soft */
-  --secondary-foreground: oklch(0.84 0.04 70); /* #E0CBAB gold-light */
-  --muted: oklch(0.18 0.02 65);              /* #2A2013 */
-  --muted-foreground: oklch(0.84 0.04 70);   /* #E0CBAB gold-light */
-  --accent: oklch(0.59 0.10 65);             /* #A97631 gold-dark */
+  /* CREDILLAQTA — Dorado sobre Negro */
+  --primary: oklch(0.80 0.12 75);           /* #CAA25E dorado principal */
+  --primary-foreground: oklch(0.02 0.005 60); /* #080604 negro */
+  --secondary: oklch(0.18 0.02 65);          /* #261B0E black-warm */
+  --secondary-foreground: oklch(0.84 0.04 70); /* #F0D8AE gold-light */
+  --muted: oklch(0.18 0.02 65);              /* #261B0E */
+  --muted-foreground: oklch(0.84 0.04 70);   /* #F0D8AE gold-light */
+  --accent: oklch(0.59 0.10 65);             /* #A37834 gold-dark */
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.577 0.245 27.325);  /* rojo semántico (errores) — mantener */
-  --border: oklch(0.42 0.07 60);             /* #6D4B21 gold-deep */
-  --input: oklch(0.42 0.07 60);              /* #6D4B21 gold-deep */
-  --ring: oklch(0.80 0.12 75);               /* #DCAA61 dorado */
+  --border: oklch(0.42 0.07 60);             /* #6E4F1F gold-deep */
+  --input: oklch(0.42 0.07 60);              /* #6E4F1F gold-deep */
+  --ring: oklch(0.80 0.12 75);               /* #CAA25E dorado */
   --chart-1: oklch(0.80 0.12 75);            /* dorado principal */
   --chart-2: oklch(0.59 0.10 65);            /* dorado oscuro */
   --chart-3: oklch(0.84 0.04 70);            /* dorado claro */
@@ -111,10 +110,10 @@
     overflow-x: hidden;
   }
   body {
-    @apply bg-slate-950 text-slate-800;  /* slate-950 sobreescrito a negro puro arriba */
+    @apply bg-slate-950 text-slate-800;
     overflow-x: hidden;
     position: relative;
-    background-color: #000000 !important;  /* negro absoluto MANDI, garantiza cero tinte azul */
+    background-color: #000000 !important;
     /* Padding inferior en mobile para que el BottomNav no tape contenido.
        72px = altura del BottomNav (48px área táctil + 24px padding/borde).
        Env(safe-area-inset-bottom) suma el espacio de iPhone con notch/home indicator.
@@ -137,15 +136,15 @@
 }
 
 .glass-dark {
-  background: rgba(6, 5, 3, 0.7);   /* #060503 negro MANDI con alpha */
+  background: rgba(8, 6, 4, 0.75);   /* #080604 negro CREDILLAQTA con alpha */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(220, 170, 97, 0.18);  /* dorado sutil */
+  border: 1px solid rgba(202, 162, 94, 0.18);  /* dorado sutil */
 }
 
-/* Hero gradient background — MANDI CORP (negro→dorado profundo→dorado oscuro→dorado principal) */
+/* Hero gradient background — CREDILLAQTA (negro→dorado profundo→dorado oscuro→dorado principal) */
 .hero-gradient {
-  background: linear-gradient(135deg, #000000 0%, #060503 25%, #2A2013 50%, #6D4B21 75%, #A97631 100%);
+  background: linear-gradient(135deg, #000000 0%, #080604 25%, #261B0E 50%, #6E4F1F 75%, #A37834 100%);
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -328,7 +327,7 @@
   filter: blur(40px);
 }
 
-/* Animated gradient for accents — MANDI CORP dorado metálico shimmer */
+/* Animated gradient for accents — CREDILLAQTA dorado metálico shimmer */
 .gradient-shimmer {
   background: linear-gradient(
     110deg,

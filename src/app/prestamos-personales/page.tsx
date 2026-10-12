@@ -19,7 +19,7 @@ import DeepLinking from "@/components/DeepLinking";
 export const metadata: Metadata = {
   title: "Préstamos Personales al Instante",
   description:
-    "Obtén tu préstamo personal rápido y sin complicaciones. Montos desde S/ 500 hasta S/ 20,000 con aprobación en menos de 24 horas. CORPORACIÓN MANDI SAC.",
+    "Obtén tu préstamo personal rápido y sin complicaciones. Montos desde S/ 500 hasta S/ 20,000 con aprobación en menos de 24 horas. CREDILLAQTA.",
   alternates: { canonical: "/prestamos-personales" },
 };
 
@@ -133,10 +133,10 @@ export default function PrestamosPersonalesPage() {
               <div className="hidden lg:block">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/20">
                   <Image
-                    src="/images/personal-loan.webp"
-                    alt="Préstamo personal al instante - MANDI CORP"
-                    width={480}
-                    height={360}
+                    src="/images/credillaqta-prestamo-personal.webp"
+                    alt="Préstamo personal al instante - CREDILLAQTA"
+                    width={1024}
+                    height={572}
                     className="w-full h-auto object-cover rounded-3xl"
                     priority
                   />
@@ -180,7 +180,7 @@ export default function PrestamosPersonalesPage() {
                 >
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center shrink-0 mt-0.5">
-                      <b.icon className="w-5 h-5 text-[#DCAA61]" />
+                      <b.icon className="w-5 h-5 text-[#CAA25E]" />
                     </div>
                     <div>
                       <h3 className="text-white font-bold text-lg">{b.title}</h3>
@@ -199,7 +199,7 @@ export default function PrestamosPersonalesPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight mb-6">
-                  Requisitos <span className="text-[#DCAA61]">Simples</span>
+                  Requisitos <span className="text-[#CAA25E]">Simples</span>
                 </h2>
                 <p className="text-slate-400 mb-8 leading-relaxed">
                   Hemos simplificado nuestros requisitos al mínimo para que puedas acceder a tu préstamo de forma ágil. No necesitas avales ni garantías adicionales.
@@ -231,7 +231,7 @@ export default function PrestamosPersonalesPage() {
                     className="object-cover"
                   />
                 </div>
-                <FileText className="w-12 h-12 text-[#DCAA61] mb-4" />
+                <FileText className="w-12 h-12 text-[#CAA25E] mb-4" />
                 <h3 className="text-xl font-bold text-gold-luxury-subtle mb-4">Documentos Necesarios</h3>
                 <div className="space-y-3">
                   <div className="bg-white/[0.04] rounded-xl p-4 border border-white/5">
@@ -256,7 +256,7 @@ export default function PrestamosPersonalesPage() {
         <section id="proceso" className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight text-center mb-4">
-              Proceso en <span className="text-[#DCAA61]">3 Pasos</span>
+              Proceso en <span className="text-[#CAA25E]">3 Pasos</span>
             </h2>
             <p className="text-slate-400 text-center max-w-2xl mx-auto mb-12">
               Solicitar tu préstamo personal nunca fue tan sencillo. Sigue estos tres pasos y obtén tu dinero.
@@ -277,8 +277,8 @@ export default function PrestamosPersonalesPage() {
         <section id="contacto" className="py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl shadow-2xl relative overflow-hidden p-10 sm:p-16 text-center">
-              <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#DCAA61]/10 rounded-full blur-[80px] pointer-events-none" />
-              <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#A97631]/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#CAA25E]/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#A37834]/10 rounded-full blur-[80px] pointer-events-none" />
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight">
                 ¿Listo para obtener tu préstamo?
               </h2>

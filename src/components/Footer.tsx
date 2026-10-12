@@ -34,11 +34,11 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/logo-mandi-gold.webp"
-                alt="Logo MANDI CORP"
-                width={150}
-                height={36}
-                className="object-contain h-8 w-auto"
+                src="/logo-credillaqta.png"
+                alt="Logo CREDILLAQTA"
+                width={170}
+                height={54}
+                className="object-contain h-10 w-auto"
               />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed mb-5">
@@ -152,7 +152,7 @@ export default function Footer() {
                   <p className="text-sm text-slate-300 font-medium">
                     Central Telefónica
                   </p>
-                  <a href="tel:+51966897008" className="text-sm text-slate-400 hover:text-[#DCAA61] transition-colors duration-200">
+                  <a href="tel:+51966897008" className="text-sm text-slate-400 hover:text-[#CAA25E] transition-colors duration-200">
                     {SITE_CONFIG.phoneDisplay}
                   </a>
                 </div>
@@ -163,7 +163,7 @@ export default function Footer() {
                   <p className="text-sm text-slate-300 font-medium">
                     Correo Electrónico
                   </p>
-                  <a href="mailto:contacto@mandicorp.com" className="text-sm text-slate-400 hover:text-[#DCAA61] transition-colors duration-200">
+                  <a href={`mailto:${SITE_CONFIG.email}`} className="text-sm text-slate-400 hover:text-[#CAA25E] transition-colors duration-200">
                     {SITE_CONFIG.email}
                   </a>
                 </div>

@@ -1,14 +1,15 @@
 {
-  "name": "union-el-progreso",
+  "name": "credillaqta",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3000",
+    "dev": "next dev -p 1010",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 1010",
     "lint": "eslint ."
   },
   "dependencies": {
+    "@prisma/client": "^6.11.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.2",
@@ -29,6 +30,7 @@
     "eslint": "^9",
     "eslint-config-next": "^16.1.1",
     "playwright": "^1.61.1",
+    "prisma": "^6.11.1",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.5",
     "typescript": "^5"

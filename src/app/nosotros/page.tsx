@@ -20,7 +20,7 @@ import DeepLinking from "@/components/DeepLinking";
 export const metadata: Metadata = {
   title: "Nosotros — Información Institucional",
   description:
-    "Conoce CORPORACIÓN MANDI SAC (RUC: 20615991938). Tu aliado financiero de confianza con años de experiencia en soluciones crediticias en Perú.",
+    "Conoce CREDILLAQTA (RUC: 20615326926). Tu aliado financiero de confianza con años de experiencia en soluciones crediticias en Perú.",
   alternates: { canonical: "/nosotros" },
 };
 
@@ -77,7 +77,7 @@ export default function NosotrosPage() {
           {/* Background Image */}
           <Image
             src="/hero-nosotros.webp"
-            alt="Sobre MANDI CORP"
+            alt="Sobre CREDILLAQTA"
             fill
             priority
             quality={75}
@@ -103,7 +103,7 @@ export default function NosotrosPage() {
                 </span>
               </h1>
               <p className="mt-6 text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed">
-                En MANDI CORP creemos que cada persona merece acceso a
+                En CREDILLAQTA creemos que cada persona merece acceso a
                 soluciones financieras justas, transparentes y adaptadas a sus
                 necesidades reales.
               </p>
@@ -130,7 +130,7 @@ export default function NosotrosPage() {
               <div className="relative rounded-3xl overflow-hidden shadow-xl h-64 md:h-80">
                 <Image
                   src="/images/team-meeting.jpg"
-                  alt="Equipo de trabajo de MANDI CORP en reunión"
+                  alt="Equipo de trabajo de CREDILLAQTA en reunión"
                   fill
                   className="object-cover"
                   priority
@@ -144,7 +144,7 @@ export default function NosotrosPage() {
               <div className="relative rounded-3xl overflow-hidden shadow-xl h-64 md:h-80">
                 <Image
                   src="/images/office-building.jpg"
-                  alt="Oficinas de MANDI CORP en Lima, Perú"
+                  alt="Oficinas de CREDILLAQTA en Lima, Perú"
                   fill
                   className="object-cover"
                 />
@@ -162,11 +162,7 @@ export default function NosotrosPage() {
                 </h2>
                 <div className="space-y-4 text-slate-300 leading-relaxed">
                   <p>
-                    <strong className="text-white">MANDI CORP</strong> es una marca comercial de{" "}
-                    <strong className="text-white">{SITE_CONFIG.businessName}</strong> (RUC: {SITE_CONFIG.ruc}),
-                    una empresa peruana dedicada a brindar soluciones financieras
-                    accesibles y confiables a miles de familias en todo el territorio
-                    nacional.
+                    <strong className="text-white">CREDILLAQTA</strong> (RUC: {SITE_CONFIG.ruc}) es una empresa peruana dedicada a brindar soluciones financieras accesibles y confiables a miles de familias en todo el territorio nacional.
                   </p>
                   <p>
                     Con años de experiencia en el sector financiero, hemos
@@ -228,11 +224,11 @@ export default function NosotrosPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-14">
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight">
-                Misión y <span className="text-[#DCAA61]">Visión</span>
+                Misión y <span className="text-[#CAA25E]">Visión</span>
               </h2>
               <div className="mt-4 max-w-2xl mx-auto">
                 <p className="text-slate-400 leading-relaxed whitespace-nowrap w-max max-w-none mx-auto">
-                  Los pilares estratégicos que guían cada decisión y acción de CORPORACIÓN MANDI SAC
+                  Los pilares estratégicos que guían cada decisión y acción de CREDILLAQTA
                 </p>
                 <p className="text-slate-400 leading-relaxed">
                   en su compromiso con la inclusión financiera en el Perú.
@@ -244,23 +240,23 @@ export default function NosotrosPage() {
               {/* MISIÓN */}
               <div className="relative group">
                 {/* Glow de fondo */}
-                <div className="absolute -inset-1 bg-gradient-to-br from-[#DCAA61]/20 via-transparent to-[#A97631]/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <div className="relative bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-3xl p-8 sm:p-10 h-full hover:border-[#DCAA61]/20 transition-all duration-500">
+                <div className="absolute -inset-1 bg-gradient-to-br from-[#CAA25E]/20 via-transparent to-[#A37834]/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-3xl p-8 sm:p-10 h-full hover:border-[#CAA25E]/20 transition-all duration-500">
                   {/* Ícono decorativo */}
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#DCAA61]/20 to-[#A97631]/10 flex items-center justify-center mb-6 border border-[#DCAA61]/20">
-                    <Target className="w-7 h-7 text-[#DCAA61]" />
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#CAA25E]/20 to-[#A37834]/10 flex items-center justify-center mb-6 border border-[#CAA25E]/20">
+                    <Target className="w-7 h-7 text-[#CAA25E]" />
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-4 tracking-tight">
-                    Nuestra <span className="text-[#DCAA61]">Misión</span>
+                    Nuestra <span className="text-[#CAA25E]">Misión</span>
                   </h3>
-                  <div className="w-16 h-[2px] bg-gradient-to-r from-[#DCAA61] to-transparent mb-6" />
+                  <div className="w-16 h-[2px] bg-gradient-to-r from-[#CAA25E] to-transparent mb-6" />
                   <p className="text-slate-300 leading-relaxed text-[15px]">
-                    En <strong className="text-white">CORPORACIÓN MANDI SAC</strong>, nuestra misión es democratizar el acceso a soluciones crediticias en el Perú, ofreciendo productos financieros ágiles, transparentes y adaptados a las necesidades reales de cada cliente. Nos comprometemos a brindar una experiencia de servicio excepcional, eliminando barreras burocráticas y utilizando tecnología de punta para que cada persona pueda acceder al crédito que merece, en el momento que lo necesita, con condiciones claras y justas.
+                    En <strong className="text-white">CREDILLAQTA</strong>, nuestra misión es democratizar el acceso a soluciones crediticias en el Perú, ofreciendo productos financieros ágiles, transparentes y adaptados a las necesidades reales de cada cliente. Nos comprometemos a brindar una experiencia de servicio excepcional, eliminando barreras burocráticas y utilizando tecnología de punta para que cada persona pueda acceder al crédito que merece, en el momento que lo necesita, con condiciones claras y justas.
                   </p>
                   <div className="flex flex-wrap gap-3 mt-6">
-                    <span className="text-xs font-medium bg-[#DCAA61]/10 text-[#DCAA61] border border-[#DCAA61]/20 px-3 py-1.5 rounded-full">Inclusión Financiera</span>
-                    <span className="text-xs font-medium bg-[#DCAA61]/10 text-[#DCAA61] border border-[#DCAA61]/20 px-3 py-1.5 rounded-full">Transparencia Total</span>
-                    <span className="text-xs font-medium bg-[#DCAA61]/10 text-[#DCAA61] border border-[#DCAA61]/20 px-3 py-1.5 rounded-full">Servicio Personalizado</span>
+                    <span className="text-xs font-medium bg-[#CAA25E]/10 text-[#CAA25E] border border-[#CAA25E]/20 px-3 py-1.5 rounded-full">Inclusión Financiera</span>
+                    <span className="text-xs font-medium bg-[#CAA25E]/10 text-[#CAA25E] border border-[#CAA25E]/20 px-3 py-1.5 rounded-full">Transparencia Total</span>
+                    <span className="text-xs font-medium bg-[#CAA25E]/10 text-[#CAA25E] border border-[#CAA25E]/20 px-3 py-1.5 rounded-full">Servicio Personalizado</span>
                   </div>
                 </div>
               </div>
@@ -268,23 +264,23 @@ export default function NosotrosPage() {
               {/* VISIÓN */}
               <div className="relative group">
                 {/* Glow de fondo */}
-                <div className="absolute -inset-1 bg-gradient-to-br from-[#F5E6C8]/15 via-transparent to-[#DCAA61]/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <div className="relative bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-3xl p-8 sm:p-10 h-full hover:border-[#DCAA61]/20 transition-all duration-500">
+                <div className="absolute -inset-1 bg-gradient-to-br from-[#F0D8AE]/15 via-transparent to-[#CAA25E]/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-3xl p-8 sm:p-10 h-full hover:border-[#CAA25E]/20 transition-all duration-500">
                   {/* Ícono decorativo */}
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F5E6C8]/15 to-[#DCAA61]/10 flex items-center justify-center mb-6 border border-[#DCAA61]/20">
-                    <Eye className="w-7 h-7 text-[#F5E6C8]" />
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F0D8AE]/15 to-[#CAA25E]/10 flex items-center justify-center mb-6 border border-[#CAA25E]/20">
+                    <Eye className="w-7 h-7 text-[#F0D8AE]" />
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-4 tracking-tight">
-                    Nuestra <span className="text-[#F5E6C8]">Visión</span>
+                    Nuestra <span className="text-[#F0D8AE]">Visión</span>
                   </h3>
-                  <div className="w-16 h-[2px] bg-gradient-to-r from-[#F5E6C8] to-transparent mb-6" />
+                  <div className="w-16 h-[2px] bg-gradient-to-r from-[#F0D8AE] to-transparent mb-6" />
                   <p className="text-slate-300 leading-relaxed text-[15px]">
-                    Ser reconocidos como la empresa líder en soluciones crediticias accesibles del Perú, destacando por la innovación tecnológica, la excelencia en el servicio al cliente y el compromiso irrestricto con la responsabilidad financiera. Aspiramos a transformar el ecosistema crediticio peruano, consolidando a <strong className="text-white">MANDI CORP</strong> como sinónimo de confianza, eficiencia y crecimiento económico para miles de familias y emprendedores en todo el territorio nacional.
+                    Ser reconocidos como la empresa líder en soluciones crediticias accesibles del Perú, destacando por la innovación tecnológica, la excelencia en el servicio al cliente y el compromiso irrestricto con la responsabilidad financiera. Aspiramos a transformar el ecosistema crediticio peruano, consolidando a <strong className="text-white">CREDILLAQTA</strong> como sinónimo de confianza, eficiencia y crecimiento económico para miles de familias y emprendedores en todo el territorio nacional.
                   </p>
                   <div className="flex flex-wrap gap-3 mt-6">
-                    <span className="text-xs font-medium bg-[#F5E6C8]/10 text-[#F5E6C8] border border-[#F5E6C8]/20 px-3 py-1.5 rounded-full">Liderazgo Nacional</span>
-                    <span className="text-xs font-medium bg-[#F5E6C8]/10 text-[#F5E6C8] border border-[#F5E6C8]/20 px-3 py-1.5 rounded-full">Innovación Continua</span>
-                    <span className="text-xs font-medium bg-[#F5E6C8]/10 text-[#F5E6C8] border border-[#F5E6C8]/20 px-3 py-1.5 rounded-full">Crecimiento Conjunto</span>
+                    <span className="text-xs font-medium bg-[#F0D8AE]/10 text-[#F0D8AE] border border-[#F0D8AE]/20 px-3 py-1.5 rounded-full">Liderazgo Nacional</span>
+                    <span className="text-xs font-medium bg-[#F0D8AE]/10 text-[#F0D8AE] border border-[#F0D8AE]/20 px-3 py-1.5 rounded-full">Innovación Continua</span>
+                    <span className="text-xs font-medium bg-[#F0D8AE]/10 text-[#F0D8AE] border border-[#F0D8AE]/20 px-3 py-1.5 rounded-full">Crecimiento Conjunto</span>
                   </div>
                 </div>
               </div>
@@ -319,7 +315,7 @@ export default function NosotrosPage() {
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/30 sticky top-24">
                   <Image
                     src="/images/office-team.jpg"
-                    alt="Equipo de trabajo colaborando en oficinas de MANDI CORP"
+                    alt="Equipo de trabajo colaborando en oficinas de CREDILLAQTA"
                     width={360}
                     height={480}
                     className="w-full h-auto object-cover rounded-3xl"

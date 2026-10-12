@@ -8,15 +8,15 @@ import { Home, Wallet, Car, Menu } from "lucide-react";
 import { getDynamicWhatsAppUrl } from "@/lib/whatsapp";
 
 /* ═══════════════════════════════════════════════════════════════
-    MANDI CORP — Bottom Navigation Mobile (Ultra Premium v2)
+    CREDILLAQTA — Bottom Navigation Mobile (Ultra Premium v2)
     ─────────────────────────────────────────────────────────────
     · 5 tabs: Inicio, Préstamos, WhatsApp CTA, Garantía, Más
     · WhatsApp: botón circular protruding, verde oficial, ícono real
     · Solo visible < 1024px (lg:hidden)
-    · Fondo negro MANDI #060503
-    · Borde superior dorado #DCAA61
+    · Fondo negro CREDILLAQTA #080604
+    · Borde superior dorado #CAA25E
     · Esquinas superiores redondeadas + blur + sombra
-    · "Más" dispara evento 'mandi:open-drawer' que escucha el Navbar
+    · "Más" dispara evento 'credillaqta:open-drawer'
    ═══════════════════════════════════════════════════════════════ */
 
 type NavItem = {
@@ -65,7 +65,7 @@ export default function BottomNav() {
 
   const openDrawer = () => {
     if (typeof window !== "undefined") {
-      window.dispatchEvent(new CustomEvent("mandi:open-drawer"));
+      window.dispatchEvent(new CustomEvent("credillaqta:open-drawer"));
     }
   };
 
@@ -86,11 +86,11 @@ export default function BottomNav() {
         <div
           className="relative mx-auto"
           style={{
-            background: "linear-gradient(180deg, #060503 0%, #000000 100%)",
+            background: "linear-gradient(180deg, #080604 0%, #000000 100%)",
             borderTopLeftRadius: "20px",
             borderTopRightRadius: "20px",
             boxShadow:
-              "0 -8px 32px rgba(0, 0, 0, 0.6), 0 -1px 0 rgba(220, 170, 97, 0.4) inset",
+              "0 -8px 32px rgba(0, 0, 0, 0.6), 0 -1px 0 rgba(202, 162, 94, 0.4) inset",
             overflow: "visible",
           }}
         >
@@ -99,7 +99,7 @@ export default function BottomNav() {
             className="absolute top-0 left-0 right-0 h-[2px] rounded-t-[20px]"
             style={{
               background:
-                "linear-gradient(90deg, transparent 0%, #6D4B21 15%, #A97631 30%, #DCAA61 50%, #F5E6C8 55%, #DCAA61 70%, #A97631 85%, transparent 100%)",
+                "linear-gradient(90deg, transparent 0%, #6E4F1F 15%, #A37834 30%, #CAA25E 50%, #F0D8AE 55%, #CAA25E 70%, #A37834 85%, transparent 100%)",
             }}
           />
 
@@ -108,7 +108,7 @@ export default function BottomNav() {
             className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[40px] pointer-events-none"
             style={{
               background:
-                "radial-gradient(ellipse at center top, rgba(220, 170, 97, 0.18) 0%, transparent 70%)",
+                "radial-gradient(ellipse at center top, rgba(202, 162, 94, 0.18) 0%, transparent 70%)",
             }}
           />
 
@@ -130,8 +130,8 @@ export default function BottomNav() {
                       <Icon
                         className={`w-5 h-5 transition-colors duration-200 ${
                           active
-                            ? "text-[#DCAA61]"
-                            : "text-slate-400 group-active:text-[#DCAA61]"
+                            ? "text-[#CAA25E]"
+                            : "text-slate-400 group-active:text-[#CAA25E]"
                         }`}
                       />
                       {/* Glow cuando activo */}
@@ -142,7 +142,7 @@ export default function BottomNav() {
                             initial={{ opacity: 0, scale: 0.5 }}
                             animate={{ opacity: 1, scale: 1.4 }}
                             transition={{ duration: 0.3 }}
-                            className="absolute inset-0 -m-2 rounded-full bg-[#DCAA61]/15 pointer-events-none"
+                            className="absolute inset-0 -m-2 rounded-full bg-[#CAA25E]/15 pointer-events-none"
                           />
                         )}
                       </AnimatePresence>
@@ -158,7 +158,7 @@ export default function BottomNav() {
                             className="absolute -top-2 left-1/2 -translate-x-1/2 h-[3px] rounded-full"
                             style={{
                               background:
-                                "linear-gradient(90deg, #A97631 0%, #DCAA61 50%, #F5E6C8 100%)",
+                                "linear-gradient(90deg, #A97631 0%, #CAA25E 50%, #F5E6C8 100%)",
                               boxShadow: "0 0 8px rgba(220, 170, 97, 0.6)",
                             }}
                           />
@@ -168,8 +168,8 @@ export default function BottomNav() {
                     <span
                       className={`text-[10px] font-medium tracking-wide transition-colors duration-200 ${
                         active
-                          ? "text-[#DCAA61]"
-                          : "text-slate-400 group-active:text-[#DCAA61]"
+                          ? "text-[#CAA25E]"
+                          : "text-slate-400 group-active:text-[#CAA25E]"
                       }`}
                     >
                       {item.label}
@@ -231,10 +231,10 @@ export default function BottomNav() {
                       aria-label="Abrir menú completo"
                     >
                       <span className="relative flex items-center justify-center">
-                        <Icon className="w-5 h-5 text-slate-400 group-active:text-[#DCAA61] transition-colors duration-200" />
-                        <span className="absolute inset-0 -m-2 rounded-full bg-[#DCAA61]/0 group-active:bg-[#DCAA61]/15 transition-colors duration-200" />
+                        <Icon className="w-5 h-5 text-slate-400 group-active:text-[#CAA25E] transition-colors duration-200" />
+                        <span className="absolute inset-0 -m-2 rounded-full bg-[#CAA25E]/0 group-active:bg-[#CAA25E]/15 transition-colors duration-200" />
                       </span>
-                      <span className="text-[10px] font-medium tracking-wide text-slate-400 group-active:text-[#DCAA61] transition-colors duration-200">
+                      <span className="text-[10px] font-medium tracking-wide text-slate-400 group-active:text-[#CAA25E] transition-colors duration-200">
                         {item.label}
                       </span>
                     </button>
@@ -254,8 +254,8 @@ export default function BottomNav() {
                       <Icon
                         className={`w-5 h-5 transition-colors duration-200 ${
                           active
-                            ? "text-[#DCAA61]"
-                            : "text-slate-400 group-active:text-[#DCAA61]"
+                            ? "text-[#CAA25E]"
+                            : "text-slate-400 group-active:text-[#CAA25E]"
                         }`}
                       />
                       <AnimatePresence>
@@ -265,7 +265,7 @@ export default function BottomNav() {
                             initial={{ opacity: 0, scale: 0.5 }}
                             animate={{ opacity: 1, scale: 1.4 }}
                             transition={{ duration: 0.3 }}
-                            className="absolute inset-0 -m-2 rounded-full bg-[#DCAA61]/15 pointer-events-none"
+                            className="absolute inset-0 -m-2 rounded-full bg-[#CAA25E]/15 pointer-events-none"
                           />
                         )}
                       </AnimatePresence>
@@ -280,7 +280,7 @@ export default function BottomNav() {
                             className="absolute -top-2 left-1/2 -translate-x-1/2 h-[3px] rounded-full"
                             style={{
                               background:
-                                "linear-gradient(90deg, #A97631 0%, #DCAA61 50%, #F5E6C8 100%)",
+                                "linear-gradient(90deg, #A97631 0%, #CAA25E 50%, #F5E6C8 100%)",
                               boxShadow: "0 0 8px rgba(220, 170, 97, 0.6)",
                             }}
                           />
@@ -290,8 +290,8 @@ export default function BottomNav() {
                     <span
                       className={`text-[10px] font-medium tracking-wide transition-colors duration-200 ${
                         active
-                          ? "text-[#DCAA61]"
-                          : "text-slate-400 group-active:text-[#DCAA61]"
+                          ? "text-[#CAA25E]"
+                          : "text-slate-400 group-active:text-[#CAA25E]"
                       }`}
                     >
                       {item.label}

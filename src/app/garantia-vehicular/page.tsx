@@ -19,7 +19,7 @@ import DeepLinking from "@/components/DeepLinking";
 export const metadata: Metadata = {
   title: "Préstamo con Garantía Vehicular",
   description:
-    "Usa tu auto como garantía sin dejar de usarlo. Alianza estratégica con Procustodia. Montos hasta S/ 100,000 con tasas competitivas. CORPORACIÓN MANDI SAC.",
+    "Usa tu auto como garantía sin dejar de usarlo. Alianza estratégica con Procustodia. Montos hasta S/ 100,000 con tasas competitivas. CREDILLAQTA.",
   alternates: { canonical: "/garantia-vehicular" },
 };
 
@@ -135,7 +135,7 @@ export default function GarantiaVehicularPage() {
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/20">
                   <Image
                     src="/images/modern-car.jpg"
-                    alt="Vehículo moderno utilizado como garantía - MANDI CORP"
+                    alt="Vehículo moderno utilizado como garantía - CREDILLAQTA"
                     width={480}
                     height={360}
                     className="w-full h-auto object-cover rounded-3xl"
@@ -183,7 +183,7 @@ export default function GarantiaVehicularPage() {
                 >
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center shrink-0 mt-0.5">
-                      <b.icon className="w-5 h-5 text-[#DCAA61]" />
+                      <b.icon className="w-5 h-5 text-[#CAA25E]" />
                     </div>
                     <div>
                       <h3 className="text-white font-bold text-lg">{b.title}</h3>
@@ -203,7 +203,7 @@ export default function GarantiaVehicularPage() {
               <div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight mb-6">
                   Requisitos para tu{" "}
-                  <span className="text-[#DCAA61]">Garantía Vehicular</span>
+                  <span className="text-[#CAA25E]">Garantía Vehicular</span>
                 </h2>
                 <p className="text-slate-400 mb-8 leading-relaxed">
                   Documentación clara y concisa para que puedas acceder a tu préstamo vehicular de manera ágil. Nuestro equipo te guiará en cada paso.
@@ -241,7 +241,7 @@ export default function GarantiaVehicularPage() {
                 </p>
                 <div className="glass rounded-xl p-4">
                   <p className="text-xs text-slate-400">Aliado Estratégico</p>
-                  <p className="text-sm font-semibold text-[#DCAA61] mt-1">Procustodia — Líder en Custodia Vehicular</p>
+                  <p className="text-sm font-semibold text-[#CAA25E] mt-1">Procustodia — Líder en Custodia Vehicular</p>
                 </div>
               </div>
             </div>
@@ -252,7 +252,7 @@ export default function GarantiaVehicularPage() {
         <section id="proceso" className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight text-center mb-4">
-              Proceso <span className="text-[#DCAA61]">Seguro y Transparente</span>
+              Proceso <span className="text-[#CAA25E]">Seguro y Transparente</span>
             </h2>
             <p className="text-slate-400 text-center max-w-2xl mx-auto mb-12">
               Tres pasos simples para acceder a tu préstamo vehicular.
@@ -273,8 +273,8 @@ export default function GarantiaVehicularPage() {
         <section id="contacto" className="py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="bg-white/[0.02] backdrop-blur-md border border-white/5 rounded-3xl shadow-2xl relative overflow-hidden p-10 sm:p-16 text-center">
-              <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#DCAA61]/10 rounded-full blur-[80px] pointer-events-none" />
-              <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#A97631]/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#CAA25E]/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#A37834]/10 rounded-full blur-[80px] pointer-events-none" />
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-luxury tracking-tight">
                 ¿Tu auto puede ayudarte?
               </h2>

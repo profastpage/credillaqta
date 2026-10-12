@@ -12,19 +12,19 @@ export default function Preloader() {
       className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950"
     >
       <div className="flex flex-col items-center gap-4">
-        {/* Orange spinner */}
-        <div className="relative w-10 h-10">
+        {/* Golden spinner */}
+        <div className="relative w-12 h-12">
           <div className="absolute inset-0 rounded-full border-[3px] border-white/10" />
-          <div className="absolute inset-0 rounded-full border-[3px] border-transparent border-t-orange-500 animate-spin" />
+          <div className="absolute inset-0 rounded-full border-[3px] border-transparent border-t-[#CAA25E] animate-spin" />
         </div>
 
         {/* Brand text */}
         <div className="flex flex-col items-center">
-          <span className="text-lg font-bold text-white tracking-tight">
-            MANDI
+          <span className="text-xl font-extrabold tracking-wider text-gold-metallic">
+            CREDILLAQTA
           </span>
-          <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#DCAA61] -mt-1">
-            CORP
+          <span className="text-[10px] font-medium tracking-[0.25em] uppercase text-[#CAA25E]/80 mt-0.5">
+            Créditos Rápidos
           </span>
         </div>
       </div>

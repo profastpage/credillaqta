@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Sobre CREDILLAQTA — Solidez y Confianza Financiera",
     description:
       "Conoce nuestra misión, visión y principios de transparencia en soluciones de financiamiento en Perú. RUC: 20615326926.",
-    url: "https://credillaqta.com/nosotros",
+    url: "/nosotros",
     siteName: "CREDILLAQTA",
     locale: "es_PE",
     type: "website",

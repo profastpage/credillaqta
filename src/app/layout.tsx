@@ -5,6 +5,7 @@ import SessionPreloader from "@/components/SessionPreloader";
 import BottomNav from "@/components/BottomNav";
 import GoldProgressBar from "@/components/GoldProgressBar";
 import GlowingParticles from "@/components/GlowingParticles";
+import { SITE_URL } from "@/lib/constants";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     "RUC 20615326926",
   ],
   authors: [{ name: "CREDILLAQTA" }],
-  metadataBase: new URL("https://credillaqta.com"),
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: "/",
   },
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
     title: "CREDILLAQTA — Tu Solución Financiera de Confianza",
     description:
       "Préstamos personales al instante y préstamos con garantía vehicular. Tu aliado financiero confiable en Perú. RUC: 20615326926.",
-    url: "https://credillaqta.com",
+    url: SITE_URL,
     siteName: "CREDILLAQTA",
     locale: "es_PE",
     type: "website",

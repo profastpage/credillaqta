@@ -3,6 +3,18 @@
  * RUC: 20615326926
  */
 
+const rawSiteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "https://credillaqta.vercel.app");
+
+export const SITE_URL = rawSiteUrl.startsWith("http")
+  ? rawSiteUrl
+  : `https://${rawSiteUrl}`;
+
 export const SITE_CONFIG = {
   name: "CREDILLAQTA",
   businessName: "CREDILLAQTA",
@@ -10,8 +22,8 @@ export const SITE_CONFIG = {
   phone: "+51966897008",
   phoneDisplay: "+51 966 897 008",
   email: "contacto@credillaqta.com",
-  domain: "credillaqta.com",
-  url: "https://credillaqta.com",
+  domain: "credillaqta.vercel.app",
+  url: SITE_URL,
   description:
     "Tu solución financiera fácil, rápida y segura. Préstamos personales al instante y préstamos con garantía vehicular sin dejar de usar tu auto. El momento es ahora.",
   keywords: [

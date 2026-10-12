@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Préstamo con Garantía Vehicular | CREDILLAQTA",
     description:
       "Dinero al instante usando tu auto como garantía y ¡continúa manejándolo! Tasas competitivas y montos de hasta S/ 100,000. RUC: 20615326926.",
-    url: "https://credillaqta.com/garantia-vehicular",
+    url: "/garantia-vehicular",
     siteName: "CREDILLAQTA",
     locale: "es_PE",
     type: "website",

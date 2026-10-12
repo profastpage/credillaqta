@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Préstamos Personales al Instante | CREDILLAQTA",
     description:
       "Dinero rápido cuando más lo necesitas. Montos desde S/ 500 hasta S/ 20,000 con aprobación en menos de 24 horas. RUC: 20615326926.",
-    url: "https://credillaqta.com/prestamos-personales",
+    url: "/prestamos-personales",
     siteName: "CREDILLAQTA",
     locale: "es_PE",
     type: "website",

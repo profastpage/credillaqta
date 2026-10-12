@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Libro de Reclamaciones Virtual | CREDILLAQTA",
     description:
       "Registro virtual de quejas y reclamos conforme al Código de Protección y Defensa del Consumidor. RUC: 20615326926.",
-    url: "https://credillaqta.com/libro-de-reclamaciones",
+    url: "/libro-de-reclamaciones",
     siteName: "CREDILLAQTA",
     locale: "es_PE",
     type: "website",

@@ -54,10 +54,19 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.jpg",
+        secureUrl: "/og-image.jpg",
         width: 1200,
         height: 630,
         type: "image/jpeg",
-        alt: "CREDILLAQTA — Préstamos Personales y Garantía Vehicular",
+        alt: "CREDILLAQTA — Préstamos Personales y Garantía Vehicular en Perú",
+      },
+      {
+        url: "/og-image.png",
+        secureUrl: "/og-image.png",
+        width: 1200,
+        height: 630,
+        type: "image/png",
+        alt: "CREDILLAQTA — Soluciones Financieras de Confianza",
       },
     ],
   },

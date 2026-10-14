@@ -1,10 +1,10 @@
 /**
  * WhatsApp Conversion Utility
  * Centralized redirect logic for all WhatsApp CTAs across the site.
- * Phone: +51 966 897 008 (CREDILLAQTA)
+ * Phone: +51 972 746 867 (CREDILLAQTA)
  */
 
-export const WHATSAPP_PHONE = "51966897008";
+export const WHATSAPP_PHONE = "51972746867";
 
 type WhatsAppContext =
   | "home"

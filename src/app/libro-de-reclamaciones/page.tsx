@@ -683,9 +683,14 @@ export default function LibroDeReclamacionesPage() {
                 </div>
                 <div className="glass rounded-xl p-4">
                   <p className="text-xs text-slate-400">WhatsApp</p>
-                  <p className="text-sm font-semibold text-slate-100 mt-1">
-                    {SITE_CONFIG.phone}
-                  </p>
+                  <a
+                    href={getWhatsAppUrl("libro-de-reclamaciones")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-semibold text-slate-100 mt-1 hover:text-[#CAA25E] transition-colors block"
+                  >
+                    {SITE_CONFIG.phoneDisplay}
+                  </a>
                 </div>
                 <div className="glass rounded-xl p-4 sm:col-span-2">
                   <p className="text-xs text-slate-400">

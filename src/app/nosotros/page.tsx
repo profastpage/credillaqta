@@ -398,16 +398,22 @@ export default function NosotrosPage() {
                   <span className="text-sm font-semibold text-white">WhatsApp</span>
                   <span className="text-xs text-white/60">{SITE_CONFIG.phone}</span>
                 </a>
-                <div className="flex flex-col items-center gap-2 glass rounded-2xl p-5">
+                <a
+                  href={`tel:${SITE_CONFIG.phone}`}
+                  className="flex flex-col items-center gap-2 glass rounded-2xl p-5 hover:bg-white/20 transition-colors duration-300"
+                >
                   <Phone className="w-6 h-6 text-orange-400" />
                   <span className="text-sm font-semibold text-white">Central</span>
                   <span className="text-xs text-white/60">{SITE_CONFIG.phoneDisplay}</span>
-                </div>
-                <div className="flex flex-col items-center gap-2 glass rounded-2xl p-5">
+                </a>
+                <a
+                  href={`mailto:${SITE_CONFIG.email}`}
+                  className="flex flex-col items-center gap-2 glass rounded-2xl p-5 hover:bg-white/20 transition-colors duration-300"
+                >
                   <Mail className="w-6 h-6 text-orange-400" />
                   <span className="text-sm font-semibold text-white">Email</span>
                   <span className="text-xs text-white/60">{SITE_CONFIG.email}</span>
-                </div>
+                </a>
               </div>
             </div>
           </div>

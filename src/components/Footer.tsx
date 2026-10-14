@@ -152,7 +152,7 @@ export default function Footer() {
                   <p className="text-sm text-slate-300 font-medium">
                     Central Telefónica
                   </p>
-                  <a href="tel:+51966897008" className="text-sm text-slate-400 hover:text-[#CAA25E] transition-colors duration-200">
+                  <a href={`tel:${SITE_CONFIG.phone}`} className="text-sm text-slate-400 hover:text-[#CAA25E] transition-colors duration-200">
                     {SITE_CONFIG.phoneDisplay}
                   </a>
                 </div>
